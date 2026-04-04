@@ -284,6 +284,7 @@ button.ghost {
 .option {
   border: 1px solid var(--line);
   background: white;
+  color: var(--ink);
   padding: 12px;
   border-radius: 10px;
   cursor: pointer;

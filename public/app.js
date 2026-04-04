@@ -15,6 +15,7 @@ const state = {
   reconnectTimer: null,
   reconnectAttempts: 0,
   shouldReconnect: false,
+  connectWatchdog: null,
 };
 
 // Screen registry used by the simple view-switching system.
@@ -77,8 +78,28 @@ function connect() {
   const protocol = location.protocol === 'https:' ? 'wss' : 'ws';
   state.ws = new WebSocket(`${protocol}://${location.host}/ws`);
 
+  // If the handshake stalls, force-close and trigger reconnection.
+  if (state.connectWatchdog) {
+    clearTimeout(state.connectWatchdog);
+    state.connectWatchdog = null;
+  }
+  state.connectWatchdog = setTimeout(() => {
+    if (!state.ws || state.ws.readyState !== WebSocket.CONNECTING) return;
+    setConnectionStatus('retrying', 'Conexion lenta, reintentando...');
+    try {
+      state.ws.close();
+    } catch {
+      // Ignore close errors and continue with reconnect flow.
+    }
+    scheduleReconnect();
+  }, 4000);
+
   // Auto-fill room code from URL query if available.
   state.ws.onopen = () => {
+    if (state.connectWatchdog) {
+      clearTimeout(state.connectWatchdog);
+      state.connectWatchdog = null;
+    }
     state.reconnectAttempts = 0;
     if (state.reconnectTimer) {
       clearTimeout(state.reconnectTimer);
@@ -162,6 +183,10 @@ function connect() {
 
   // Clear timers if connection drops.
   state.ws.onclose = () => {
+    if (state.connectWatchdog) {
+      clearTimeout(state.connectWatchdog);
+      state.connectWatchdog = null;
+    }
     setConnectionStatus('disconnected', 'Desconectado');
     clearInterval(state.timerInt);
     state.timerInt = null;
@@ -170,6 +195,10 @@ function connect() {
 
   // Mark explicit socket-level errors in the badge.
   state.ws.onerror = () => {
+    if (state.connectWatchdog) {
+      clearTimeout(state.connectWatchdog);
+      state.connectWatchdog = null;
+    }
     setConnectionStatus('disconnected', 'Error de conexion');
     scheduleReconnect();
   };
@@ -250,11 +279,11 @@ function renderQuestion(msg) {
     const btn = document.createElement('button');
     btn.className = 'option';
     btn.textContent = opt;
-    btn.disabled = state.role === 'host' || state.role === 'spectator';
+    btn.disabled = state.role === 'spectator';
 
     btn.onclick = () => {
-      // Prevent double answers and host answering.
-      if (state.answered || state.role === 'host' || state.role === 'spectator') {
+      // Prevent double answers and spectator answering.
+      if (state.answered || state.role === 'spectator') {
         return;
       }
 

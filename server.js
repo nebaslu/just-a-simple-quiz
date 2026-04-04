@@ -4,8 +4,8 @@ const os = require('node:os');
 
 const Fastify = require('fastify');
 const fastifyStatic = require('@fastify/static');
-const fastifyWebsocket = require('@fastify/websocket');
 const QRCode = require('qrcode');
+const { WebSocketServer } = require('ws');
 
 // Fastify instance with logger disabled to keep output minimal.
 const app = Fastify({ logger: false });
@@ -137,6 +137,15 @@ function broadcast(room, payload) {
       send(s.ws, payload);
     }
   }
+}
+
+// Infer public protocol for join URLs behind reverse proxies or local HTTP.
+function inferProtocol(req) {
+  const forwarded = req.headers['x-forwarded-proto'];
+  if (typeof forwarded === 'string' && forwarded.length > 0) {
+    return forwarded.split(',')[0].trim();
+  }
+  return req.socket && req.socket.encrypted ? 'https' : 'http';
 }
 
 // Shared ranking builder reused in round and game summaries.
@@ -279,7 +288,7 @@ function startNextQuestion(room) {
 function createRoom(hostWs, hostName, req) {
   const code = createRoomCode();
   const id = `host_${Math.random().toString(36).slice(2, 8)}`;
-  const protocol = req.headers['x-forwarded-proto'] || req.protocol || 'http';
+  const protocol = inferProtocol(req);
   const hostHeader = req.headers['x-forwarded-host'] || req.headers.host;
   const joinUrl = `${protocol}://${hostHeader}/?room=${code}`;
 
@@ -478,7 +487,6 @@ function disconnectPlayer(ws) {
 }
 
 // Enable websocket support and static file serving.
-app.register(fastifyWebsocket);
 app.register(fastifyStatic, {
   root: path.join(__dirname, 'public'),
 });
@@ -507,95 +515,129 @@ app.get('/api/qr', async (req, reply) => {
   return reply.send(svg);
 });
 
-// Main realtime endpoint for host/player actions.
-app.get('/ws', { websocket: true }, (connection, req) => {
-  const ws = connection.socket;
-  logEvent('ws_connected', { remoteAddress: req.ip || null });
+// Raw ws server mounted over the same HTTP server used by Fastify.
+const wss = new WebSocketServer({ noServer: true });
 
-  // Process all incoming protocol messages.
-  ws.on('message', (raw) => {
-    let msg;
-    try {
-      msg = JSON.parse(raw.toString());
-    } catch {
-      logEvent('ws_invalid_json');
-      send(ws, { type: 'error', message: 'JSON invalido.' });
-      return;
-    }
+function handleRealtimeMessage(ws, req, raw) {
+  let msg;
+  try {
+    msg = JSON.parse(raw.toString());
+  } catch {
+    logEvent('ws_invalid_json');
+    send(ws, { type: 'error', message: 'JSON invalido.' });
+    return;
+  }
 
-    logEvent('ws_message', {
-      type: msg.type || null,
-      roomCode: ws.roomCode || null,
-      playerId: ws.playerId || null,
-    });
-
-    // Host requests room creation.
-    if (msg.type === 'host:create') {
-      createRoom(ws, msg.name, req);
-      const created = Array.from(rooms.values()).find((room) => room.players.get(room.hostId)?.ws === ws);
-      if (created) {
-        ws.playerId = created.hostId;
-        ws.roomCode = created.code;
-      }
-      return;
-    }
-
-    // Player requests join existing room.
-    if (msg.type === 'player:join') {
-      joinRoom(ws, msg.room, msg.name);
-      return;
-    }
-
-    // Spectator requests join existing room in any state.
-    if (msg.type === 'spectator:join') {
-      joinAsSpectator(ws, msg.room, msg.name);
-      return;
-    }
-
-    // Host starts match from lobby state.
-    if (msg.type === 'host:start') {
-      const room = rooms.get(ws.roomCode);
-      if (!room || ws.playerId !== room.hostId) {
-        send(ws, { type: 'error', message: 'No autorizado para iniciar la partida.' });
-        return;
-      }
-      if (room.players.size < 2) {
-        send(ws, { type: 'error', message: 'Necesitas al menos 2 jugadores.' });
-        return;
-      }
-      room.state = 'starting';
-      logEvent('game_start_requested', { roomCode: room.code, by: ws.playerId });
-      broadcast(room, { type: 'room:update', room: roomPublicState(room) });
-      setTimeout(() => startNextQuestion(room), 900);
-      return;
-    }
-
-    // Player submits answer for current question.
-    if (msg.type === 'answer') {
-      const room = rooms.get(ws.roomCode);
-      if (!room) return;
-      scoreAnswer(room, ws.playerId, Number(msg.optionIndex));
-      return;
-    }
-
-    // Basic keepalive/latency ping.
-    if (msg.type === 'ping') {
-      send(ws, { type: 'pong', now: Date.now() });
-    }
+  logEvent('ws_message', {
+    type: msg.type || null,
+    roomCode: ws.roomCode || null,
+    playerId: ws.playerId || null,
   });
 
-  // Cleanup on socket close.
+  // Host requests room creation.
+  if (msg.type === 'host:create') {
+    createRoom(ws, msg.name, req);
+    const created = Array.from(rooms.values()).find((room) => room.players.get(room.hostId)?.ws === ws);
+    if (created) {
+      ws.playerId = created.hostId;
+      ws.roomCode = created.code;
+    }
+    return;
+  }
+
+  // Player requests join existing room.
+  if (msg.type === 'player:join') {
+    joinRoom(ws, msg.room, msg.name);
+    return;
+  }
+
+  // Spectator requests join existing room in any state.
+  if (msg.type === 'spectator:join') {
+    joinAsSpectator(ws, msg.room, msg.name);
+    return;
+  }
+
+  // Host starts match from lobby state.
+  if (msg.type === 'host:start') {
+    const room = rooms.get(ws.roomCode);
+    if (!room || ws.playerId !== room.hostId) {
+      send(ws, { type: 'error', message: 'No autorizado para iniciar la partida.' });
+      return;
+    }
+    if (room.players.size < 1) {
+      send(ws, { type: 'error', message: 'No hay jugadores en la sala.' });
+      return;
+    }
+    room.state = 'starting';
+    logEvent('game_start_requested', { roomCode: room.code, by: ws.playerId });
+    broadcast(room, { type: 'room:update', room: roomPublicState(room) });
+    setTimeout(() => startNextQuestion(room), 900);
+    return;
+  }
+
+  // Player submits answer for current question.
+  if (msg.type === 'answer') {
+    const room = rooms.get(ws.roomCode);
+    if (!room) return;
+    scoreAnswer(room, ws.playerId, Number(msg.optionIndex));
+    return;
+  }
+
+  // Basic keepalive/latency ping.
+  if (msg.type === 'ping') {
+    send(ws, { type: 'pong', now: Date.now() });
+  }
+}
+
+wss.on('connection', (ws, req) => {
+  logEvent('ws_connected', { remoteAddress: req.socket?.remoteAddress || null });
+
+  ws.on('message', (raw) => {
+    handleRealtimeMessage(ws, req, raw);
+  });
+
   ws.on('close', () => {
     logEvent('ws_closed', { roomCode: ws.roomCode || null, playerId: ws.playerId || null });
     disconnectPlayer(ws);
   });
 });
 
+app.server.on('upgrade', (req, socket, head) => {
+  const { pathname } = new URL(req.url || '/', 'http://localhost');
+
+  if (pathname !== '/ws') {
+    socket.destroy();
+    return;
+  }
+
+  wss.handleUpgrade(req, socket, head, (ws) => {
+    wss.emit('connection', ws, req);
+  });
+});
+
 // Serve single-page client.
 app.get('/', async (req, reply) => reply.sendFile('index.html'));
 
-// Start HTTP server on all interfaces to allow LAN devices to connect.
-app.listen({ port: PORT, host: '0.0.0.0' }).then(() => {
-  logEvent('server_started', { port: PORT, pid: process.pid, questionsLoaded: QUESTIONS.length });
-  console.log(`Quiz server listening on http://localhost:${PORT}`);
+process.on('uncaughtException', (error) => {
+  logEvent('uncaught_exception', { message: error.message, stack: error.stack || null });
+  console.error('Uncaught exception:', error);
 });
+
+process.on('unhandledRejection', (reason) => {
+  const message = reason instanceof Error ? reason.message : String(reason);
+  const stack = reason instanceof Error ? reason.stack || null : null;
+  logEvent('unhandled_rejection', { message, stack });
+  console.error('Unhandled rejection:', reason);
+});
+
+// Start HTTP server on all interfaces to allow LAN devices to connect.
+app.listen({ port: PORT, host: '0.0.0.0' })
+  .then(() => {
+    logEvent('server_started', { port: PORT, pid: process.pid, questionsLoaded: QUESTIONS.length });
+    console.log(`Quiz server listening on http://localhost:${PORT}`);
+  })
+  .catch((error) => {
+    logEvent('server_start_error', { message: error.message, stack: error.stack || null });
+    console.error('Server start error:', error);
+    process.exit(1);
+  });
