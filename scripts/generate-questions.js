@@ -41,10 +41,11 @@ function shuffle(arr) {
 // In-memory accumulator.
 const questions = [];
 
-// Push question assigning stable incremental id.
+// Push question assigning stable incremental id and default mode.
 function pushQuestion(q) {
   questions.push({
     id: `q_${String(questions.length + 1).padStart(4, '0')}`,
+    mode: 'classic',
     ...q,
   });
 }
@@ -103,33 +104,49 @@ function validateQuestions(dataset) {
   const errors = [];
 
   for (const q of dataset) {
-    if (!Array.isArray(q.options) || q.options.length !== 4) {
-      errors.push(`${q.id}: debe tener exactamente 4 opciones.`);
-      continue;
-    }
+    const mode = q.mode || 'classic';
 
-    if (q.answerIndex < 0 || q.answerIndex > 3) {
-      errors.push(`${q.id}: answerIndex fuera de rango.`);
-      continue;
-    }
+    // Mode-specific validation
+    if (mode === 'classic') {
+      if (!Array.isArray(q.options) || q.options.length !== 4) {
+        errors.push(`${q.id}: debe tener exactamente 4 opciones.`);
+        continue;
+      }
 
-    const uniqueCount = new Set(q.options).size;
-    if (uniqueCount !== 4) {
-      errors.push(`${q.id}: hay opciones duplicadas.`);
-    }
+      if (q.answerIndex < 0 || q.answerIndex > 3) {
+        errors.push(`${q.id}: answerIndex fuera de rango.`);
+        continue;
+      }
 
-    const correct = q.options[q.answerIndex];
-    const expectedProfile = answerProfile(correct);
+      const uniqueCount = new Set(q.options).size;
+      if (uniqueCount !== 4) {
+        errors.push(`${q.id}: hay opciones duplicadas.`);
+      }
 
-    for (let i = 0; i < q.options.length; i += 1) {
-      if (i === q.answerIndex) continue;
+      const correct = q.options[q.answerIndex];
+      const expectedProfile = answerProfile(correct);
 
-      const option = q.options[i];
-      const profile = answerProfile(option);
-      if (!areProfilesCompatible(expectedProfile, profile)) {
-        errors.push(
-          `${q.id}: opcion incoherente "${option}" (perfil ${profile}) para respuesta "${correct}" (perfil ${expectedProfile}).`,
-        );
+      for (let i = 0; i < q.options.length; i += 1) {
+        if (i === q.answerIndex) continue;
+
+        const option = q.options[i];
+        const profile = answerProfile(option);
+        if (!areProfilesCompatible(expectedProfile, profile)) {
+          errors.push(
+            `${q.id}: opcion incoherente "${option}" (perfil ${profile}) para respuesta "${correct}" (perfil ${expectedProfile}).`,
+          );
+        }
+      }
+    } else if (mode === 'true_false_chain') {
+      if (!Array.isArray(q.chain) || q.chain.length !== 5) {
+        errors.push(`${q.id}: debe tener 5 statements en la cadena.`);
+      }
+    } else if (mode === 'order') {
+      if (!Array.isArray(q.items) || q.items.length !== 4) {
+        errors.push(`${q.id}: debe tener exactamente 4 items para ordenar.`);
+      }
+      if (!Array.isArray(q.correctOrder) || q.correctOrder.length !== 4) {
+        errors.push(`${q.id}: correctOrder debe tener 4 elementos.`);
       }
     }
   }
@@ -543,6 +560,42 @@ const scienceFacts = [
   },
 ];
 
+// History facts with coherent distractors.
+const historyFacts = [
+  { question: 'En que año cayo el Muro de Berlin?', answer: '1989', distractors: ['1987', '1991', '1985'] },
+  { question: 'Quien fue el primer presidente de los USA?', answer: 'George Washington', distractors: ['Thomas Jefferson', 'Benjamin Franklin', 'John Adams'] },
+  { question: 'En que año termino la Segunda Guerra Mundial?', answer: '1945', distractors: ['1943', '1947', '1944'] },
+  { question: 'Cual fue el imperio mas grande de la historia antigua?', answer: 'Imperio Romano', distractors: ['Imperio Persa', 'Imperio Mongol', 'Imperio Otomano'] },
+  { question: 'Quien escribio la Declaracion de Independencia?', answer: 'Thomas Jefferson', distractors: ['Benjamin Franklin', 'John Adams', 'George Washington'] },
+];
+
+// Sports facts with coherent distractors.
+const sportsFacts = [
+  { question: 'Cuantos jugadores tiene un equipo de futbol en el campo?', answer: '11', distractors: ['10', '12', '9'] },
+  { question: 'En que pais se origino el futbol moderno?', answer: 'Inglaterra', distractors: ['Brasil', 'Alemania', 'Francia'] },
+  { question: 'Cuantos sets necesita para ganar un partido de tenis?', answer: '3', distractors: ['2', '4', '5'] },
+  { question: 'Cual es el deporte mas popular del mundo?', answer: 'Futbol', distractors: ['Baloncesto', 'Tenis', 'Natacion'] },
+  { question: 'En que ciudad se celebraron las Olimpiadas 2024?', answer: 'Paris', distractors: ['Tokyo', 'Rio', 'Londres'] },
+];
+
+// Movies & TV facts with coherent distractors.
+const movieTvFacts = [
+  { question: 'Quien es el personaje principal de Star Wars?', answer: 'Luke Skywalker', distractors: ['Han Solo', 'Obi-Wan Kenobi', 'Yoda'] },
+  { question: 'En que año se estreno Juego de Tronos?', answer: '2011', distractors: ['2010', '2012', '2009'] },
+  { question: 'Cual es la pelicula mas taquillera de todos los tiempos?', answer: 'Avatar El Camino del Agua', distractors: ['Avengers Endgame', 'Titanic', 'Toy Story'] },
+  { question: 'Quien canta el tema de The Office?', answer: 'The Wombats', distractors: ['Arctic Monkeys', 'Fall Out Boy', 'Bastille'] },
+  { question: 'Cuantas temporadas tiene Breaking Bad?', answer: '5', distractors: ['6', '7', '4'] },
+];
+
+// Video games facts with coherent distractors.
+const videoGameFacts = [
+  { question: 'En que ano se lanzo el primer Super Mario Bros?', answer: '1985', distractors: ['1983', '1987', '1989'] },
+  { question: 'Cual es el videojuego mas vendido de la historia?', answer: 'Tetris', distractors: ['Minecraft', 'GTA V', 'Fortnite'] },
+  { question: 'En que plataforma debuto The Legend of Zelda?', answer: 'NES', distractors: ['SNES', 'N64', 'Commodore 64'] },
+  { question: 'Que empresa creo PlayStation?', answer: 'Sony', distractors: ['Microsoft', 'Nintendo', 'Sega'] },
+  { question: 'En que año salió Minecraft?', answer: '2011', distractors: ['2009', '2012', '2010'] },
+];
+
 // Generate science quiz items from fact templates with 3 difficulty levels.
 function makeScienceQuestions(count) {
   const perLevel = Math.floor(count / 3);
@@ -611,12 +664,158 @@ function makeScienceQuestions(count) {
   }
 }
 
+// Generate true/false chain questions: 5 rapid yes/no statements.
+function makeTrueFalseChainQuestions(count) {
+  const statements = [
+    { text: 'La Tierra es redonda', answer: true },
+    { text: 'Los gatos tienen 5 patas', answer: false },
+    { text: 'La nieve es fria', answer: true },
+    { text: 'El agua hierve a 50 grados', answer: false },
+    { text: 'El sol es una estrella', answer: true },
+    { text: 'Marte es el planeta mas cercano al sol', answer: false },
+    { text: 'La sangre arterial es roja', answer: true },
+    { text: 'Los dinosaurios conviven con humanos hoy', answer: false },
+    { text: 'El corazon es un musculo', answer: true },
+    { text: 'El oxigeno se ve de color azul', answer: false },
+  ];
+
+  for (let i = 0; i < count; i += 1) {
+    const chain = [];
+    for (let j = 0; j < 5; j += 1) {
+      const stmt = pick(statements);
+      chain.push({ text: stmt.text, answer: stmt.answer });
+    }
+
+    pushQuestion({
+      category: 'Mixto',
+      difficulty: 'media',
+      question: 'Responde V/F a 5 afirmaciones rapidas',
+      mode: 'true_false_chain',
+      chain,
+      explanation: 'Cadena de verdadero/falso completada.',
+    });
+  }
+}
+
+// Generate order questions: sort 4 items by different criteria.
+function makeOrderQuestions(count) {
+  const orderSets = [
+    {
+      items: ['2024', '1990', '2010', '1985'],
+      criteria: 'Ordena por año (antigua a reciente)',
+      order: [3, 1, 2, 0], // indices in correct order
+    },
+    {
+      items: ['100 kg', '50 kg', '200 kg', '75 kg'],
+      criteria: 'Ordena por peso (menor a mayor)',
+      order: [1, 3, 0, 2],
+    },
+    {
+      items: ['Paris', 'London', 'Berlin', 'Madrid'],
+      criteria: 'Ordena por población (menor a mayor)',
+      order: [2, 3, 0, 1], // approx
+    },
+    {
+      items: ['Mercurio', 'Venus', 'Tierra', 'Marte'],
+      criteria: 'Ordena por distancia al sol (cercano a lejano)',
+      order: [0, 1, 2, 3],
+    },
+    {
+      items: ['Napoleón', 'Julio César', 'Cleopatra', 'Alejandro Magno'],
+      criteria: 'Ordena por época (antiguo a moderno)',
+      order: [1, 2, 3, 0], // approx
+    },
+  ];
+
+  for (let i = 0; i < count; i += 1) {
+    const set = pick(orderSets);
+    const shuffled = shuffle(set.items);
+    const correctOrder = shuffled.map((item) => set.items.indexOf(item));
+
+    pushQuestion({
+      category: 'Logica',
+      difficulty: 'media',
+      question: set.criteria,
+      mode: 'order',
+      items: shuffled,
+      correctOrder,
+      explanation: `Orden correcto: ${set.items.join(' → ')}.`,
+    });
+  }
+}
+
+// Helper to generate questions from fact set.
+function makeQuestionsFromFacts(facts, category, count) {
+  const perLevel = Math.floor(count / 3);
+  const easyFacts = facts.slice(0, Math.ceil(facts.length / 2));
+
+  // EASY: first half of facts
+  for (let i = 0; i < perLevel; i += 1) {
+    const fact = pick(easyFacts);
+    const question = fact.question;
+    const answer = fact.answer;
+    const wrongs = shuffle(fact.distractors).slice(0, 3);
+    const options = shuffle([answer, ...wrongs]);
+
+    pushQuestion({
+      category,
+      difficulty: 'facil',
+      question,
+      options,
+      answerIndex: options.indexOf(answer),
+      explanation: `Respuesta correcta: ${answer}.`,
+    });
+  }
+
+  // MEDIUM: all facts
+  for (let i = 0; i < perLevel; i += 1) {
+    const fact = pick(facts);
+    const question = fact.question;
+    const answer = fact.answer;
+    const wrongs = shuffle(fact.distractors).slice(0, 3);
+    const options = shuffle([answer, ...wrongs]);
+
+    pushQuestion({
+      category,
+      difficulty: 'media',
+      question,
+      options,
+      answerIndex: options.indexOf(answer),
+      explanation: `Respuesta correcta: ${answer}.`,
+    });
+  }
+
+  // HARD: facts with variation
+  for (let i = 0; i < count - 2 * perLevel; i += 1) {
+    const fact = pick(facts);
+    const question = fact.question;
+    const answer = fact.answer;
+    const wrongs = shuffle(fact.distractors).slice(0, 3);
+    const options = shuffle([answer, ...wrongs]);
+
+    pushQuestion({
+      category,
+      difficulty: 'dificil',
+      question,
+      options,
+      answerIndex: options.indexOf(answer),
+      explanation: `Respuesta correcta: ${answer}.`,
+    });
+  }
+}
+
 // Distribution by category with increased quantity and difficulty variation.
-makeMathQuestions(900);
-makePercentQuestions(400);
-makeSequenceQuestions(400);
-makeCapitalsQuestions(30);
-makeScienceQuestions(500);
+makeMathQuestions(600);
+makePercentQuestions(300);
+makeSequenceQuestions(250);
+makeCapitalsQuestions(20);
+makeScienceQuestions(300);
+makeQuestionsFromFacts(historyFacts, 'Historia', 250);
+makeQuestionsFromFacts(sportsFacts, 'Deportes', 250);
+makeQuestionsFromFacts(movieTvFacts, 'Cine y TV', 250);
+makeQuestionsFromFacts(videoGameFacts, 'Videojuegos', 250);
+makeTrueFalseChainQuestions(150);
+makeOrderQuestions(150);
 
 // Remove questions with duplicate text before validation.
 const seenTexts = new Set();

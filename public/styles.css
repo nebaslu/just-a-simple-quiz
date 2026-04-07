@@ -179,8 +179,9 @@ label {
   color: var(--muted);
 }
 
-/* Text inputs. */
-input {
+/* Text inputs and selects. */
+input,
+select {
   font: inherit;
   border: 1px solid var(--line);
   background: white;

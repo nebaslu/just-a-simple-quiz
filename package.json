@@ -5,6 +5,9 @@
   "scripts": {
     "dev": "nodemon --watch server.js --watch data --ext js,json --ignore logs/* server.js",
     "questions:generate": "node scripts/generate-questions.js",
+    "questions:import:opentdb": "node scripts/import-opentdb-es.js",
+    "questions:merge": "node scripts/merge-questions.js",
+    "questions:update": "npm run questions:generate && npm run questions:import:opentdb && npm run questions:merge",
     "test": "echo \"No tests yet\""
   },
   "keywords": [],

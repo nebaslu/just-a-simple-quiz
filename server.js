@@ -52,6 +52,7 @@ function logEvent(event, details = {}) {
 // Runtime tuning knobs (can be overridden by environment variables).
 const PORT = Number(process.env.PORT || 3000);
 const QUESTIONS_PER_MATCH = Number(process.env.QUESTIONS_PER_MATCH || 10);
+const ALLOWED_ROUNDS = new Set([10, 25, 35]);
 const ROUND_MS = Number(process.env.ROUND_MS || 30000);
 const KEEPALIVE_MS = 25000;
 const REVEAL_ANSWER_MS = Number(process.env.REVEAL_ANSWER_MS || 5000);
@@ -104,6 +105,18 @@ function sanitizeName(name) {
   if (!name || typeof name !== 'string') return 'Jugador';
   const clean = name.trim().slice(0, 22);
   return clean || 'Jugador';
+}
+
+// Keep round count in supported presets only.
+function normalizeTotalRounds(value) {
+  const parsed = Number(value);
+  if (ALLOWED_ROUNDS.has(parsed)) {
+    return parsed;
+  }
+  if (ALLOWED_ROUNDS.has(QUESTIONS_PER_MATCH)) {
+    return QUESTIONS_PER_MATCH;
+  }
+  return 10;
 }
 
 // Build a client-safe room snapshot.
@@ -216,8 +229,71 @@ function buildRanking(room) {
     .sort((a, b) => b.score - a.score);
 }
 
-// Pick a randomized subset of questions for a match.
-// Deduplicates by question text so no question can appear twice in one game.
+// Modes rotation for themed rounds: each theme gets a different mode.
+const modesRotation = ['classic', 'true_false_chain', 'order', 'classic', 'true_false_chain'];
+
+// Themed round distribution: group questions by category and assign modes.
+function pickQuestionsWithThemes(total) {
+  const seen = new Set();
+  const pool = QUESTIONS.filter((q) => {
+    if (seen.has(q.question)) return false;
+    seen.add(q.question);
+    return true;
+  });
+
+  // Group by category
+  const byCategory = new Map();
+  for (const q of pool) {
+    const cat = q.category || 'Mixto';
+    if (!byCategory.has(cat)) byCategory.set(cat, []);
+    byCategory.get(cat).push(q);
+  }
+
+  // Shuffle each category pool
+  for (const cats of byCategory.values()) {
+    for (let i = cats.length - 1; i > 0; i -= 1) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [cats[i], cats[j]] = [cats[j], cats[i]];
+    }
+  }
+
+  // Distribute questions across themed rounds
+  const categories = Array.from(byCategory.keys());
+  const result = [];
+  let categoryIndex = 0;
+  let questionsPerRound = Math.max(5, Math.floor(total / 5)); // ~5 questions per round
+  let currentRound = 0;
+
+  while (result.length < total && categories.length > 0) {
+    const cat = categories[categoryIndex % categories.length];
+    const catQuestions = byCategory.get(cat);
+
+    if (catQuestions.length > 0) {
+      const q = catQuestions.shift();
+      // Assign mode based on round
+      const modeForThisRound = modesRotation[currentRound % modesRotation.length];
+      q.assignedMode = modeForThisRound;
+      q.theme = cat;
+      result.push(q);
+
+      // Move to next category every questionsPerRound questions or if category is empty
+      if (result.length % questionsPerRound === 0 || catQuestions.length === 0) {
+        currentRound++;
+        categoryIndex++;
+      }
+    } else {
+      // Category exhausted, move to next
+      categoryIndex++;
+    }
+
+    // Safeguard: stop if we've cycled through all categories multiple times
+    if (categoryIndex >= categories.length * 3) break;
+  }
+
+  return result.slice(0, total);
+}
+
+// Original random picker for fallback.
 function pickQuestions(total) {
   const seen = new Set();
   const pool = QUESTIONS.filter((q) => {
@@ -267,7 +343,7 @@ function finishRound(room) {
 }
 
 // Evaluate one player answer, apply score and auto-close when all have answered.
-function scoreAnswer(room, playerId, optionIndex) {
+function scoreAnswer(room, playerId, answerData) {
   if (room.state !== 'question' || !room.currentQuestion) return;
   if (room.answeredPlayers.has(playerId)) return;
 
@@ -280,7 +356,28 @@ function scoreAnswer(room, playerId, optionIndex) {
   const clampedElapsed = Math.max(0, Math.min(ROUND_MS, elapsed));
   const speedFactor = 1 - clampedElapsed / ROUND_MS;
 
-  if (optionIndex === room.currentQuestion.answerIndex) {
+  const q = room.currentQuestion;
+  const mode = q.mode || 'classic';
+  let isCorrect = false;
+
+  // Mode-specific scoring
+  if (mode === 'classic') {
+    const optionIndex = answerData.optionIndex;
+    isCorrect = optionIndex === q.answerIndex;
+  } else if (mode === 'true_false_chain') {
+    const correct = answerData.chainCorrect || 0;
+    isCorrect = correct >= 3; // 3 or more correct = pass
+    if (isCorrect) {
+      const points = 600 + Math.round(400 * speedFactor);
+      player.score += points;
+    }
+  } else if (mode === 'order') {
+    const order = answerData.order || [];
+    isCorrect = JSON.stringify(order) === JSON.stringify(q.correctOrder);
+  }
+
+  // Apply score if correct
+  if (isCorrect && mode === 'classic') {
     const points = 600 + Math.round(400 * speedFactor);
     player.score += points;
   }
@@ -288,7 +385,8 @@ function scoreAnswer(room, playerId, optionIndex) {
   // Record this player's answer for display.
   room.currentQuestion.playerAnswers[playerId] = {
     playerName: player.name,
-    optionIndex: optionIndex,
+    isCorrect: isCorrect,
+    answerData: answerData,
   };
 
   send(player.ws, { type: 'answer:ack', accepted: true });
@@ -342,6 +440,30 @@ function endGame(room) {
   });
 }
 
+// Format question data based on mode for sending to clients.
+function formatQuestion(q) {
+  const questionData = {
+    id: q.id,
+    mode: q.mode || 'classic',
+    category: q.category,
+    difficulty: q.difficulty,
+    text: q.question,
+    explanation: q.explanation,
+  };
+
+  // Include mode-specific fields
+  const mode = q.mode || 'classic';
+  if (mode === 'classic') {
+    questionData.options = q.options;
+  } else if (mode === 'true_false_chain') {
+    questionData.chain = q.chain;
+  } else if (mode === 'order') {
+    questionData.items = q.items;
+  }
+
+  return questionData;
+}
+
 // Advance game flow to next question or finish match if no rounds remain.
 function startNextQuestion(room) {
   if (room.state === 'ended') return;
@@ -369,15 +491,11 @@ function startNextQuestion(room) {
 
   const endsAt = room.questionStartedAt + ROUND_MS;
 
+  const questionData = formatQuestion(q);
+
   broadcast(room, {
     type: 'question',
-    question: {
-      id: q.id,
-      category: q.category,
-      difficulty: q.difficulty,
-      text: q.question,
-      options: q.options,
-    },
+    question: questionData,
     round: room.round,
     totalRounds: room.totalRounds,
     endsAt,
@@ -389,12 +507,13 @@ function startNextQuestion(room) {
 }
 
 // Create a lobby and register host player.
-function createRoom(hostWs, hostName, req) {
+function createRoom(hostWs, hostName, req, requestedTotalRounds) {
   const code = createRoomCode();
   const id = `host_${Math.random().toString(36).slice(2, 8)}`;
   const protocol = inferProtocol(req);
   const hostHeader = resolveJoinHost(req);
   const joinUrl = `${protocol}://${hostHeader}/?room=${code}`;
+  const totalRounds = normalizeTotalRounds(requestedTotalRounds);
 
   const room = {
     code,
@@ -405,8 +524,8 @@ function createRoom(hostWs, hostName, req) {
     createdAt: Date.now(),
     state: 'lobby',
     round: 0,
-    totalRounds: QUESTIONS_PER_MATCH,
-    questions: pickQuestions(QUESTIONS_PER_MATCH),
+    totalRounds: totalRounds,
+    questions: pickQuestionsWithThemes(totalRounds),
     currentQuestion: null,
     answeredPlayers: new Set(),
     questionStartedAt: 0,
@@ -731,7 +850,7 @@ function handleRealtimeMessage(ws, req, raw) {
 
   // Host requests room creation.
   if (msg.type === 'host:create') {
-    createRoom(ws, msg.name, req);
+    createRoom(ws, msg.name, req, msg.totalRounds);
     const created = Array.from(rooms.values()).find((room) => room.players.get(room.hostId)?.ws === ws);
     if (created) {
       ws.playerId = created.hostId;
@@ -786,13 +905,7 @@ function handleRealtimeMessage(ws, req, raw) {
       if (room.state === 'question' && room.currentQuestion) {
         send(ws, {
           type: 'question',
-          question: {
-            id: room.currentQuestion.id,
-            category: room.currentQuestion.category,
-            difficulty: room.currentQuestion.difficulty,
-            text: room.currentQuestion.question,
-            options: room.currentQuestion.options,
-          },
+          question: formatQuestion(room.currentQuestion),
           round: room.round,
           totalRounds: room.totalRounds,
           endsAt: room.questionStartedAt + ROUND_MS,
@@ -838,13 +951,7 @@ function handleRealtimeMessage(ws, req, raw) {
       if (room.state === 'question' && room.currentQuestion) {
         send(ws, {
           type: 'question',
-          question: {
-            id: room.currentQuestion.id,
-            category: room.currentQuestion.category,
-            difficulty: room.currentQuestion.difficulty,
-            text: room.currentQuestion.question,
-            options: room.currentQuestion.options,
-          },
+          question: formatQuestion(room.currentQuestion),
           round: room.round,
           totalRounds: room.totalRounds,
           endsAt: room.questionStartedAt + ROUND_MS,
@@ -897,7 +1004,13 @@ function handleRealtimeMessage(ws, req, raw) {
   if (msg.type === 'answer') {
     const room = rooms.get(ws.roomCode);
     if (!room) return;
-    scoreAnswer(room, ws.playerId, Number(msg.optionIndex));
+    // Pass entire answer object to support multiple modes
+    const answerData = {
+      optionIndex: msg.optionIndex !== undefined ? Number(msg.optionIndex) : undefined,
+      chainCorrect: msg.chainCorrect,
+      order: msg.order,
+    };
+    scoreAnswer(room, ws.playerId, answerData);
     return;
   }
 

@@ -429,6 +429,8 @@ function renderQuestion(msg) {
   state.playerAnswers = {};
   state.endsAt = msg.endsAt;
 
+  const mode = msg.question.mode || 'classic';
+
   $('meta').textContent = `Ronda ${msg.round}/${msg.totalRounds} • ${msg.question.category}`;
   $('question-text').textContent = msg.question.text;
   $('answer-status').textContent = state.role === 'spectator' ? 'Modo espectador: solo lectura.' : '';
@@ -441,29 +443,111 @@ function renderQuestion(msg) {
   const options = $('options');
   options.innerHTML = '';
 
-  // One button per answer option.
-  msg.question.options.forEach((opt, idx) => {
-    const btn = document.createElement('button');
-    btn.className = 'option';
-    btn.textContent = opt;
-    btn.disabled = state.role === 'spectator';
+  if (mode === 'classic') {
+    // Classic 4-option multiple choice
+    msg.question.options.forEach((opt, idx) => {
+      const btn = document.createElement('button');
+      btn.className = 'option';
+      btn.textContent = opt;
+      btn.disabled = state.role === 'spectator';
 
-    btn.onclick = () => {
-      // Prevent double answers and spectator answering.
-      if (state.answered || state.role === 'spectator') {
-        return;
-      }
+      btn.onclick = () => {
+        if (state.answered || state.role === 'spectator') return;
+        state.answered = true;
+        send({ type: 'answer', optionIndex: idx });
+        options.querySelectorAll('.option').forEach((button) => {
+          button.disabled = true;
+        }); 
+      };
 
-      state.answered = true;
-      send({ type: 'answer', optionIndex: idx });
+      options.appendChild(btn);
+    });
+  } else if (mode === 'true_false_chain') {
+    // 5 rapid true/false statements
+    state.chainAnswers = [];
+    msg.question.chain.forEach((stmt, idx) => {
+      const container = document.createElement('div');
+      container.style.marginBottom = '12px';
+      container.style.padding = '8px';
+      container.style.backgroundColor = '#f0f0f0';
+      container.style.borderRadius = '8px';
 
-      options.querySelectorAll('.option').forEach((button) => {
-        button.disabled = true;
+      const label = document.createElement('p');
+      label.textContent = `${idx + 1}. ${stmt.text}`;
+      label.style.margin = '0 0 6px 0';
+      label.style.fontWeight = '600';
+      container.appendChild(label);
+
+      const btnGroup = document.createElement('div');
+      btnGroup.style.display = 'flex';
+      btnGroup.style.gap = '8px';
+
+      ['Falso', 'Verdadero'].forEach((text, answerIdx) => {
+        const btn = document.createElement('button');
+        btn.className = 'option chain-btn';
+        btn.textContent = text;
+        btn.disabled = state.role === 'spectator';
+        btn.style.flex = '1';
+
+        btn.onclick = () => {
+          if (state.role === 'spectator') return;
+          const isCorrect = answerIdx === (stmt.answer ? 1 : 0);
+          state.chainAnswers[idx] = isCorrect;
+          btn.style.backgroundColor = isCorrect ? '#90EE90' : '#FFB6C6';
+          btn.style.fontWeight = '700';
+
+          // Auto-advance if all answered
+          if (state.chainAnswers.length === 5) {
+            state.answered = true;
+            send({ type: 'answer', chainCorrect: state.chainAnswers.filter(x => x).length });
+            options.querySelectorAll('.chain-btn').forEach((b) => {
+              b.disabled = true;
+            });
+          }
+        };
+
+        btnGroup.appendChild(btn);
       });
-    };
 
-    options.appendChild(btn);
-  });
+      container.appendChild(btnGroup);
+      options.appendChild(container);
+    });
+  } else if (mode === 'order') {
+    // Reorder 4 items - simple version with selection
+    state.selectedOrder = [];
+    const items = [...msg.question.items];
+    
+    const instructionLabel = document.createElement('p');
+    instructionLabel.textContent = 'Selecciona en orden (izq/der para navegar, OK para confirmar):';
+    instructionLabel.style.marginBottom = '12px';
+    instructionLabel.style.fontSize = '14px';
+    options.appendChild(instructionLabel);
+
+    items.forEach((item, idx) => {
+      const btn = document.createElement('button');
+      btn.className = 'option order-btn';
+      btn.textContent = item;
+      btn.disabled = state.role === 'spectator';
+      btn.style.marginBottom = '8px';
+
+      btn.onclick = () => {
+        if (state.role === 'spectator' || state.selectedOrder.includes(idx)) return;
+        state.selectedOrder.push(idx);
+        btn.style.opacity = '0.5';
+
+        // When all 4 selected, send answer
+        if (state.selectedOrder.length === 4) {
+          state.answered = true;
+          send({ type: 'answer', order: state.selectedOrder });
+          options.querySelectorAll('.order-btn').forEach((b) => {
+            b.disabled = true;
+          });
+        }
+      };
+
+      options.appendChild(btn);
+    });
+  }
 
   // High-frequency countdown for smooth UX.
   clearInterval(state.timerInt);
@@ -477,9 +561,7 @@ function renderQuestion(msg) {
     }
   }, 100);
 
-  // Initialize answer display (will be empty initially, updates as players answer).
   updateAnswerDisplay();
-
   showScreen('question');
 }
 
@@ -533,7 +615,8 @@ $('btn-create').onclick = () => {
   audio.init();
   connect();
   const name = $('host-name').value.trim() || 'Anfitrion';
-  send({ type: 'host:create', name });
+  const totalRounds = Number($('host-rounds').value || 10);
+  send({ type: 'host:create', name, totalRounds });
 };
 
 // Player action: join existing room.
