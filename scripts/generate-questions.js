@@ -49,34 +49,112 @@ function pushQuestion(q) {
   });
 }
 
-// Generate arithmetic questions (sum, subtraction, multiplication).
-function makeMathQuestions(count) {
-  for (let i = 0; i < count; i += 1) {
-    const a = int(2, 220);
-    const b = int(2, 130);
-    const op = pick(['+', '-', '*']);
-    let answer;
-    let text;
+// Build a coarse profile to ensure distractors are semantically compatible.
+function answerProfile(value) {
+  const text = String(value).trim();
 
-    if (op === '+') {
-      answer = a + b;
-      text = `Cuanto es ${a} + ${b}?`;
-    } else if (op === '-') {
-      const hi = Math.max(a, b);
-      const lo = Math.min(a, b);
-      answer = hi - lo;
-      text = `Cuanto es ${hi} - ${lo}?`;
-    } else {
-      const x = int(2, 20);
-      const y = int(2, 20);
-      answer = x * y;
-      text = `Cuanto es ${x} x ${y}?`;
+  if (/^-?\d+$/.test(text)) {
+    return 'integer';
+  }
+
+  if (/^-?\d+(?:\.\d+)?\s*[A-Za-z%]+$/.test(text)) {
+    return 'number_with_unit';
+  }
+
+  if (/^(La|El|Los|Las)\s+/i.test(text)) {
+    return 'noun_phrase_with_article';
+  }
+
+  if (text.includes(' ')) {
+    return 'multi_word_term';
+  }
+
+  return 'single_word_term';
+}
+
+function profileFamily(profile) {
+  if (profile === 'integer' || profile === 'number_with_unit') {
+    return 'numeric';
+  }
+  return 'textual';
+}
+
+function areProfilesCompatible(correctProfile, optionProfile) {
+  const familyA = profileFamily(correctProfile);
+  const familyB = profileFamily(optionProfile);
+  if (familyA !== familyB) return false;
+
+  // If the correct answer has units, all options should also have units.
+  if (correctProfile === 'number_with_unit') {
+    return optionProfile === 'number_with_unit';
+  }
+
+  // For plain integers, require plain integers to avoid mixing with units.
+  if (correctProfile === 'integer') {
+    return optionProfile === 'integer';
+  }
+
+  // Textual answers can vary in phrase shape (single/multi/article).
+  return true;
+}
+
+// Validate generated questions before persisting the dataset.
+function validateQuestions(dataset) {
+  const errors = [];
+
+  for (const q of dataset) {
+    if (!Array.isArray(q.options) || q.options.length !== 4) {
+      errors.push(`${q.id}: debe tener exactamente 4 opciones.`);
+      continue;
     }
+
+    if (q.answerIndex < 0 || q.answerIndex > 3) {
+      errors.push(`${q.id}: answerIndex fuera de rango.`);
+      continue;
+    }
+
+    const uniqueCount = new Set(q.options).size;
+    if (uniqueCount !== 4) {
+      errors.push(`${q.id}: hay opciones duplicadas.`);
+    }
+
+    const correct = q.options[q.answerIndex];
+    const expectedProfile = answerProfile(correct);
+
+    for (let i = 0; i < q.options.length; i += 1) {
+      if (i === q.answerIndex) continue;
+
+      const option = q.options[i];
+      const profile = answerProfile(option);
+      if (!areProfilesCompatible(expectedProfile, profile)) {
+        errors.push(
+          `${q.id}: opcion incoherente "${option}" (perfil ${profile}) para respuesta "${correct}" (perfil ${expectedProfile}).`,
+        );
+      }
+    }
+  }
+
+  if (errors.length > 0) {
+    const preview = errors.slice(0, 12).join('\n');
+    throw new Error(`Validacion fallida (${errors.length} errores):\n${preview}`);
+  }
+}
+
+// Generate arithmetic questions (sum, subtraction, multiplication) with 3 difficulty levels.
+function makeMathQuestions(count) {
+  const perLevel = Math.floor(count / 3);
+  
+  // EASY: small numbers, simple addition
+  for (let i = 0; i < perLevel; i += 1) {
+    const a = int(1, 50);
+    const b = int(1, 50);
+    const answer = a + b;
+    const text = `Cuanto es ${a} + ${b}?`;
 
     const candidates = new Set([answer]);
     while (candidates.size < 4) {
-      const delta = int(1, 24) * pick([-1, 1]);
-      candidates.add(answer + delta);
+      const delta = int(1, 10) * pick([-1, 1]);
+      candidates.add(Math.max(1, answer + delta));
     }
 
     const options = shuffle(Array.from(candidates).map(String));
@@ -89,23 +167,133 @@ function makeMathQuestions(count) {
       explanation: `El resultado correcto es ${answer}.`,
     });
   }
+
+  // MEDIUM: larger numbers, subtraction and multiplication
+  for (let i = 0; i < perLevel; i += 1) {
+    const op = pick(['-', '*']);
+    let answer;
+    let text;
+
+    if (op === '-') {
+      const a = int(50, 300);
+      const b = int(20, 200);
+      const hi = Math.max(a, b);
+      const lo = Math.min(a, b);
+      answer = hi - lo;
+      text = `Cuanto es ${hi} - ${lo}?`;
+    } else {
+      const x = int(10, 30);
+      const y = int(10, 30);
+      answer = x * y;
+      text = `Cuanto es ${x} x ${y}?`;
+    }
+
+    const candidates = new Set([answer]);
+    while (candidates.size < 4) {
+      const delta = int(5, 50) * pick([-1, 1]);
+      candidates.add(Math.max(1, answer + delta));
+    }
+
+    const options = shuffle(Array.from(candidates).map(String));
+    pushQuestion({
+      category: 'Matematicas',
+      difficulty: 'media',
+      question: text,
+      options,
+      answerIndex: options.indexOf(String(answer)),
+      explanation: `El resultado correcto es ${answer}.`,
+    });
+  }
+
+  // HARD: large multiplication and complex operations
+  for (let i = 0; i < count - 2 * perLevel; i += 1) {
+    const op = pick(['*', '/', 'pow']);
+    let answer;
+    let text;
+
+    if (op === '*') {
+      const x = int(20, 50);
+      const y = int(20, 50);
+      answer = x * y;
+      text = `Cuanto es ${x} x ${y}?`;
+    } else if (op === '/') {
+      const divisor = int(5, 15);
+      const quotient = int(10, 50);
+      answer = quotient;
+      const dividend = divisor * quotient;
+      text = `Cuanto es ${dividend} / ${divisor}?`;
+    } else {
+      const base = int(2, 5);
+      const exp = int(3, 5);
+      answer = Math.pow(base, exp);
+      text = `Cuanto es ${base}^${exp}?`;
+    }
+
+    const candidates = new Set([answer]);
+    while (candidates.size < 4) {
+      const delta = int(10, 100) * pick([-1, 1]);
+      candidates.add(Math.max(1, answer + delta));
+    }
+
+    const options = shuffle(Array.from(candidates).map(String));
+    pushQuestion({
+      category: 'Matematicas',
+      difficulty: 'dificil',
+      question: text,
+      options,
+      answerIndex: options.indexOf(String(answer)),
+      explanation: `El resultado correcto es ${answer}.`,
+    });
+  }
 }
 
-// Generate percentage questions with plausible distractors.
+// Generate percentage questions with 3 difficulty levels.
 function makePercentQuestions(count) {
-  for (let i = 0; i < count; i += 1) {
-    const base = int(40, 980);
-    const pct = pick([5, 10, 15, 20, 25, 30, 40, 50, 60, 75]);
+  const perLevel = Math.floor(count / 3);
+
+  // EASY: simple percentages (5%, 10%, 50%)
+  for (let i = 0; i < perLevel; i += 1) {
+    const base = int(100, 500);
+    const pct = pick([5, 10, 25, 50]);
     const answer = Math.round((base * pct) / 100);
 
-    const wrong = [
-      Math.round(answer + base * 0.1),
-      Math.max(1, Math.round(answer - base * 0.08)),
-      Math.round(base / 100) + pct,
-    ];
+    const candidates = new Set([answer]);
+    candidates.add(Math.round(answer + base * 0.08));
+    candidates.add(Math.max(1, Math.round(answer - base * 0.06)));
+    candidates.add(Math.round(base * (pct + 5) / 100));
 
-    const options = shuffle([answer, ...wrong].map((n) => String(n)));
+    while (candidates.size < 4) {
+      candidates.add(Math.max(1, answer + int(2, 15) * pick([-1, 1])));
+    }
 
+    const options = shuffle(Array.from(candidates).slice(0, 4).map((n) => String(n)));
+    pushQuestion({
+      category: 'Porcentajes',
+      difficulty: 'facil',
+      question: `Cuanto es el ${pct}% de ${base}?`,
+      options,
+      answerIndex: options.indexOf(String(answer)),
+      explanation: `${pct}% de ${base} = ${answer}.`,
+    });
+  }
+
+  // MEDIUM: standard percentages
+  for (let i = 0; i < perLevel; i += 1) {
+    const base = int(200, 800);
+    const pct = pick([12, 15, 18, 22, 30, 40]);
+    const answer = Math.round((base * pct) / 100);
+
+    const candidates = new Set([answer]);
+    candidates.add(Math.round(answer + base * 0.1));
+    candidates.add(Math.max(1, Math.round(answer - base * 0.08)));
+    candidates.add(Math.round(base / 100) + pct);
+
+    while (candidates.size < 4) {
+      const tweak = int(3, 35) * pick([-1, 1]);
+      candidates.add(Math.max(1, answer + tweak));
+    }
+
+    const options = shuffle(Array.from(candidates).slice(0, 4).map((n) => String(n)));
     pushQuestion({
       category: 'Porcentajes',
       difficulty: 'media',
@@ -115,13 +303,69 @@ function makePercentQuestions(count) {
       explanation: `${pct}% de ${base} = ${answer}.`,
     });
   }
+
+  // HARD: complex percentages with decimal precision
+  for (let i = 0; i < count - 2 * perLevel; i += 1) {
+    const base = int(500, 1500);
+    const pct = pick([3, 7, 11, 13, 17, 35, 45, 67, 73, 88]);
+    const answer = Math.round((base * pct) / 100);
+
+    const candidates = new Set([answer]);
+    candidates.add(Math.round(answer + base * 0.12));
+    candidates.add(Math.max(1, Math.round(answer - base * 0.1)));
+    candidates.add(Math.round(pct * base / 100 + int(20, 60)));
+
+    while (candidates.size < 4) {
+      candidates.add(Math.max(1, answer + int(20, 80) * pick([-1, 1])));
+    }
+
+    const options = shuffle(Array.from(candidates).slice(0, 4).map((n) => String(n)));
+    pushQuestion({
+      category: 'Porcentajes',
+      difficulty: 'dificil',
+      question: `Cuanto es el ${pct}% de ${base}?`,
+      options,
+      answerIndex: options.indexOf(String(answer)),
+      explanation: `${pct}% de ${base} = ${answer}.`,
+    });
+  }
 }
 
-// Generate sequence/logic questions.
+// Generate sequence/logic questions with 3 difficulty levels.
 function makeSequenceQuestions(count) {
-  for (let i = 0; i < count; i += 1) {
-    const start = int(1, 20);
-    const step = int(2, 12);
+  const perLevel = Math.floor(count / 3);
+
+  // EASY: simple linear sequences
+  for (let i = 0; i < perLevel; i += 1) {
+    const start = int(1, 30);
+    const step = int(2, 8);
+    const len = 4;
+    const seq = [];
+    for (let j = 0; j < len; j += 1) {
+      seq.push(start + j * step);
+    }
+    const answer = start + len * step;
+
+    const candidates = new Set([answer, answer + step, answer - step, answer + int(2, 5)]);
+    while (candidates.size < 4) {
+      candidates.add(answer + int(10, 15) * pick([-1, 1]));
+    }
+
+    const options = shuffle(Array.from(candidates).slice(0, 4).map(String));
+    pushQuestion({
+      category: 'Logica numerica',
+      difficulty: 'facil',
+      question: `Completa la serie: ${seq.join(', ')}, ...`,
+      options,
+      answerIndex: options.indexOf(String(answer)),
+      explanation: `La serie aumenta de ${step} en ${step}.`,
+    });
+  }
+
+  // MEDIUM: geometric or mixed sequences
+  for (let i = 0; i < perLevel; i += 1) {
+    const start = int(1, 50);
+    const step = int(5, 20);
     const len = 5;
     const seq = [];
     for (let j = 0; j < len; j += 1) {
@@ -129,13 +373,18 @@ function makeSequenceQuestions(count) {
     }
     const answer = start + len * step;
 
-    const options = shuffle([
-      String(answer),
-      String(answer + step),
-      String(answer - step),
-      String(answer + int(2, 7)),
+    const candidates = new Set([
+      answer,
+      answer + step,
+      answer - step,
+      answer + int(5, 15),
     ]);
 
+    while (candidates.size < 4) {
+      candidates.add(answer + int(20, 40) * pick([-1, 1]));
+    }
+
+    const options = shuffle(Array.from(candidates).slice(0, 4).map(String));
     pushQuestion({
       category: 'Logica numerica',
       difficulty: 'media',
@@ -143,6 +392,57 @@ function makeSequenceQuestions(count) {
       options,
       answerIndex: options.indexOf(String(answer)),
       explanation: `La serie aumenta de ${step} en ${step}.`,
+    });
+  }
+
+  // HARD: complex patterns, fibonacci-like
+  for (let i = 0; i < count - 2 * perLevel; i += 1) {
+    const type = pick(['fib', 'quad', 'mixed']);
+    let seq = [];
+    let answer;
+
+    if (type === 'fib') {
+      // Fibonacci-like: each term is sum of previous two
+      const a = int(1, 10);
+      const b = int(1, 10);
+      seq = [a, b];
+      for (let j = 2; j < 5; j += 1) {
+        seq.push(seq[j - 1] + seq[j - 2]);
+      }
+      answer = seq[seq.length - 1] + seq[seq.length - 2];
+    } else if (type === 'quad') {
+      // Quadratic: differences increase by constant
+      const start = int(1, 20);
+      const d1 = int(3, 10);
+      seq = [start];
+      for (let j = 1; j < 5; j += 1) {
+        seq.push(seq[j - 1] + d1 + (j - 1) * 2);
+      }
+      answer = seq[seq.length - 1] + d1 + 8;
+    } else {
+      // Mixed pattern
+      const start = int(2, 15);
+      const mult = int(2, 3);
+      seq = [start];
+      for (let j = 1; j < 5; j += 1) {
+        seq.push(seq[j - 1] * mult - int(1, 5));
+      }
+      answer = seq[seq.length - 1] * mult - int(1, 5);
+    }
+
+    const candidates = new Set([answer]);
+    while (candidates.size < 4) {
+      candidates.add(answer + int(10, 100) * pick([-1, 1]));
+    }
+
+    const options = shuffle(Array.from(candidates).slice(0, 4).map(String));
+    pushQuestion({
+      category: 'Logica numerica',
+      difficulty: 'dificil',
+      question: `Completa la serie: ${seq.join(', ')}, ...`,
+      options,
+      answerIndex: options.indexOf(String(answer)),
+      explanation: `Patron complejo en la serie.`,
     });
   }
 }
@@ -189,25 +489,71 @@ function makeCapitalsQuestions(cycles) {
   }
 }
 
-// Small science facts pool used with randomized options.
+// Science facts with coherent distractors per question.
 const scienceFacts = [
-  ['Que planeta es conocido como el planeta rojo?', 'Marte'],
-  ['Cual es el gas mas abundante en la atmosfera terrestre?', 'Nitrogeno'],
-  ['Cual es el organo mas grande del cuerpo humano?', 'La piel'],
-  ['Que vitamina se obtiene principalmente del sol?', 'Vitamina D'],
-  ['A que temperatura hierve el agua a nivel del mar?', '100 C'],
-  ['Que particula tiene carga negativa?', 'Electron'],
-  ['Que fuerza nos mantiene sobre la Tierra?', 'Gravedad'],
-  ['Que sangre tiene menos oxigeno, la arterial o la venosa?', 'La venosa'],
-  ['Que instrumento mide los terremotos?', 'Sismografo'],
-  ['Cual es el satelite natural de la Tierra?', 'La Luna'],
+  {
+    question: 'Que planeta es conocido como el planeta rojo?',
+    answer: 'Marte',
+    distractors: ['Venus', 'Mercurio', 'Jupiter'],
+  },
+  {
+    question: 'Cual es el gas mas abundante en la atmosfera terrestre?',
+    answer: 'Nitrogeno',
+    distractors: ['Oxigeno', 'Dioxido de carbono', 'Argon'],
+  },
+  {
+    question: 'Cual es el organo mas grande del cuerpo humano?',
+    answer: 'La piel',
+    distractors: ['El higado', 'El corazon', 'El pulmon'],
+  },
+  {
+    question: 'Que vitamina se obtiene principalmente del sol?',
+    answer: 'Vitamina D',
+    distractors: ['Vitamina C', 'Vitamina B12', 'Vitamina A'],
+  },
+  {
+    question: 'A que temperatura hierve el agua a nivel del mar?',
+    answer: '100 C',
+    distractors: ['90 C', '80 C', '120 C'],
+  },
+  {
+    question: 'Que particula tiene carga negativa?',
+    answer: 'Electron',
+    distractors: ['Proton', 'Neutron', 'Positron'],
+  },
+  {
+    question: 'Que fuerza nos mantiene sobre la Tierra?',
+    answer: 'Gravedad',
+    distractors: ['Magnetismo', 'Friccion', 'Electricidad estatica'],
+  },
+  {
+    question: 'Que sangre tiene menos oxigeno, la arterial o la venosa?',
+    answer: 'La venosa',
+    distractors: ['La arterial', 'Ambas tienen igual', 'Depende de la edad'],
+  },
+  {
+    question: 'Que instrumento mide los terremotos?',
+    answer: 'Sismografo',
+    distractors: ['Barometro', 'Termometro', 'Higrometro'],
+  },
+  {
+    question: 'Cual es el satelite natural de la Tierra?',
+    answer: 'La Luna',
+    distractors: ['Io', 'Europa', 'Titan'],
+  },
 ];
 
-// Generate science quiz items from fact templates.
+// Generate science quiz items from fact templates with 3 difficulty levels.
 function makeScienceQuestions(count) {
-  for (let i = 0; i < count; i += 1) {
-    const [question, answer] = pick(scienceFacts);
-    const wrongs = shuffle(scienceFacts.filter((x) => x[1] !== answer)).slice(0, 3).map((x) => x[1]);
+  const perLevel = Math.floor(count / 3);
+
+  // EASY: simple, well-known facts
+  const easyFacts = scienceFacts.slice(0, 5);
+  for (let i = 0; i < perLevel; i += 1) {
+    const fact = pick(easyFacts);
+    const question = fact.question;
+    const answer = fact.answer;
+    const wrongs = shuffle(fact.distractors).slice(0, 3);
     const options = shuffle([answer, ...wrongs]);
 
     pushQuestion({
@@ -219,15 +565,80 @@ function makeScienceQuestions(count) {
       explanation: `Respuesta correcta: ${answer}.`,
     });
   }
+
+  // MEDIUM: all facts
+  for (let i = 0; i < perLevel; i += 1) {
+    const fact = pick(scienceFacts);
+    const question = fact.question;
+    const answer = fact.answer;
+    const wrongs = shuffle(fact.distractors).slice(0, 3);
+    const options = shuffle([answer, ...wrongs]);
+
+    pushQuestion({
+      category: 'Ciencia',
+      difficulty: 'media',
+      question,
+      options,
+      answerIndex: options.indexOf(answer),
+      explanation: `Respuesta correcta: ${answer}.`,
+    });
+  }
+
+  // HARD: facts with harder wording or similar distractors
+  for (let i = 0; i < count - 2 * perLevel; i += 1) {
+    const fact = pick(scienceFacts);
+    let question = fact.question;
+    const answer = fact.answer;
+    const wrongs = shuffle(fact.distractors).slice(0, 3);
+    const options = shuffle([answer, ...wrongs]);
+
+    // Vary question phrasing slightly for hard mode
+    const variations = [
+      question,
+      `¿Es verdad que ${question.toLowerCase()}?`,
+      `De los siguientes, cual esta relacionado: ${question.toLowerCase()}?`,
+    ];
+    question = pick(variations);
+
+    pushQuestion({
+      category: 'Ciencia',
+      difficulty: 'dificil',
+      question,
+      options,
+      answerIndex: options.indexOf(answer),
+      explanation: `Respuesta correcta: ${answer}.`,
+    });
+  }
 }
 
-// Distribution by category.
-makeMathQuestions(450);
-makePercentQuestions(180);
-makeSequenceQuestions(180);
-makeCapitalsQuestions(10);
-makeScienceQuestions(200);
+// Distribution by category with increased quantity and difficulty variation.
+makeMathQuestions(900);
+makePercentQuestions(400);
+makeSequenceQuestions(400);
+makeCapitalsQuestions(30);
+makeScienceQuestions(500);
+
+// Remove questions with duplicate text before validation.
+const seenTexts = new Set();
+const dedupedQuestions = [];
+for (const q of questions) {
+  if (!seenTexts.has(q.question)) {
+    seenTexts.add(q.question);
+    dedupedQuestions.push(q);
+  }
+}
+if (dedupedQuestions.length < questions.length) {
+  console.warn(`Eliminadas ${questions.length - dedupedQuestions.length} preguntas duplicadas.`);
+}
+
+// Reassign stable ids after dedup.
+dedupedQuestions.forEach((q, i) => {
+  q.id = `q_${String(i + 1).padStart(4, '0')}`;
+});
+
+// Block invalid datasets before saving.
+validateQuestions(dedupedQuestions);
 
 // Persist pretty-formatted JSON for easy manual editing.
-fs.writeFileSync(OUT, JSON.stringify(questions, null, 2), 'utf8');
-console.log(`Generadas ${questions.length} preguntas en ${OUT}`);
+fs.writeFileSync(OUT, JSON.stringify(dedupedQuestions, null, 2), 'utf8');
+console.log(`Generadas ${dedupedQuestions.length} preguntas en ${OUT}`);

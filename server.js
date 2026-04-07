@@ -217,8 +217,14 @@ function buildRanking(room) {
 }
 
 // Pick a randomized subset of questions for a match.
+// Deduplicates by question text so no question can appear twice in one game.
 function pickQuestions(total) {
-  const pool = [...QUESTIONS];
+  const seen = new Set();
+  const pool = QUESTIONS.filter((q) => {
+    if (seen.has(q.question)) return false;
+    seen.add(q.question);
+    return true;
+  });
   for (let i = pool.length - 1; i > 0; i -= 1) {
     const j = Math.floor(Math.random() * (i + 1));
     [pool[i], pool[j]] = [pool[j], pool[i]];
