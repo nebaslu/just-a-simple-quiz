@@ -62,19 +62,11 @@ body {
   width: min(860px, 100%);
 }
 
-/* Top-right inline controls (connection + sound). */
-.status-controls {
+/* WebSocket status badge fixed to top-right for quick connectivity feedback. */
+.ws-status {
   position: fixed;
   top: 12px;
   right: 12px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  z-index: 25;
-}
-
-/* WebSocket status badge for quick connectivity feedback. */
-.ws-status {
   margin: 0;
   padding: 7px 10px;
   border-radius: 999px;
@@ -83,6 +75,7 @@ body {
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.03em;
+  z-index: 20;
 }
 
 .ws-status.ws-connected {
@@ -419,13 +412,9 @@ button.ghost {
     padding: 8px;
   }
 
-  .status-controls {
+  .ws-status {
     top: 8px;
     right: 8px;
-    gap: 4px;
-  }
-
-  .ws-status {
     font-size: 11px;
     padding: 6px 9px;
   }
@@ -434,29 +423,4 @@ button.ghost {
     border-radius: 14px;
     padding: 12px;
   }
-}
-
-/* Compact sound toggle button next to connection badge. */
-.sound-btn {
-  margin-top: 0;
-  width: auto;
-  min-width: 34px;
-  padding: 6px 8px;
-  border-radius: 999px;
-  border: 1px solid var(--line);
-  background: #ffffffd9;
-  color: var(--ink);
-  font-size: 11px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.2s ease;
-}
-
-.sound-btn:hover {
-  background: #fff;
-  transform: scale(1.05);
-}
-
-.sound-btn.muted {
-  opacity: 0.6;
 }

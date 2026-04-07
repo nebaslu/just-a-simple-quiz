@@ -17,7 +17,6 @@ const state = {
   reconnectAttempts: 0,
   shouldReconnect: false,
   connectWatchdog: null,
-  soundEnabled: localStorage.getItem("soundEnabled") !== "false",
 };
 
 // Screen registry used by the simple view-switching system.
@@ -144,9 +143,6 @@ function connect() {
 
     setConnectionStatus('connected', 'Conectado');
 
-    audio.init();
-    updateSoundButton();
-
     // If reconnecting mid-session, restore room state first so the server
     // knows who this socket is before flushing any queued messages.
     if (state.roomCode && state.playerId) {
@@ -211,7 +207,6 @@ function connect() {
     // Backend confirms answer was accepted.
     if (msg.type === 'answer:ack') {
       $('answer-status').textContent = 'Respuesta enviada.';
-      audio.playCorrect();
       return;
     }
 
@@ -433,11 +428,6 @@ function renderQuestion(msg) {
   $('question-text').textContent = msg.question.text;
   $('answer-status').textContent = state.role === 'spectator' ? 'Modo espectador: solo lectura.' : '';
 
-  if (msg.round === 1) {
-    audio.playGameStart();
-    audio.startBackground();
-  }
-
   const options = $('options');
   options.innerHTML = '';
 
@@ -488,8 +478,6 @@ function renderRoundResult(msg) {
   clearInterval(state.timerInt);
   state.timerInt = null;
 
-  audio.playRoundEnd();
-
   $('results-title').textContent = 'Fin de ronda';
   $('round-explanation').textContent = msg.explanation || 'Revisa el ranking provisional.';
 
@@ -509,8 +497,6 @@ function renderRoundResult(msg) {
 
 // Render final game result.
 function renderGameOver(msg) {
-  audio.stopBackground();
-
   $('results-title').textContent = 'Partida terminada';
   $('round-explanation').textContent = 'Clasificacion final.';
 
@@ -530,7 +516,6 @@ function renderGameOver(msg) {
 
 // Host action: create new room.
 $('btn-create').onclick = () => {
-  audio.init();
   connect();
   const name = $('host-name').value.trim() || 'Anfitrion';
   send({ type: 'host:create', name });
@@ -538,7 +523,6 @@ $('btn-create').onclick = () => {
 
 // Player action: join existing room.
 $('btn-join').onclick = () => {
-  audio.init();
   connect();
   const room = $('join-room').value.trim().toUpperCase();
   const name = $('join-name').value.trim() || 'Jugador';
@@ -553,7 +537,6 @@ $('btn-join').onclick = () => {
 
 // Spectator action: join room without participating.
 $('btn-spectate').onclick = () => {
-  audio.init();
   connect();
   const room = $('join-room').value.trim().toUpperCase();
   const name = $('join-name').value.trim() || 'Espectador';
@@ -568,7 +551,6 @@ $('btn-spectate').onclick = () => {
 
 // Host action: start game.
 $('btn-start').onclick = () => {
-  audio.init();
   send({ type: 'host:start' });
 };
 
@@ -603,14 +585,7 @@ document.addEventListener('keydown', (event) => {
 
 // Reset app by navigating to root.
 $('btn-back-home').onclick = () => {
-  audio.stopBackground();
   location.href = '/';
-};
-
-// Toggle global sound/music.
-$('btn-sound-toggle').onclick = () => {
-  audio.init();
-  audio.toggleSound();
 };
 
 // Pre-fill room code from query string for URL invites.
@@ -621,4 +596,3 @@ if (roomFromUrl) {
 
 // Keep connection idle on home screen; connect on explicit user action.
 setConnectionStatus('disconnected', 'Listo para conectar');
-updateSoundButton();

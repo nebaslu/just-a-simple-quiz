@@ -52,7 +52,11 @@ function logEvent(event, details = {}) {
 // Runtime tuning knobs (can be overridden by environment variables).
 const PORT = Number(process.env.PORT || 3000);
 const QUESTIONS_PER_MATCH = Number(process.env.QUESTIONS_PER_MATCH || 10);
-const ROUND_MS = Number(process.env.ROUND_MS || 15000);
+const ROUND_MS = Number(process.env.ROUND_MS || 30000);
+const KEEPALIVE_MS = 25000;
+const REVEAL_ANSWER_MS = Number(process.env.REVEAL_ANSWER_MS || 5000);
+const GAME_START_DELAY_MS = Number(process.env.GAME_START_DELAY_MS || 900);
+const MIN_ANSWER_DISPLAY_MS = Number(process.env.MIN_ANSWER_DISPLAY_MS || 2000);
 
 // Load the question bank once at startup for maximum runtime performance.
 const QUESTIONS_PATH = path.join(__dirname, 'data', 'questions.json');
@@ -148,6 +152,63 @@ function inferProtocol(req) {
   return req.socket && req.socket.encrypted ? 'https' : 'http';
 }
 
+function isPrivateIpv4(ip) {
+  if (ip.startsWith('10.')) return true;
+  if (ip.startsWith('192.168.')) return true;
+
+  if (ip.startsWith('172.')) {
+    const second = Number(ip.split('.')[1] || -1);
+    return second >= 16 && second <= 31;
+  }
+
+  return false;
+}
+
+// Return the most likely LAN IPv4 of this machine, or null.
+function getLanIp() {
+  const ifaces = os.networkInterfaces();
+  const preferred = [];
+  const fallback = [];
+
+  for (const [name, entries] of Object.entries(ifaces)) {
+    if (!entries) continue;
+
+    const lowerName = name.toLowerCase();
+    const isVirtual = ['docker', 'veth', 'br-', 'virbr', 'tun', 'tap', 'tailscale', 'wg']
+      .some((prefix) => lowerName.startsWith(prefix) || lowerName.includes(prefix));
+
+    for (const iface of entries) {
+      if (iface.family !== 'IPv4' || iface.internal) continue;
+      if (!isPrivateIpv4(iface.address)) continue;
+
+      if (isVirtual) {
+        fallback.push(iface.address);
+      } else {
+        preferred.push(iface.address);
+      }
+    }
+  }
+
+  return preferred[0] || fallback[0] || null;
+}
+
+// Build the host part for the join URL, preferring the LAN IP over localhost.
+function resolveJoinHost(req) {
+  const forced = (process.env.PUBLIC_HOST || '').trim();
+  if (forced) return forced;
+
+  const forwarded = req.headers['x-forwarded-host'] || req.headers.host || '';
+  const hostname = forwarded.split(':')[0];
+  if (hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '::1') {
+    const lanIp = getLanIp();
+    if (lanIp) {
+      const port = (forwarded.split(':')[1] || '').replace(/\D/g, '');
+      return port ? `${lanIp}:${port}` : lanIp;
+    }
+  }
+  return forwarded;
+}
+
 // Shared ranking builder reused in round and game summaries.
 function buildRanking(room) {
   return Array.from(room.players.values())
@@ -169,6 +230,8 @@ function pickQuestions(total) {
 function finishRound(room) {
   if (room.state !== 'question' || !room.currentQuestion) return;
   clearTimeout(room.roundTimer);
+  clearTimeout(room.roundEndScheduled);
+  room.roundEndScheduled = null;
 
   const q = room.currentQuestion;
   room.state = 'round_result';
@@ -194,7 +257,7 @@ function finishRound(room) {
 
   setTimeout(() => {
     startNextQuestion(room);
-  }, 3500);
+  }, REVEAL_ANSWER_MS);
 }
 
 // Evaluate one player answer, apply score and auto-close when all have answered.
@@ -216,11 +279,43 @@ function scoreAnswer(room, playerId, optionIndex) {
     player.score += points;
   }
 
+  // Record this player's answer for display.
+  room.currentQuestion.playerAnswers[playerId] = {
+    playerName: player.name,
+    optionIndex: optionIndex,
+  };
+
   send(player.ws, { type: 'answer:ack', accepted: true });
 
+  // Broadcast all answers so far to everyone (for live display).
+  broadcast(room, {
+    type: 'answers:update',
+    playerAnswers: room.currentQuestion.playerAnswers,
+  });
+
   const activePlayers = Array.from(room.players.values()).filter((p) => p.connected).length;
+  
+  // If this is the first answer, record when it came in.
+  if (room.answeredPlayers.size === 1) {
+    room.firstAnswerAt = Date.now();
+  }
+  
+  // Check if all active players have answered.
   if (room.answeredPlayers.size >= activePlayers) {
-    finishRound(room);
+    const timeSinceFirst = Date.now() - room.firstAnswerAt;
+    const delayBeforeEnd = Math.max(0, MIN_ANSWER_DISPLAY_MS - timeSinceFirst);
+    
+    // End round after minimum display time (even if it's 0).
+    if (delayBeforeEnd > 0) {
+      if (!room.roundEndScheduled) {
+        room.roundEndScheduled = setTimeout(() => {
+          room.roundEndScheduled = null;
+          finishRound(room);
+        }, delayBeforeEnd);
+      }
+    } else {
+      finishRound(room);
+    }
   }
 }
 
@@ -259,8 +354,11 @@ function startNextQuestion(room) {
   room.round += 1;
   room.state = 'question';
   room.currentQuestion = q;
+  room.currentQuestion.playerAnswers = {};
   room.answeredPlayers = new Set();
   room.questionStartedAt = Date.now();
+  room.firstAnswerAt = null;
+  room.roundEndScheduled = null;
   logEvent('question_started', { roomCode: room.code, round: room.round, questionId: q.id });
 
   const endsAt = room.questionStartedAt + ROUND_MS;
@@ -289,12 +387,13 @@ function createRoom(hostWs, hostName, req) {
   const code = createRoomCode();
   const id = `host_${Math.random().toString(36).slice(2, 8)}`;
   const protocol = inferProtocol(req);
-  const hostHeader = req.headers['x-forwarded-host'] || req.headers.host;
+  const hostHeader = resolveJoinHost(req);
   const joinUrl = `${protocol}://${hostHeader}/?room=${code}`;
 
   const room = {
     code,
     hostId: id,
+    joinUrl,
     players: new Map(),
     spectators: new Map(),
     createdAt: Date.now(),
@@ -306,6 +405,7 @@ function createRoom(hostWs, hostName, req) {
     answeredPlayers: new Set(),
     questionStartedAt: 0,
     roundTimer: null,
+    roundEndScheduled: null,
     cleanupTimer: null,
     lastRoundResult: null,
     finalRanking: null,
@@ -361,17 +461,23 @@ function joinRoom(playerWs, roomCode, playerName) {
   send(playerWs, {
     type: 'joined',
     playerId: id,
+    joinUrl: room.joinUrl,
     room: roomPublicState(room),
   });
 
   broadcast(room, { type: 'room:update', room: roomPublicState(room) });
 }
 
-// Join as spectator (allowed at any room state).
+// Join as spectator (only allowed while room is in lobby state).
 function joinAsSpectator(ws, roomCode, spectatorName) {
   const room = rooms.get((roomCode || '').toUpperCase());
   if (!room) {
     send(ws, { type: 'error', message: 'Sala no encontrada.' });
+    return;
+  }
+
+  if (room.state !== 'lobby') {
+    send(ws, { type: 'error', message: 'La partida ya ha comenzado.' });
     return;
   }
 
@@ -395,6 +501,7 @@ function joinAsSpectator(ws, roomCode, spectatorName) {
     type: 'joined',
     role: 'spectator',
     playerId: id,
+    joinUrl: room.joinUrl,
     room: roomPublicState(room),
   });
 
@@ -446,6 +553,9 @@ function disconnectPlayer(ws) {
   if (!player && !spectator) return;
 
   if (spectator) {
+    // Ignore stale close events if the spectator already reconnected with a newer ws.
+    if (spectator.ws !== ws) return;
+
     spectator.connected = false;
     logEvent('spectator_disconnected', { roomCode: room.code, spectatorId: playerId, name: spectator.name });
     broadcast(room, { type: 'room:update', room: roomPublicState(room) });
@@ -459,6 +569,9 @@ function disconnectPlayer(ws) {
     }
     return;
   }
+
+  // Ignore stale close events if the player already reconnected with a newer ws.
+  if (player.ws !== ws) return;
 
   player.connected = false;
   logEvent('player_disconnected', { roomCode: room.code, playerId, name: player.name, isHost: !!player.isHost });
@@ -484,6 +597,82 @@ function disconnectPlayer(ws) {
       rooms.delete(room.code);
     }, 30000);
   }
+}
+
+// Explicit leave action requested by client to exit room immediately.
+function leaveRoom(ws) {
+  const { roomCode, playerId } = ws;
+  if (!roomCode || !playerId) return;
+
+  const room = rooms.get(roomCode);
+  if (!room) {
+    ws.roomCode = null;
+    ws.playerId = null;
+    return;
+  }
+
+  const player = room.players.get(playerId);
+  const spectator = room.spectators.get(playerId);
+  if (!player && !spectator) {
+    ws.roomCode = null;
+    ws.playerId = null;
+    return;
+  }
+
+  if (spectator) {
+    room.spectators.delete(playerId);
+    logEvent('spectator_left', { roomCode: room.code, spectatorId: playerId, name: spectator.name });
+    broadcast(room, { type: 'room:update', room: roomPublicState(room) });
+
+    if (room.players.size === 0 && room.spectators.size === 0) {
+      clearTimeout(room.roundTimer);
+      clearTimeout(room.cleanupTimer);
+      rooms.delete(room.code);
+    }
+
+    ws.roomCode = null;
+    ws.playerId = null;
+    return;
+  }
+
+  if (player.isHost) {
+    broadcast(room, {
+      type: 'error',
+      message: 'El anfitrion abandono la partida. Sala cerrada.',
+    });
+    clearTimeout(room.roundTimer);
+    clearTimeout(room.cleanupTimer);
+    rooms.delete(room.code);
+    logEvent('room_closed_host_left', { roomCode: room.code });
+    ws.roomCode = null;
+    ws.playerId = null;
+    return;
+  }
+
+  room.players.delete(playerId);
+  room.answeredPlayers.delete(playerId);
+  logEvent('player_left', { roomCode: room.code, playerId, name: player.name });
+
+  if (room.state === 'question') {
+    const activePlayers = Array.from(room.players.values()).filter((p) => p.connected).length;
+    if (room.answeredPlayers.size >= activePlayers) {
+      finishRound(room);
+      ws.roomCode = null;
+      ws.playerId = null;
+      return;
+    }
+  }
+
+  broadcast(room, { type: 'room:update', room: roomPublicState(room) });
+
+  if (room.players.size === 0 && room.spectators.size === 0) {
+    clearTimeout(room.roundTimer);
+    clearTimeout(room.cleanupTimer);
+    rooms.delete(room.code);
+  }
+
+  ws.roomCode = null;
+  ws.playerId = null;
 }
 
 // Enable websocket support and static file serving.
@@ -557,6 +746,129 @@ function handleRealtimeMessage(ws, req, raw) {
     return;
   }
 
+  // Participant leaves the room intentionally.
+  if (msg.type === 'player:leave') {
+    leaveRoom(ws);
+    send(ws, { type: 'left' });
+    return;
+  }
+
+  // Reconnected client restores their session (player or spectator).
+  if (msg.type === 'player:rejoin') {
+    const room = rooms.get((msg.roomCode || '').toUpperCase());
+    if (!room) {
+      send(ws, { type: 'error', message: 'Sala no encontrada o expirada.' });
+      return;
+    }
+
+    const rejoinPlayer = room.players.get(msg.playerId);
+    if (rejoinPlayer) {
+      rejoinPlayer.ws = ws;
+      rejoinPlayer.connected = true;
+      clearTimeout(room.cleanupTimer);
+      room.cleanupTimer = null;
+      ws.playerId = rejoinPlayer.id;
+      ws.roomCode = room.code;
+
+      send(ws, {
+        type: 'joined',
+        playerId: rejoinPlayer.id,
+        role: rejoinPlayer.isHost ? 'host' : 'player',
+        room: roomPublicState(room),
+      });
+
+      if (room.state === 'question' && room.currentQuestion) {
+        send(ws, {
+          type: 'question',
+          question: {
+            id: room.currentQuestion.id,
+            category: room.currentQuestion.category,
+            difficulty: room.currentQuestion.difficulty,
+            text: room.currentQuestion.question,
+            options: room.currentQuestion.options,
+          },
+          round: room.round,
+          totalRounds: room.totalRounds,
+          endsAt: room.questionStartedAt + ROUND_MS,
+          room: roomPublicState(room),
+        });
+      } else if (room.state === 'round_result' && room.lastRoundResult) {
+        send(ws, {
+          type: 'round:result',
+          correctIndex: room.lastRoundResult.correctIndex,
+          explanation: room.lastRoundResult.explanation,
+          scores: room.lastRoundResult.scores,
+          room: roomPublicState(room),
+        });
+      } else if (room.state === 'ended') {
+        send(ws, {
+          type: 'game:over',
+          scores: room.finalRanking || buildRanking(room),
+          room: roomPublicState(room),
+        });
+      }
+
+      broadcast(room, { type: 'room:update', room: roomPublicState(room) });
+      logEvent('player_rejoined', { roomCode: room.code, playerId: rejoinPlayer.id, name: rejoinPlayer.name });
+      return;
+    }
+
+    const rejoinSpectator = room.spectators.get(msg.playerId);
+    if (rejoinSpectator) {
+      rejoinSpectator.ws = ws;
+      rejoinSpectator.connected = true;
+      clearTimeout(room.cleanupTimer);
+      room.cleanupTimer = null;
+      ws.playerId = rejoinSpectator.id;
+      ws.roomCode = room.code;
+
+      send(ws, {
+        type: 'joined',
+        playerId: rejoinSpectator.id,
+        role: 'spectator',
+        room: roomPublicState(room),
+      });
+
+      if (room.state === 'question' && room.currentQuestion) {
+        send(ws, {
+          type: 'question',
+          question: {
+            id: room.currentQuestion.id,
+            category: room.currentQuestion.category,
+            difficulty: room.currentQuestion.difficulty,
+            text: room.currentQuestion.question,
+            options: room.currentQuestion.options,
+          },
+          round: room.round,
+          totalRounds: room.totalRounds,
+          endsAt: room.questionStartedAt + ROUND_MS,
+          room: roomPublicState(room),
+        });
+      } else if (room.state === 'round_result' && room.lastRoundResult) {
+        send(ws, {
+          type: 'round:result',
+          correctIndex: room.lastRoundResult.correctIndex,
+          explanation: room.lastRoundResult.explanation,
+          scores: room.lastRoundResult.scores,
+          room: roomPublicState(room),
+        });
+      } else if (room.state === 'ended') {
+        send(ws, {
+          type: 'game:over',
+          scores: room.finalRanking || buildRanking(room),
+          room: roomPublicState(room),
+        });
+      }
+
+      broadcast(room, { type: 'room:update', room: roomPublicState(room) });
+      logEvent('spectator_rejoined', { roomCode: room.code, spectatorId: rejoinSpectator.id, name: rejoinSpectator.name });
+      return;
+    }
+
+    send(ws, { type: 'error', message: 'No se pudo reconectar a la sala.' });
+    return;
+  }
+
   // Host starts match from lobby state.
   if (msg.type === 'host:start') {
     const room = rooms.get(ws.roomCode);
@@ -571,7 +883,7 @@ function handleRealtimeMessage(ws, req, raw) {
     room.state = 'starting';
     logEvent('game_start_requested', { roomCode: room.code, by: ws.playerId });
     broadcast(room, { type: 'room:update', room: roomPublicState(room) });
-    setTimeout(() => startNextQuestion(room), 900);
+    setTimeout(() => startNextQuestion(room), GAME_START_DELAY_MS);
     return;
   }
 
@@ -592,6 +904,14 @@ function handleRealtimeMessage(ws, req, raw) {
 wss.on('connection', (ws, req) => {
   logEvent('ws_connected', { remoteAddress: req.socket?.remoteAddress || null });
 
+  // Start keepalive pings every 25s to prevent Safari from closing idle connections.
+  const keepaliveInterval = setInterval(() => {
+    if (ws.readyState === 1) {
+      // 1 = OPEN
+      send(ws, { type: 'ping' });
+    }
+  }, KEEPALIVE_MS);
+
   ws.on('message', (raw) => {
     handleRealtimeMessage(ws, req, raw);
   });
@@ -599,6 +919,7 @@ wss.on('connection', (ws, req) => {
   ws.on('close', () => {
     logEvent('ws_closed', { roomCode: ws.roomCode || null, playerId: ws.playerId || null });
     disconnectPlayer(ws);
+    clearInterval(keepaliveInterval);
   });
 });
 
@@ -635,6 +956,10 @@ app.listen({ port: PORT, host: '0.0.0.0' })
   .then(() => {
     logEvent('server_started', { port: PORT, pid: process.pid, questionsLoaded: QUESTIONS.length });
     console.log(`Quiz server listening on http://localhost:${PORT}`);
+    const lans = getLocalNetworkAddresses();
+    for (const ip of lans) {
+      console.log(`LAN access: http://${ip}:${PORT}`);
+    }
   })
   .catch((error) => {
     logEvent('server_start_error', { message: error.message, stack: error.stack || null });

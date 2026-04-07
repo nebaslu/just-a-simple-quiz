@@ -4,7 +4,7 @@
     <!-- Basic metadata and responsive setup. -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JSQ (Just Simple Quiz)</title>
+    <title>Quiz Arena</title>
 
     <!-- External fonts used by UI identity. -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -21,16 +21,13 @@
     <div class="bg-shape bg-b"></div>
 
     <main class="app">
-      <!-- Top-right connectivity and sound controls. -->
-      <div class="status-controls">
-        <p id="ws-status" class="ws-status ws-connecting">Conectando...</p>
-        <button id="btn-sound-toggle" class="sound-btn" title="Alternar sonido">🔊</button>
-      </div>
+      <!-- WebSocket connection status badge. -->
+      <p id="ws-status" class="ws-status ws-connecting">Conectando...</p>
 
       <!-- Home screen: create room or join room. -->
       <section id="screen-home" class="card">
         <p class="eyebrow">TRIVIAL EN RED LOCAL O INTERNET</p>
-        <h1>JSQ (Just Simple Quiz)</h1>
+        <h1>Quiz Arena</h1>
         <p class="sub">
           Crea una sala, comparte QR/URL y compite en tiempo real desde movil, tablet, PC o TV Android.
         </p>
@@ -127,7 +124,6 @@
     </main>
 
     <!-- Client game logic. -->
-    <script src="/audio.js" defer></script>
     <script src="/app.js" defer></script>
   </body>
 </html>

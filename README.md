@@ -35,6 +35,8 @@ Archivo generado: `data/questions.json`
 npm run dev
 ```
 
+El servidor se reinicia automaticamente cuando cambias `server.js` o archivos JSON en `data/`.
+
 Servidor por defecto: `http://localhost:3000`
 
 ## Jugar en otros dispositivos de la red
@@ -48,7 +50,7 @@ Servidor por defecto: `http://localhost:3000`
 
 - `PORT`: puerto del servidor (por defecto `3000`)
 - `QUESTIONS_PER_MATCH`: rondas por partida (por defecto `10`)
-- `ROUND_MS`: duracion de cada pregunta en ms (por defecto `15000`)
+- `ROUND_MS`: duracion de cada pregunta en ms (por defecto `30000`)
 
 ## Formato de preguntas
 
