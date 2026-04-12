@@ -45,9 +45,9 @@
             <label>
               Numero de preguntas
               <select id="host-rounds">
-                <option value="10" selected>10 preguntas</option>
-                <option value="25">25 preguntas</option>
-                <option value="35">35 preguntas</option>
+                <option value="15" selected>15 preguntas</option>
+                <option value="30">30 preguntas</option>
+                <option value="45">45 preguntas</option>
               </select>
             </label>
             <button id="btn-create">Crear partida</button>
@@ -113,6 +113,7 @@
       <section id="screen-results" class="card hidden">
         <h2 id="results-title">Resultado</h2>
         <p id="round-explanation"></p>
+        <p id="next-question-timer" class="next-question-timer hidden"></p>
         <ul id="scores" class="scores"></ul>
         <button class="ghost btn-leave-match">Abandonar partida</button>
         <button id="btn-back-home" class="ghost">Volver al inicio</button>

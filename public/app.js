@@ -1,6 +1,10 @@
 // Small DOM helper by id.
 const $ = (id) => document.getElementById(id);
 
+// Small delay so selected option feedback is visible before switching screen.
+const ROUND_RESULT_DELAY_MS = 250;
+const FALLBACK_NEXT_QUESTION_MS = 1000;
+
 // Client-side runtime state for one browser session.
 const state = {
   ws: null,
@@ -220,7 +224,7 @@ function connect() {
       // Delay showing results to let player see their selected answer colored.
       setTimeout(() => {
         renderRoundResult(msg);
-      }, 2000);
+      }, ROUND_RESULT_DELAY_MS);
       return;
     }
 
@@ -393,9 +397,13 @@ function updateAnswerDisplay() {
 
     // Find all players who selected this option.
     for (const [playerId, answer] of Object.entries(state.playerAnswers)) {
-      if (answer.optionIndex === idx) {
+      const selectedOptionIndex = Number.isInteger(answer.optionIndex)
+        ? answer.optionIndex
+        : answer.answerData?.optionIndex;
+
+      if (selectedOptionIndex === idx) {
         const colorObj = getPlayerColor(playerId);
-        playerLabels.push({ ...colorObj, name: answer.playerName });
+        playerLabels.push({ ...colorObj, name: answer.playerName || 'Jugador' });
       }
     }
 
@@ -454,6 +462,14 @@ function renderQuestion(msg) {
       btn.onclick = () => {
         if (state.answered || state.role === 'spectator') return;
         state.answered = true;
+        
+        // Add to local player answers for immediate visual feedback
+        state.playerAnswers[state.playerId] = {
+          optionIndex: idx,
+          playerName: localStorage.getItem('playerName') || 'Yo'
+        };
+        updateAnswerDisplay();
+        
         send({ type: 'answer', optionIndex: idx });
         options.querySelectorAll('.option').forEach((button) => {
           button.disabled = true;
@@ -575,6 +591,41 @@ function renderRoundResult(msg) {
   $('results-title').textContent = 'Fin de ronda';
   $('round-explanation').textContent = msg.explanation || 'Revisa el ranking provisional.';
 
+  let nextQuestionTimer = $('next-question-timer');
+  if (!nextQuestionTimer) {
+    nextQuestionTimer = document.createElement('p');
+    nextQuestionTimer.id = 'next-question-timer';
+    nextQuestionTimer.className = 'next-question-timer';
+    $('round-explanation').insertAdjacentElement('afterend', nextQuestionTimer);
+  }
+
+  let targetTs = Date.now() + FALLBACK_NEXT_QUESTION_MS;
+  const serverNow = Number(msg.serverNow);
+  const nextQuestionAt = Number(msg.nextQuestionAt);
+
+  if (Number.isFinite(serverNow) && Number.isFinite(nextQuestionAt) && nextQuestionAt >= serverNow) {
+    // Convert server absolute timestamps to the local clock to absorb clock skew.
+    const clockOffset = Date.now() - serverNow;
+    targetTs = nextQuestionAt + clockOffset;
+  } else if (Number.isFinite(nextQuestionAt)) {
+    targetTs = nextQuestionAt;
+  }
+
+  const renderRemaining = () => {
+    const ms = Math.max(0, targetTs - Date.now());
+    nextQuestionTimer.textContent = `Siguiente pregunta en ${(ms / 1000).toFixed(1)}s`;
+    if (ms <= 0) {
+      clearInterval(state.timerInt);
+      state.timerInt = null;
+      nextQuestionTimer.classList.add('hidden');
+      nextQuestionTimer.textContent = '';
+    }
+  };
+
+  nextQuestionTimer.classList.remove('hidden');
+  renderRemaining();
+  state.timerInt = setInterval(renderRemaining, 100);
+
   const scores = $('scores');
   scores.innerHTML = '';
 
@@ -595,6 +646,11 @@ function renderGameOver(msg) {
 
   $('results-title').textContent = 'Partida terminada';
   $('round-explanation').textContent = 'Clasificacion final.';
+  const nextQuestionTimer = $('next-question-timer');
+  if (nextQuestionTimer) {
+    nextQuestionTimer.classList.add('hidden');
+    nextQuestionTimer.textContent = '';
+  }
 
   const scores = $('scores');
   scores.innerHTML = '';
@@ -615,7 +671,7 @@ $('btn-create').onclick = () => {
   audio.init();
   connect();
   const name = $('host-name').value.trim() || 'Anfitrion';
-  const totalRounds = Number($('host-rounds').value || 10);
+  const totalRounds = Number($('host-rounds').value || 15);
   send({ type: 'host:create', name, totalRounds });
 };
 

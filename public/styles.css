@@ -254,6 +254,12 @@ button.ghost {
   font-weight: 600;
 }
 
+.next-question-timer {
+  margin: 8px 0 12px;
+  color: var(--accent-2);
+  font-weight: 700;
+}
+
 /* QR image frame. */
 .qr {
   width: min(280px, 100%);
