@@ -479,9 +479,19 @@ function renderQuestion(msg) {
       options.appendChild(btn);
     });
   } else if (mode === 'true_false_chain') {
-    // 5 rapid true/false statements
-    state.chainAnswers = [];
-    msg.question.chain.forEach((stmt, idx) => {
+    // True/false statements (adapted to one statement when sourced from classic data).
+    const chain = Array.isArray(msg.question.chain) && msg.question.chain.length > 0
+      ? msg.question.chain
+      : [];
+    const chainLength = chain.length;
+    state.chainAnswers = new Array(chainLength).fill(null);
+
+    if (chainLength === 0) {
+      toast('Esta pregunta no tiene contenido para V/F.');
+      return;
+    }
+
+    chain.forEach((stmt, idx) => {
       const container = document.createElement('div');
       container.style.marginBottom = '12px';
       container.style.padding = '8px';
@@ -507,15 +517,27 @@ function renderQuestion(msg) {
 
         btn.onclick = () => {
           if (state.role === 'spectator') return;
+          if (state.chainAnswers[idx] !== null) return;
+
           const isCorrect = answerIdx === (stmt.answer ? 1 : 0);
           state.chainAnswers[idx] = isCorrect;
           btn.style.backgroundColor = isCorrect ? '#90EE90' : '#FFB6C6';
           btn.style.fontWeight = '700';
 
+          // Lock only this statement once answered.
+          container.querySelectorAll('.chain-btn').forEach((b) => {
+            b.disabled = true;
+          });
+
           // Auto-advance if all answered
-          if (state.chainAnswers.length === 5) {
+          const answeredCount = state.chainAnswers.filter((v) => v !== null).length;
+          if (answeredCount === chainLength) {
             state.answered = true;
-            send({ type: 'answer', chainCorrect: state.chainAnswers.filter(x => x).length });
+            send({
+              type: 'answer',
+              chainCorrect: state.chainAnswers.filter((x) => x === true).length,
+              chainTotal: chainLength,
+            });
             options.querySelectorAll('.chain-btn').forEach((b) => {
               b.disabled = true;
             });

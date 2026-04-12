@@ -15,6 +15,20 @@ const CATEGORY_PLAN = [
 
 const translateCache = new Map();
 
+function normalizeForCompare(text) {
+  return String(text || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/gi, ' ')
+    .trim()
+    .toLowerCase();
+}
+
+function hasEnglishMarkers(text) {
+  return /\b(the|which|what|who|where|when|why|how|true|false|is|are|was|were|not|none|all|in|on|at|for|with|without|and|or)\b/i
+    .test(String(text || ''));
+}
+
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
@@ -97,14 +111,14 @@ async function translateToEs(text) {
   try {
     const res = await fetch(url);
     if (!res.ok) {
-      translateCache.set(clean, clean);
-      return clean;
+      translateCache.set(clean, null);
+      return null;
     }
 
     const data = await res.json();
     if (!Array.isArray(data) || !Array.isArray(data[0])) {
-      translateCache.set(clean, clean);
-      return clean;
+      translateCache.set(clean, null);
+      return null;
     }
 
     const translated = data[0]
@@ -113,12 +127,12 @@ async function translateToEs(text) {
       .join('')
       .trim();
 
-    const out = translated || clean;
+    const out = translated || null;
     translateCache.set(clean, out);
     return out;
   } catch {
-    translateCache.set(clean, clean);
-    return clean;
+    translateCache.set(clean, null);
+    return null;
   }
 }
 
@@ -128,13 +142,25 @@ async function buildQuestion(row, fallbackCategory) {
   const incorrectRaw = row.incorrect_answers.map(decodeOpenTdb);
 
   const question = await translateToEs(questionRaw);
+  if (!question) return null;
+
+  // Guarantee spanish content: if translation did not change source english, discard.
+  const sameAsSource = normalizeForCompare(question) === normalizeForCompare(questionRaw);
+  if (sameAsSource || hasEnglishMarkers(question)) return null;
+
   const correct = await translateToEs(correctRaw);
+  if (!correct || hasEnglishMarkers(correct)) return null;
   const wrongs = [];
   for (const item of incorrectRaw) {
-    wrongs.push(await translateToEs(item));
+    const translated = await translateToEs(item);
+    if (!translated || hasEnglishMarkers(translated)) return null;
+    wrongs.push(translated);
   }
 
   const options = shuffle([correct, ...wrongs]);
+
+  const explanation = `Respuesta correcta: ${correct}.`;
+  if (hasEnglishMarkers(explanation)) return null;
 
   return {
     mode: 'classic',
@@ -143,7 +169,7 @@ async function buildQuestion(row, fallbackCategory) {
     question,
     options,
     answerIndex: options.indexOf(correct),
-    explanation: `Respuesta correcta: ${correct}.`,
+    explanation,
   };
 }
 
@@ -184,9 +210,13 @@ function filterValid(dataset) {
 
 async function main() {
   const total = getArgNumber('--total', 350);
+  if (process.argv.includes('--no-translate')) {
+    throw new Error('No se permite --no-translate: las preguntas deben estar siempre en espanol.');
+  }
   const perCategory = Math.max(5, Math.floor(total / CATEGORY_PLAN.length));
 
   const imported = [];
+  let droppedNotSpanish = 0;
 
   for (const plan of CATEGORY_PLAN) {
     const amount = Math.min(50, perCategory);
@@ -194,7 +224,11 @@ async function main() {
 
     for (const row of rows) {
       const q = await buildQuestion(row, plan.category);
-      imported.push(q);
+      if (q) {
+        imported.push(q);
+      } else {
+        droppedNotSpanish += 1;
+      }
     }
 
     console.log(`Categoria ${plan.category}: ${rows.length} descargadas`);
@@ -211,6 +245,9 @@ async function main() {
   }
 
   const valid = filterValid(deduped);
+  if (droppedNotSpanish > 0) {
+    console.log(`  (${droppedNotSpanish} preguntas descartadas por traduccion no valida al espanol)`);
+  }
   valid.forEach((q, idx) => {
     q.id = `otdb_${String(idx + 1).padStart(4, '0')}`;
   });

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon --watch server.js --watch data --ext js,json --ignore 'logs/*' server.js",
+    "dev": "nodemon --watch server.js --watch lib --watch data --ext js,json --ignore 'logs/*' server.js",
     "questions:generate": "node scripts/generate-questions.js",
     "questions:import:opentdb": "node scripts/import-opentdb-es.js",
     "questions:merge": "node scripts/merge-questions.js",

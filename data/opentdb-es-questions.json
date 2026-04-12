@@ -3,916 +3,121 @@
     "mode": "classic",
     "category": "Ciencia",
     "difficulty": "facil",
-    "question": "¿Cuántos huesos hay en el cuerpo humano?",
+    "question": "¿Qué orgánulo ayuda en la síntesis de ADN en las células?",
     "options": [
-      "206",
-      "203",
-      "200",
-      "209"
+      "mitocondrias",
+      "Núcleos",
+      "ribosomas",
+      "lisosomas"
     ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: 206.",
+    "answerIndex": 2,
+    "explanation": "Respuesta correcta: ribosomas.",
     "id": "otdb_0001"
   },
   {
     "mode": "classic",
     "category": "Ciencia",
     "difficulty": "facil",
-    "question": "¿De quién lleva el nombre el elemento químico curio?",
+    "question": "¿Cuántas lunas tiene Plutón?",
     "options": [
-      "El rover Curiosity",
-      "María y Pedro Curie",
-      "Jorge el curioso",
-      "Esteban Curry"
+      "Dos",
+      "Tres",
+      "Uno",
+      "Cinco"
     ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: María y Pedro Curie.",
+    "answerIndex": 3,
+    "explanation": "Respuesta correcta: Cinco.",
     "id": "otdb_0002"
   },
   {
     "mode": "classic",
     "category": "Ciencia",
-    "difficulty": "media",
-    "question": "¿El deuterio es un isótopo de qué elemento?",
+    "difficulty": "dificil",
+    "question": "¿El ácido fólico es la forma sintética de qué vitamina?",
     "options": [
-      "Hidrógeno",
-      "Neón",
-      "Nitrógeno",
-      "Helio"
+      "vitamina a",
+      "vitamina d",
+      "vitamina B",
+      "vitamina c"
     ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Hidrógeno.",
+    "answerIndex": 2,
+    "explanation": "Respuesta correcta: vitamina B.",
     "id": "otdb_0003"
   },
   {
     "mode": "classic",
     "category": "Ciencia",
     "difficulty": "dificil",
-    "question": "¿El gorila de las tierras bajas occidentales se conoce científicamente como?",
+    "question": "¿Cuántos protones hay en un átomo de oxígeno?",
     "options": [
-      "Gorila Beringei Beringei",
-      "Gorila Beringei Graueri",
-      "Gorila Gorila Gorila",
-      "Gorila Gorila Diehl"
+      "cuatro",
+      "Dos",
+      "Ocho",
+      "Seis"
     ],
     "answerIndex": 2,
-    "explanation": "Respuesta correcta: Gorila Gorila Gorila.",
+    "explanation": "Respuesta correcta: Ocho.",
     "id": "otdb_0004"
   },
   {
     "mode": "classic",
     "category": "Ciencia",
-    "difficulty": "facil",
-    "question": "¿De qué isótopo se compone principalmente el uranio natural?",
+    "difficulty": "dificil",
+    "question": "¿Cuál de los siguientes NO es un elemento real?",
     "options": [
-      "239",
-      "235",
-      "233",
-      "238"
+      "Praseodimio",
+      "vitrenio",
+      "París",
+      "Hassio"
     ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: 238.",
+    "answerIndex": 1,
+    "explanation": "Respuesta correcta: vitrenio.",
     "id": "otdb_0005"
   },
   {
     "mode": "classic",
     "category": "Ciencia",
-    "difficulty": "facil",
-    "question": "¿Cuál es el planeta más grande del Sistema Solar?",
+    "difficulty": "media",
+    "question": "¿Qué edad tiene aproximadamente la Tierra?",
     "options": [
-      "Júpiter",
-      "Saturno",
-      "Tierra",
-      "Marte"
+      "2,5 mil millones de años",
+      "3,5 mil millones de años",
+      "5,5 mil millones de años",
+      "4,5 mil millones de años"
     ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Júpiter.",
+    "answerIndex": 3,
+    "explanation": "Respuesta correcta: 4,5 mil millones de años.",
     "id": "otdb_0006"
   },
   {
     "mode": "classic",
     "category": "Ciencia",
-    "difficulty": "dificil",
-    "question": "¿La teoría del Big Bang fue teorizada por primera vez por un sacerdote de qué ideología religiosa?",
+    "difficulty": "media",
+    "question": "¿El Sol se compone principalmente de qué dos elementos?",
     "options": [
-      "cristiano",
-      "católico",
-      "judío",
-      "islámico"
+      "Hidrógeno y Helio",
+      "Carbono y helio",
+      "Hidrógeno y nitrógeno",
+      "Carbono y nitrógeno"
     ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: católico.",
+    "answerIndex": 0,
+    "explanation": "Respuesta correcta: Hidrógeno y Helio.",
     "id": "otdb_0007"
   },
   {
     "mode": "classic",
     "category": "Ciencia",
-    "difficulty": "media",
-    "question": "¿Un positrón es una antipartícula de qué?",
+    "difficulty": "facil",
+    "question": "¿Cuál es la velocidad de la luz en el vacío?",
     "options": [
-      "Electrón",
-      "Protón",
-      "Neutrón",
-      "Fotón"
+      "308.215.043m/s",
+      "299.792.458m/s",
+      "751.665.014.151m/s",
+      "50.461m/s"
     ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Electrón.",
+    "answerIndex": 1,
+    "explanation": "Respuesta correcta: 299.792.458m/s.",
     "id": "otdb_0008"
-  },
-  {
-    "mode": "classic",
-    "category": "Ciencia",
-    "difficulty": "media",
-    "question": "¿Cuál de los siguientes NO es un componente eléctrico pasivo?",
-    "options": [
-      "Inductor",
-      "Resistor",
-      "Condensador",
-      "Transistor"
-    ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: Transistor.",
-    "id": "otdb_0009"
-  },
-  {
-    "mode": "classic",
-    "category": "Ciencia",
-    "difficulty": "dificil",
-    "question": "¿Qué enfermedad genética es causada por tener un cromosoma Y adicional (XYY)?",
-    "options": [
-      "El síndrome de Jacob",
-      "Síndrome de Klinefelter",
-      "El síndrome de Turner",
-      "síndrome de down"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: El síndrome de Jacob.",
-    "id": "otdb_0010"
-  },
-  {
-    "mode": "classic",
-    "category": "Ciencia",
-    "difficulty": "dificil",
-    "question": "¿Cuál es la unidad SI estándar para la intensidad luminosa?",
-    "options": [
-      "faraday",
-      "Candela",
-      "Culombio",
-      "Lúmenes"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: Candela.",
-    "id": "otdb_0011"
-  },
-  {
-    "mode": "classic",
-    "category": "Ciencia",
-    "difficulty": "facil",
-    "question": "¿Cuál de estos elementos es un metaloide?",
-    "options": [
-      "Rubidio",
-      "Antimonio",
-      "Bromo",
-      "Estaño"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: Antimonio.",
-    "id": "otdb_0012"
-  },
-  {
-    "mode": "classic",
-    "category": "Ciencia",
-    "difficulty": "dificil",
-    "question": "¿Cuáles de las siguientes son células del sistema inmunológico adaptativo?",
-    "options": [
-      "Células asesinas naturales",
-      "glóbulos blancos",
-      "Células dendríticas",
-      "Células T citotóxicas"
-    ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: Células T citotóxicas.",
-    "id": "otdb_0013"
-  },
-  {
-    "mode": "classic",
-    "category": "Ciencia",
-    "difficulty": "facil",
-    "question": "¿Cuál es la unidad estándar SI para masa?",
-    "options": [
-      "Kilogramo",
-      "Libra",
-      "Tonelada",
-      "Gramo"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Kilogramo.",
-    "id": "otdb_0014"
-  },
-  {
-    "mode": "classic",
-    "category": "Ciencia",
-    "difficulty": "media",
-    "question": "¿Qué desierto es el único desierto del mundo donde crece de forma autóctona el cactus \"Saguaro\"?",
-    "options": [
-      "El desierto de Gobi",
-      "El desierto de Yuma",
-      "El desierto árabe",
-      "El desierto de Sonora"
-    ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: El desierto de Sonora.",
-    "id": "otdb_0015"
-  },
-  {
-    "mode": "classic",
-    "category": "Ciencia",
-    "difficulty": "dificil",
-    "question": "En física, ¿la conservación de la energía y la conservación del momento son consecuencias de cuál de las siguientes?",
-    "options": [
-      "Teorema de Noether",
-      "Teorema de Bell",
-      "Teorema de Carnot",
-      "Teorema de Wick"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Teorema de Noether.",
-    "id": "otdb_0016"
-  },
-  {
-    "mode": "classic",
-    "category": "Ciencia",
-    "difficulty": "media",
-    "question": "¿En qué etapa de desarrollo permanecen la mayoría de las células eucariotas durante la mayor parte de su vida?",
-    "options": [
-      "Interfase",
-      "Profase",
-      "Telofase",
-      "Estasis"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Interfase.",
-    "id": "otdb_0017"
-  },
-  {
-    "mode": "classic",
-    "category": "Ciencia",
-    "difficulty": "facil",
-    "question": "¿Cuántos planetas forman nuestro Sistema Solar?",
-    "options": [
-      "9",
-      "8",
-      "6",
-      "7"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: 8.",
-    "id": "otdb_0018"
-  },
-  {
-    "mode": "classic",
-    "category": "Ciencia",
-    "difficulty": "facil",
-    "question": "¿Cuál es el animal más grande actualmente en la Tierra?",
-    "options": [
-      "Jirafa",
-      "Calamar colosal",
-      "Orca",
-      "ballena azul"
-    ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: ballena azul.",
-    "id": "otdb_0019"
-  },
-  {
-    "mode": "classic",
-    "category": "Ciencia",
-    "difficulty": "media",
-    "question": "¿Las lunas Miranda, Ariel, Umbriel, Titania y Oberon orbitan a qué planeta?",
-    "options": [
-      "Júpiter",
-      "Neptuno",
-      "Urano",
-      "Venus"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Urano.",
-    "id": "otdb_0020"
-  },
-  {
-    "mode": "classic",
-    "category": "Ciencia",
-    "difficulty": "facil",
-    "question": "¿Cuál es el hueso más largo del cuerpo humano?",
-    "options": [
-      "Fíbula",
-      "Cubito",
-      "Fémur",
-      "Escápula"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Fémur.",
-    "id": "otdb_0021"
-  },
-  {
-    "mode": "classic",
-    "category": "Ciencia",
-    "difficulty": "dificil",
-    "question": "¿Qué unidad científica lleva el nombre de un noble italiano?",
-    "options": [
-      "Voltio",
-      "Pascal",
-      "Ohm",
-      "hercios"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Voltio.",
-    "id": "otdb_0022"
-  },
-  {
-    "mode": "classic",
-    "category": "Ciencia",
-    "difficulty": "media",
-    "question": "¿A qué elemento se refiere Au en la tabla periódica?",
-    "options": [
-      "Níquel",
-      "Plata",
-      "Oxígeno",
-      "Oro"
-    ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: Oro.",
-    "id": "otdb_0023"
-  },
-  {
-    "mode": "classic",
-    "category": "Ciencia",
-    "difficulty": "facil",
-    "question": "¿Cuántas cámaras tiene el corazón humano?",
-    "options": [
-      "6",
-      "4",
-      "2",
-      "3"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: 4.",
-    "id": "otdb_0024"
-  },
-  {
-    "mode": "classic",
-    "category": "Ciencia",
-    "difficulty": "media",
-    "question": "¿Ganímedes es la luna más grande de qué planeta?",
-    "options": [
-      "Marte",
-      "Urano",
-      "Júpiter",
-      "Neptuno"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Júpiter.",
-    "id": "otdb_0025"
-  },
-  {
-    "mode": "classic",
-    "category": "Ciencia",
-    "difficulty": "dificil",
-    "question": "¿Cómo se llama la ilusión auditiva de una nota que parece elevarse infinitamente?",
-    "options": [
-      "Tono de Shepard",
-      "Efecto francés",
-      "Ilusión de Glissandro",
-      "Efecto McGurck"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Tono de Shepard.",
-    "id": "otdb_0026"
-  },
-  {
-    "mode": "classic",
-    "category": "Ciencia",
-    "difficulty": "media",
-    "question": "¿Quién hizo el descubrimiento de los rayos X?",
-    "options": [
-      "Albert Einstein",
-      "Wilhelm Conrad Röntgen",
-      "James Watt",
-      "Tomás Alva Edison"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: Wilhelm Conrad Röntgen.",
-    "id": "otdb_0027"
-  },
-  {
-    "mode": "classic",
-    "category": "Ciencia",
-    "difficulty": "facil",
-    "question": "¿Cuántos planetas hay en nuestro Sistema Solar?",
-    "options": [
-      "Siete",
-      "Ocho",
-      "Nueve",
-      "Diez"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: Ocho.",
-    "id": "otdb_0028"
-  },
-  {
-    "mode": "classic",
-    "category": "Ciencia",
-    "difficulty": "media",
-    "question": "¿El agua desionizada es agua con cuál de los siguientes se elimina?",
-    "options": [
-      "Átomos sin carga",
-      "Hidrógeno",
-      "Hierro",
-      "Oxígeno"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Hierro.",
-    "id": "otdb_0029"
-  },
-  {
-    "mode": "classic",
-    "category": "Ciencia",
-    "difficulty": "facil",
-    "question": "¿Qué significa LÁSER?",
-    "options": [
-      "Amplificación de la luz mediante emisión estimulada de radiación.",
-      "Amplificador de luz mediante energía de reserva de radio.",
-      "Análisis Lite por ecorazer estéreo.",
-      "Antimateria viva al entrar de pie en el rango"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Amplificación de la luz mediante emisión estimulada de radiación..",
-    "id": "otdb_0030"
-  },
-  {
-    "mode": "classic",
-    "category": "Ciencia",
-    "difficulty": "facil",
-    "question": "¿Cuál de los siguientes elementos interviene en hacer que la sangre humana sea roja?",
-    "options": [
-      "Hierro",
-      "Cobalto",
-      "Cobre",
-      "Iridio"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Hierro.",
-    "id": "otdb_0031"
-  },
-  {
-    "mode": "classic",
-    "category": "Ciencia",
-    "difficulty": "media",
-    "question": "¿Cómo se llama la capa más baja de la atmósfera terrestre?",
-    "options": [
-      "termosfera",
-      "Estratosfera",
-      "Troposfera",
-      "mesosfera"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Troposfera.",
-    "id": "otdb_0032"
-  },
-  {
-    "mode": "classic",
-    "category": "Ciencia",
-    "difficulty": "media",
-    "question": "¿De qué ciudad danesa lleva el nombre el elemento número 72 de la tabla periódica?",
-    "options": [
-      "herning",
-      "Odense",
-      "Copenhague",
-      "Skågen"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Copenhague.",
-    "id": "otdb_0033"
-  },
-  {
-    "mode": "classic",
-    "category": "Ciencia",
-    "difficulty": "facil",
-    "question": "Este elemento, cuando se supera con calor y presión extremos, crea diamantes.",
-    "options": [
-      "Carbón",
-      "Oxígeno",
-      "Hidrógeno",
-      "Nitrógeno"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Carbón.",
-    "id": "otdb_0034"
-  },
-  {
-    "mode": "classic",
-    "category": "Ciencia",
-    "difficulty": "dificil",
-    "question": "¿Cuál no es un tipo de neurona?",
-    "options": [
-      "Neurona perceptiva",
-      "Neurona sensorial",
-      "Neurona motora",
-      "interneurona"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Neurona perceptiva.",
-    "id": "otdb_0035"
-  },
-  {
-    "mode": "classic",
-    "category": "Ciencia",
-    "difficulty": "dificil",
-    "question": "¿Qué satélite Landsat no logró alcanzar la órbita?",
-    "options": [
-      "satélite 5",
-      "satélite 4",
-      "satélite 3",
-      "satélite 6"
-    ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: satélite 6.",
-    "id": "otdb_0036"
-  },
-  {
-    "mode": "classic",
-    "category": "Ciencia",
-    "difficulty": "media",
-    "question": "Un organismo descrito como \"heliotrópico\" tiene tendencia a moverse ¿hacia cuál de estas cosas?",
-    "options": [
-      "Árboles",
-      "Polen",
-      "Luz",
-      "Agua"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Luz.",
-    "id": "otdb_0037"
-  },
-  {
-    "mode": "classic",
-    "category": "Ciencia",
-    "difficulty": "media",
-    "question": "¿Qué planeta del Sistema Solar es el más cercano al Sol?",
-    "options": [
-      "Tierra",
-      "Marte",
-      "Mercurio",
-      "Venus"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Mercurio.",
-    "id": "otdb_0038"
-  },
-  {
-    "mode": "classic",
-    "category": "Ciencia",
-    "difficulty": "dificil",
-    "question": "¿Qué causa el sonido de los latidos del corazón?",
-    "options": [
-      "Cierre de las válvulas cardíacas.",
-      "Sangre saliendo del corazón.",
-      "Relajación de las cámaras del corazón.",
-      "Contracción de las cámaras del corazón."
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Cierre de las válvulas cardíacas..",
-    "id": "otdb_0039"
-  },
-  {
-    "mode": "classic",
-    "category": "Ciencia",
-    "difficulty": "facil",
-    "question": "¿Cuál es la \"potencia\" de la célula animal eucariota?",
-    "options": [
-      "Núcleo",
-      "mitocondrias",
-      "cloroplasto",
-      "Retículo endoplásmico"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: mitocondrias.",
-    "id": "otdb_0040"
-  },
-  {
-    "mode": "classic",
-    "category": "Ciencia",
-    "difficulty": "facil",
-    "question": "¿Qué gas forma aproximadamente el 78% de la atmósfera terrestre?",
-    "options": [
-      "Argón",
-      "Oxígeno",
-      "Dióxido de carbono",
-      "Nitrógeno"
-    ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: Nitrógeno.",
-    "id": "otdb_0041"
-  },
-  {
-    "mode": "classic",
-    "category": "Ciencia",
-    "difficulty": "dificil",
-    "question": "¿Qué nucleótido se empareja con la guanina?",
-    "options": [
-      "adenina",
-      "uracilo",
-      "timina",
-      "citosina"
-    ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: citosina.",
-    "id": "otdb_0042"
-  },
-  {
-    "mode": "classic",
-    "category": "Ciencia",
-    "difficulty": "media",
-    "question": "¿Cuál de los siguientes hombres no tiene un elemento químico que lleve su nombre?",
-    "options": [
-      "Enrico Fermi",
-      "Señor Isaac Newton",
-      "Albert Einstein",
-      "Niels Bohr"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: Señor Isaac Newton.",
-    "id": "otdb_0043"
-  },
-  {
-    "mode": "classic",
-    "category": "Ciencia",
-    "difficulty": "facil",
-    "question": "¿Cuál es el símbolo elemental del mercurio?",
-    "options": [
-      "Hg",
-      "hola",
-      "A mí",
-      "Mc"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Hg.",
-    "id": "otdb_0044"
-  },
-  {
-    "mode": "classic",
-    "category": "Ciencia",
-    "difficulty": "facil",
-    "question": "¿Cuál es la capa delgada y más externa de la Tierra?",
-    "options": [
-      "Manto",
-      "Corteza",
-      "Exosfera",
-      "Núcleo exterior"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: Corteza.",
-    "id": "otdb_0045"
-  },
-  {
-    "mode": "classic",
-    "category": "Ciencia",
-    "difficulty": "dificil",
-    "question": "¿Qué evento de extinción importante fue causado por la colisión de un asteroide y eliminó a la mayoría de los dinosaurios no aviares?",
-    "options": [
-      "Pérmico-Triásico",
-      "Ordovícico-Silúrico",
-      "Cretácico-Paleógeno",
-      "Triásico-Jurásico"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Cretácico-Paleógeno.",
-    "id": "otdb_0046"
-  },
-  {
-    "mode": "classic",
-    "category": "Ciencia",
-    "difficulty": "dificil",
-    "question": "Si plantaras las semillas de Quercus robur ¿qué crecería?",
-    "options": [
-      "Granos",
-      "verduras",
-      "flores",
-      "Árboles"
-    ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: Árboles.",
-    "id": "otdb_0047"
-  },
-  {
-    "mode": "classic",
-    "category": "Ciencia",
-    "difficulty": "media",
-    "question": "¿Qué medicamento alguna vez se usó comúnmente como veneno para ratas?",
-    "options": [
-      "Eliquis",
-      "tylenol",
-      "cumadina",
-      "Aspirina"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: cumadina.",
-    "id": "otdb_0048"
-  },
-  {
-    "mode": "classic",
-    "category": "Ciencia",
-    "difficulty": "dificil",
-    "question": "¿Dónde se encuentra el músculo glúteo mayor?",
-    "options": [
-      "Brazo",
-      "Torso",
-      "Culata",
-      "Cabeza"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Culata.",
-    "id": "otdb_0049"
-  },
-  {
-    "mode": "classic",
-    "category": "Ciencia",
-    "difficulty": "facil",
-    "question": "¿Cuál es la unidad estándar del SI para el tiempo?",
-    "options": [
-      "Segundo",
-      "Minuto",
-      "Día",
-      "Hora"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Segundo.",
-    "id": "otdb_0050"
-  },
-  {
-    "mode": "classic",
-    "category": "Historia",
-    "difficulty": "facil",
-    "question": "¿Cuál de estos países permaneció neutral durante la Segunda Guerra Mundial?",
-    "options": [
-      "Reino Unido",
-      "Francia",
-      "Italia",
-      "Suiza"
-    ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: Suiza.",
-    "id": "otdb_0051"
-  },
-  {
-    "mode": "classic",
-    "category": "Historia",
-    "difficulty": "media",
-    "question": "¿Cuándo Estados Unidos declaró formalmente la guerra a Japón y entró en la Segunda Guerra Mundial?",
-    "options": [
-      "6 de junio de 1944",
-      "8 de diciembre de 1941",
-      "22 de junio de 1941",
-      "1 de septiembre de 1939"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: 8 de diciembre de 1941.",
-    "id": "otdb_0052"
-  },
-  {
-    "mode": "classic",
-    "category": "Historia",
-    "difficulty": "media",
-    "question": "En la Primera Guerra Mundial, ¿cómo se llamaba la alianza de Alemania, Austria-Hungría, el Imperio Otomano y Bulgaria?",
-    "options": [
-      "Alianza autoritaria",
-      "Las potencias del Eje",
-      "Las potencias centrales",
-      "La Federación de Imperios"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Las potencias centrales.",
-    "id": "otdb_0053"
-  },
-  {
-    "mode": "classic",
-    "category": "Historia",
-    "difficulty": "dificil",
-    "question": "¿Por qué civilización construyó la antigua ciudad de Chichén Itzá?",
-    "options": [
-      "Incas",
-      "mayas",
-      "Toltecas",
-      "aztecas"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: mayas.",
-    "id": "otdb_0054"
-  },
-  {
-    "mode": "classic",
-    "category": "Historia",
-    "difficulty": "media",
-    "question": "¿Quién fue el líder de Suecia en la Gran Guerra del Norte?",
-    "options": [
-      "Gustavo Adolfo",
-      "Pedro el grande",
-      "Carlos XII",
-      "Por Albin Hansson"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Carlos XII.",
-    "id": "otdb_0055"
-  },
-  {
-    "mode": "classic",
-    "category": "Historia",
-    "difficulty": "dificil",
-    "question": "¿En qué año se firmó la Declaración de Independencia de los Estados Unidos?",
-    "options": [
-      "1777",
-      "1775",
-      "1774",
-      "1776"
-    ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: 1776.",
-    "id": "otdb_0056"
-  },
-  {
-    "mode": "classic",
-    "category": "Historia",
-    "difficulty": "media",
-    "question": "¿Qué enfermedad paralizó al presidente Franklin D. Roosevelt y lo llevó a ayudar a la nación a encontrar una cura?",
-    "options": [
-      "Cáncer",
-      "Meningitis",
-      "Polio",
-      "VIH"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Polio.",
-    "id": "otdb_0057"
-  },
-  {
-    "mode": "classic",
-    "category": "Historia",
-    "difficulty": "dificil",
-    "question": "¿En qué año se fundó Canadá?",
-    "options": [
-      "1668",
-      "1867",
-      "1859",
-      "1798"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: 1867.",
-    "id": "otdb_0058"
-  },
-  {
-    "mode": "classic",
-    "category": "Historia",
-    "difficulty": "media",
-    "question": "¿En qué año comenzó la Primera Guerra Mundial?",
-    "options": [
-      "1914",
-      "1939",
-      "1917",
-      "1930"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: 1914.",
-    "id": "otdb_0059"
-  },
-  {
-    "mode": "classic",
-    "category": "Historia",
-    "difficulty": "dificil",
-    "question": "¿Cuál era el verdadero nombre del líder nacional albanés Skanderbeg?",
-    "options": [
-      "Mirash Krasniki",
-      "Diturak Zhulati",
-      "Gjergj Kastrioti",
-      "Iskander Bejko"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Gjergj Kastrioti.",
-    "id": "otdb_0060"
-  },
-  {
-    "mode": "classic",
-    "category": "Historia",
-    "difficulty": "dificil",
-    "question": "¿Cuál fue el primer objeto registrado que llegó al espacio?",
-    "options": [
-      "Sputnik I",
-      "Tapa de alcantarilla americana",
-      "Parachoques-WAC",
-      "Sputnik II"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Parachoques-WAC.",
-    "id": "otdb_0061"
   },
   {
     "mode": "classic",
@@ -920,2639 +125,389 @@
     "difficulty": "media",
     "question": "¿En qué año Neil Armstrong y Buzz Aldrin llegaron a la Luna?",
     "options": [
+      "1966",
       "1969",
       "1965",
-      "1973",
-      "1966"
+      "1973"
     ],
-    "answerIndex": 0,
+    "answerIndex": 1,
     "explanation": "Respuesta correcta: 1969.",
-    "id": "otdb_0062"
-  },
-  {
-    "mode": "classic",
-    "category": "Historia",
-    "difficulty": "media",
-    "question": "¿Cómo se llama el barco que se encontraba a sólo unas millas del RMS Titanic cuando chocó contra un iceberg el 14 de abril de 1912?",
-    "options": [
-      "Cristol",
-      "Comercio",
-      "Cárpatos",
-      "californiano"
-    ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: californiano.",
-    "id": "otdb_0063"
-  },
-  {
-    "mode": "classic",
-    "category": "Historia",
-    "difficulty": "media",
-    "question": "¿Cómo se llama el famoso líder apache que murió en 1909 a la edad de 70 años?",
-    "options": [
-      "caballo loco",
-      "Gerónimo",
-      "Nube roja",
-      "Toro Sentado"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: Gerónimo.",
-    "id": "otdb_0064"
+    "id": "otdb_0009"
   },
   {
     "mode": "classic",
     "category": "Historia",
     "difficulty": "facil",
-    "question": "¿En qué país se construyó y exportó la Estatua de la Libertad a los Estados Unidos de América?",
+    "question": "¿Pol Pot fue el ex dictador de qué país?",
     "options": [
-      "Francia",
-      "España",
-      "Inglaterra",
-      "Alemania"
+      "Vietnam",
+      "Corea del Norte",
+      "Laos",
+      "Camboya"
+    ],
+    "answerIndex": 3,
+    "explanation": "Respuesta correcta: Camboya.",
+    "id": "otdb_0010"
+  },
+  {
+    "mode": "classic",
+    "category": "Historia",
+    "difficulty": "media",
+    "question": "¿Cuál fue el nombre en clave de la invasión alemana de la Unión Soviética en la Segunda Guerra Mundial?",
+    "options": [
+      "Operación Barbarroja",
+      "Operación impensable",
+      "Operación Molotov",
+      "Operación Kaiserschlact"
     ],
     "answerIndex": 0,
-    "explanation": "Respuesta correcta: Francia.",
-    "id": "otdb_0065"
-  },
-  {
-    "mode": "classic",
-    "category": "Historia",
-    "difficulty": "facil",
-    "question": "En 1720, Inglaterra estaba endeudada enormemente y se vio involucrada en la Burbuja de los Mares del Sur. ¿Quién fue el principal autor intelectual detrás de esto?",
-    "options": [
-      "Juan Iglesias",
-      "Daniel De Foe",
-      "Roberto Harley",
-      "Juan Blunt"
-    ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: Juan Blunt.",
-    "id": "otdb_0066"
-  },
-  {
-    "mode": "classic",
-    "category": "Historia",
-    "difficulty": "media",
-    "question": "¿Qué día invadió Alemania Polonia?",
-    "options": [
-      "7 de diciembre de 1941",
-      "7 de julio de 1937",
-      "22 de junio de 1941",
-      "1 de septiembre de 1939"
-    ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: 1 de septiembre de 1939.",
-    "id": "otdb_0067"
+    "explanation": "Respuesta correcta: Operación Barbarroja.",
+    "id": "otdb_0011"
   },
   {
     "mode": "classic",
     "category": "Historia",
     "difficulty": "dificil",
-    "question": "¿Cuándo fue nombrado Adolf Hitler canciller de Alemania?",
+    "question": "¿Cuál de los siguientes fue Bohdan Khmelnytsky?",
     "options": [
-      "1 de septiembre de 1939",
-      "27 de febrero de 1933",
-      "30 de enero de 1933",
-      "6 de octubre de 1939"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: 30 de enero de 1933.",
-    "id": "otdb_0068"
-  },
-  {
-    "mode": "classic",
-    "category": "Historia",
-    "difficulty": "facil",
-    "question": "¿Cuánto duró la Segunda Guerra Mundial?",
-    "options": [
-      "5 años",
-      "6 años",
-      "4 años",
-      "7 años"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: 6 años.",
-    "id": "otdb_0069"
-  },
-  {
-    "mode": "classic",
-    "category": "Historia",
-    "difficulty": "media",
-    "question": "¿Qué civilización estadounidense es la fuente de la creencia de que el mundo terminaría o cambiaría drásticamente el 21 de diciembre de 2012?",
-    "options": [
-      "Los navajos",
-      "Los aztecas",
-      "los mayas",
-      "los incas"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: los mayas.",
-    "id": "otdb_0070"
-  },
-  {
-    "mode": "classic",
-    "category": "Historia",
-    "difficulty": "media",
-    "question": "¿Quién fue el tutor de Alejandro Magno?",
-    "options": [
-      "Platón",
-      "Sócrates",
-      "rey felipe",
-      "Aristóteles"
-    ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: Aristóteles.",
-    "id": "otdb_0071"
-  },
-  {
-    "mode": "classic",
-    "category": "Historia",
-    "difficulty": "dificil",
-    "question": "¿Cuál de estos físicos teóricos predijo primero la existencia de la antimateria?",
-    "options": [
-      "Pablo Dirac",
-      "Albert Einstein",
-      "Werner Heisenberg",
-      "Niels Bohr"
+      "Líder de los cosacos ucranianos",
+      "Príncipe de Valaquia",
+      "Secretario General del Partido Comunista de la URSS",
+      "Gran Príncipe de Novgorod"
     ],
     "answerIndex": 0,
-    "explanation": "Respuesta correcta: Pablo Dirac.",
-    "id": "otdb_0072"
+    "explanation": "Respuesta correcta: Líder de los cosacos ucranianos.",
+    "id": "otdb_0012"
   },
   {
     "mode": "classic",
     "category": "Historia",
     "difficulty": "facil",
-    "question": "¿Bajo cuál de las siguientes Brasil era una antigua colonia?",
+    "question": "¿Cómo era mejor conocido William Frederick Cody?",
     "options": [
-      "Francia",
-      "Portugal",
-      "España",
-      "Países Bajos"
+      "Bill Pawnee",
+      "billete de búfalo",
+      "El salvaje Bill Hickok",
+      "Billy el niño"
     ],
     "answerIndex": 1,
-    "explanation": "Respuesta correcta: Portugal.",
-    "id": "otdb_0073"
+    "explanation": "Respuesta correcta: billete de búfalo.",
+    "id": "otdb_0013"
   },
   {
     "mode": "classic",
     "category": "Historia",
     "difficulty": "media",
-    "question": "¿Qué edad tenía Lyndon B. Johnson cuando asumió el cargo de presidente de los Estados Unidos?",
+    "question": "¿Cuál es el recurso mnemotécnico para recordar el destino de las esposas de Enrique VIII?",
     "options": [
-      "50",
-      "54",
-      "60",
-      "55"
+      "Murió, Decapitado, Divorciado, Decapitado, Sobrevivido, Divorciado",
+      "Divorciado, Decapitado, Muerto, Divorciado, Decapitado, Sobrevivido",
+      "Sobrevivió, Decapitado, Murió, Divorciado, Divorciado, Decapitado",
+      "Decapitado, Muerto, Divorciado, Divorciado, Decapitado, Sobrevivido"
     ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: 55.",
-    "id": "otdb_0074"
+    "answerIndex": 1,
+    "explanation": "Respuesta correcta: Divorciado, Decapitado, Muerto, Divorciado, Decapitado, Sobrevivido.",
+    "id": "otdb_0014"
   },
   {
     "mode": "classic",
     "category": "Historia",
     "difficulty": "dificil",
-    "question": "¿Qué presidente de Estados Unidos fue demasiado honesto para mentirle a su padre acerca de talar un cerezo?",
+    "question": "¿Qué país del Sudeste Asiático se conocía antiguamente como 'Lan Xang'?",
     "options": [
-      "Abraham Lincoln",
-      "James Monroe",
-      "Thomas Jefferson",
-      "George Washington"
+      "Vietnam",
+      "Laos",
+      "Camboya",
+      "Tailandia"
     ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: George Washington.",
-    "id": "otdb_0075"
+    "answerIndex": 1,
+    "explanation": "Respuesta correcta: Laos.",
+    "id": "otdb_0015"
   },
   {
     "mode": "classic",
     "category": "Historia",
     "difficulty": "media",
-    "question": "¿Cuál de los siguientes países fue el primero en enviar un objeto al espacio?",
+    "question": "¿En qué país tuvo lugar la batalla del Somme en la Primera Guerra Mundial?",
     "options": [
       "Alemania",
-      "Rusia",
-      "EE.UU",
-      "Porcelana"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Alemania.",
-    "id": "otdb_0076"
-  },
-  {
-    "mode": "classic",
-    "category": "Historia",
-    "difficulty": "media",
-    "question": "¿Con qué tratado terminó la guerra de los Treinta Años?",
-    "options": [
-      "Paz de Westfalia",
-      "Tratado de París",
-      "Tratado de Versalles",
-      "Paz de Praga"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Paz de Westfalia.",
-    "id": "otdb_0077"
-  },
-  {
-    "mode": "classic",
-    "category": "Historia",
-    "difficulty": "facil",
-    "question": "¿Qué juego fue el Juego del Año en 2018?",
-    "options": [
-      "Redención muerta roja 2",
-      "dios de la guerra",
-      "Una salida",
-      "Detroit: conviértete en humano"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: dios de la guerra.",
-    "id": "otdb_0078"
-  },
-  {
-    "mode": "classic",
-    "category": "Historia",
-    "difficulty": "media",
-    "question": "¿Cuándo destruyó el Vesubio la ciudad de Pompeya?",
-    "options": [
-      "79 d.C.",
-      "62 d.C.",
-      "31 a.C.",
-      "54 a.C."
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: 79 d.C..",
-    "id": "otdb_0079"
-  },
-  {
-    "mode": "classic",
-    "category": "Historia",
-    "difficulty": "dificil",
-    "question": "¿Qué rey inglés estuvo casado con Leonor de Aquitania?",
-    "options": [
-      "Enrique I",
-      "Enrique II",
-      "Enrique V",
-      "Ricardo I"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: Enrique II.",
-    "id": "otdb_0080"
-  },
-  {
-    "mode": "classic",
-    "category": "Historia",
-    "difficulty": "facil",
-    "question": "¿Cuál de los siguientes países no fue una potencia del eje durante la Segunda Guerra Mundial?",
-    "options": [
-      "Alemania",
-      "Japón",
+      "Francia",
       "Italia",
-      "unión soviética"
+      "Austria"
     ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: unión soviética.",
-    "id": "otdb_0081"
+    "answerIndex": 1,
+    "explanation": "Respuesta correcta: Francia.",
+    "id": "otdb_0016"
   },
   {
     "mode": "classic",
-    "category": "Historia",
+    "category": "Geografia",
+    "difficulty": "media",
+    "question": "¿Cuántas provincias hay en los Países Bajos?",
+    "options": [
+      "14",
+      "13",
+      "12",
+      "10"
+    ],
+    "answerIndex": 2,
+    "explanation": "Respuesta correcta: 12.",
+    "id": "otdb_0017"
+  },
+  {
+    "mode": "classic",
+    "category": "Geografia",
+    "difficulty": "media",
+    "question": "¿En qué condado inglés se encuentra Stonehenge?",
+    "options": [
+      "Voltereta",
+      "Herefordshire",
+      "Wiltshire",
+      "cumbria"
+    ],
+    "answerIndex": 2,
+    "explanation": "Respuesta correcta: Wiltshire.",
+    "id": "otdb_0018"
+  },
+  {
+    "mode": "classic",
+    "category": "Geografia",
     "difficulty": "facil",
-    "question": "¿Cuándo son los idus de marzo?",
+    "question": "¿Qué provincia rusa forma frontera con Polonia?",
     "options": [
-      "1 de marzo",
-      "15 de marzo",
-      "31 de marzo",
-      "14 de marzo"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: 15 de marzo.",
-    "id": "otdb_0082"
-  },
-  {
-    "mode": "classic",
-    "category": "Historia",
-    "difficulty": "media",
-    "question": "¿Cómo se llamaba el héroe nacional de Filipinas que inspiró y dirigió la Revolución filipina contra la España colonial?",
-    "options": [
-      "José de San Martín",
-      "José Rizal",
-      "Benito Juárez",
-      "Simón Bolívar"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: José Rizal.",
-    "id": "otdb_0083"
-  },
-  {
-    "mode": "classic",
-    "category": "Historia",
-    "difficulty": "media",
-    "question": "¿Cuál de los siguientes reyes asirios NO gobernó durante el Imperio neoasirio?",
-    "options": [
-      "esharhaddon",
-      "Shamshi-Adad III",
-      "Salmanasar V",
-      "Asur-nasir-pal II"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: Shamshi-Adad III.",
-    "id": "otdb_0084"
-  },
-  {
-    "mode": "classic",
-    "category": "Historia",
-    "difficulty": "media",
-    "question": "La Bomba Zar, la bomba nuclear más poderosa jamás probada, tenía un rendimiento de 50 megatones pero, en teoría, tenía un rendimiento máximo de ¿cuánto?",
-    "options": [
-      "75 Megatones",
-      "150 Megatones",
-      "200 Megatones",
-      "100 Megatones"
-    ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: 100 Megatones.",
-    "id": "otdb_0085"
-  },
-  {
-    "mode": "classic",
-    "category": "Historia",
-    "difficulty": "media",
-    "question": "¿Cuál de las siguientes no pertenece a la familia de lenguas indoeuropeas?",
-    "options": [
-      "finlandés",
-      "ruso",
-      "hindi",
-      "Inglés"
+      "Kaliningrado",
+      "Omsk",
+      "Nizhni Nóvgorod",
+      "Sámara"
     ],
     "answerIndex": 0,
-    "explanation": "Respuesta correcta: finlandés.",
-    "id": "otdb_0086"
+    "explanation": "Respuesta correcta: Kaliningrado.",
+    "id": "otdb_0019"
   },
   {
     "mode": "classic",
-    "category": "Historia",
+    "category": "Geografia",
     "difficulty": "facil",
-    "question": "¿Cuál de los siguientes pueblos antiguos NO fue clasificado como helénico (griego)?",
+    "question": "¿Dónde encontrarías la \"Plaza de España\"?",
     "options": [
-      "aqueos",
-      "jonios",
-      "dorios",
-      "ilirios"
-    ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: ilirios.",
-    "id": "otdb_0087"
-  },
-  {
-    "mode": "classic",
-    "category": "Historia",
-    "difficulty": "media",
-    "question": "¿En qué prisión estuvo recluido Adolf Hitler en 1924?",
-    "options": [
-      "Prisión de Spandau",
-      "Hohenasperg",
-      "Prisión de Landsberg",
-      "Abadía de Ebrach"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Prisión de Landsberg.",
-    "id": "otdb_0088"
-  },
-  {
-    "mode": "classic",
-    "category": "Historia",
-    "difficulty": "dificil",
-    "question": "Durante las Guerras de las Rosas (1455 - 1487), ¿qué inglés fue apodado \"el Hacedor de Reyes\"?",
-    "options": [
-      "Ricardo III",
-      "Thomas Warwick",
-      "Richard Neville",
-      "Enrique V"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Richard Neville.",
-    "id": "otdb_0089"
-  },
-  {
-    "mode": "classic",
-    "category": "Historia",
-    "difficulty": "dificil",
-    "question": "Durante la Guerra Civil Española (1936), ¿Francisco Franco luchó por qué facción política?",
-    "options": [
-      "España republicana",
-      "Frente popular",
-      "España nacionalista",
-      "Estado Pontificio"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: España nacionalista.",
-    "id": "otdb_0090"
-  },
-  {
-    "mode": "classic",
-    "category": "Historia",
-    "difficulty": "media",
-    "question": "¿Quién fue el primer presidente nacido en los Estados Unidos independientes?",
-    "options": [
-      "James Monroe",
-      "George Washington",
-      "Martin Van Buren",
-      "Juan Adams"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Martin Van Buren.",
-    "id": "otdb_0091"
-  },
-  {
-    "mode": "classic",
-    "category": "Historia",
-    "difficulty": "media",
-    "question": "¿Cuándo publicó L. L. Zamenhof por primera vez \"Unua Libro\", la primera publicación que describe su idioma internacional, el esperanto?",
-    "options": [
-      "1915",
-      "1887",
-      "1905",
-      "1897"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: 1887.",
-    "id": "otdb_0092"
-  },
-  {
-    "mode": "classic",
-    "category": "Historia",
-    "difficulty": "media",
-    "question": "¿Durante qué guerra ocurrió la \"Crisis de los Misiles Cubanos\"?",
-    "options": [
-      "Guerra Revolucionaria",
-      "Guerra fría",
-      "Primera Guerra Mundial",
-      "Segunda Guerra Mundial"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: Guerra fría.",
-    "id": "otdb_0093"
-  },
-  {
-    "mode": "classic",
-    "category": "Historia",
-    "difficulty": "facil",
-    "question": "En 1939, Gran Bretaña y Francia declararon la guerra a Alemania después de que ésta invadiera ¿qué país?",
-    "options": [
-      "Austria",
-      "Checoslovaquia",
-      "Polonia",
-      "Hungría"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Polonia.",
-    "id": "otdb_0094"
-  },
-  {
-    "mode": "classic",
-    "category": "Historia",
-    "difficulty": "dificil",
-    "question": "¿En qué país tuvo lugar la rebelión de Eureka, una batalla de 1856 contra el dominio colonial?",
-    "options": [
-      "Australia",
-      "India",
-      "Canadá",
-      "Brasil"
+      "Roma, Italia",
+      "Berlín, Alemania",
+      "Barcelona, ​​España",
+      "Londres, Inglaterra"
     ],
     "answerIndex": 0,
-    "explanation": "Respuesta correcta: Australia.",
-    "id": "otdb_0095"
-  },
-  {
-    "mode": "classic",
-    "category": "Historia",
-    "difficulty": "media",
-    "question": "¿Qué nación NO tuvo una colonia en la actual América del Norte?",
-    "options": [
-      "Portugal",
-      "Países Bajos",
-      "España",
-      "Suecia"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Portugal.",
-    "id": "otdb_0096"
-  },
-  {
-    "mode": "classic",
-    "category": "Historia",
-    "difficulty": "facil",
-    "question": "¿Qué comandante militar famoso dirigió un ejército, que incluía elefantes de guerra, sobre los Alpes durante la Segunda Guerra Púnica?",
-    "options": [
-      "Garmanicus",
-      "Aníbal",
-      "Alejandro Magno",
-      "Tiberio"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: Aníbal.",
-    "id": "otdb_0097"
-  },
-  {
-    "mode": "classic",
-    "category": "Historia",
-    "difficulty": "facil",
-    "question": "¿Cómo se llamaba comúnmente a las antiguas rutas comerciales que conectaban el este y el oeste de Eurasia?",
-    "options": [
-      "Camino de la sal",
-      "Camino de las especias",
-      "Ruta de la Seda",
-      "Camino de arcilla"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Ruta de la Seda.",
-    "id": "otdb_0098"
-  },
-  {
-    "mode": "classic",
-    "category": "Historia",
-    "difficulty": "media",
-    "question": "¿Cuándo terminó la construcción del Canal de Suez?",
-    "options": [
-      "1860",
-      "1869",
-      "1859",
-      "1850"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: 1869.",
-    "id": "otdb_0099"
-  },
-  {
-    "mode": "classic",
-    "category": "Historia",
-    "difficulty": "dificil",
-    "question": "¿Dónde nació Napoleón Bonaparte?",
-    "options": [
-      "Bretaña",
-      "Normandía",
-      "Córcega",
-      "París"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Córcega.",
-    "id": "otdb_0100"
-  },
-  {
-    "mode": "classic",
-    "category": "Geografia",
-    "difficulty": "facil",
-    "question": "¿Cuál es la capital de Rumania?",
-    "options": [
-      "budapest",
-      "Belgrado",
-      "Bucarest",
-      "Bratislava"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Bucarest.",
-    "id": "otdb_0101"
+    "explanation": "Respuesta correcta: Roma, Italia.",
+    "id": "otdb_0020"
   },
   {
     "mode": "classic",
     "category": "Geografia",
     "difficulty": "media",
-    "question": "¿En qué condado inglés se encuentra la ciudad de Portsmouth?",
+    "question": "¿Qué ciudad de Texas recibe el sobrenombre de \"La rosa amarilla de Texas\"?",
     "options": [
-      "Buckinghamshire",
-      "Oxfordshire",
-      "Surrey",
-      "Hampshire"
+      "frisco",
+      "Corpus Cristi",
+      "houston",
+      "Amarillo"
     ],
     "answerIndex": 3,
-    "explanation": "Respuesta correcta: Hampshire.",
-    "id": "otdb_0102"
-  },
-  {
-    "mode": "classic",
-    "category": "Geografia",
-    "difficulty": "facil",
-    "question": "¿Con cuantos países limita México?",
-    "options": [
-      "3",
-      "1",
-      "2",
-      "4"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: 3.",
-    "id": "otdb_0103"
+    "explanation": "Respuesta correcta: Amarillo.",
+    "id": "otdb_0021"
   },
   {
     "mode": "classic",
     "category": "Geografia",
     "difficulty": "media",
-    "question": "¿Cuál de estas NO es una isla que forma parte de Filipinas?",
+    "question": "¿Cuáles son los cuatro estados esquineros de EE. UU.?",
     "options": [
-      "Palawan",
-      "Java",
-      "Luzón",
-      "Mindanao"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: Java.",
-    "id": "otdb_0104"
-  },
-  {
-    "mode": "classic",
-    "category": "Geografia",
-    "difficulty": "media",
-    "question": "¿Cuál es el idioma oficial de Bután?",
-    "options": [
-      "Trueno",
-      "Dzongkha",
-      "karen",
-      "Ladaji"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: Dzongkha.",
-    "id": "otdb_0105"
-  },
-  {
-    "mode": "classic",
-    "category": "Geografia",
-    "difficulty": "dificil",
-    "question": "¿En qué parte de Gales se encuentra el pueblo Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch?",
-    "options": [
-      "Pembrokeshire",
-      "puente",
-      "Anglesey",
-      "Wrexham"
+      "Dakota del Sur, Minnesota, Nebraska, Iowa",
+      "Oregón, Idaho, Nevada, Utah",
+      "Utah, Colorado, Arizona, Nuevo México",
+      "Kansas, Oklahoma, Arkansas, Luisiana"
     ],
     "answerIndex": 2,
-    "explanation": "Respuesta correcta: Anglesey.",
-    "id": "otdb_0106"
+    "explanation": "Respuesta correcta: Utah, Colorado, Arizona, Nuevo México.",
+    "id": "otdb_0022"
   },
   {
     "mode": "classic",
     "category": "Geografia",
     "difficulty": "media",
-    "question": "¿Dónde se encuentra el \"Desierto de Sonora\"?",
-    "options": [
-      "Asia",
-      "África",
-      "América del norte",
-      "Sudamerica"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: América del norte.",
-    "id": "otdb_0107"
-  },
-  {
-    "mode": "classic",
-    "category": "Geografia",
-    "difficulty": "media",
-    "question": "Todos los siguientes países tienen reclamos oficiales de territorio en la Antártida EXCEPTO:",
-    "options": [
-      "Estados Unidos",
-      "Chile",
-      "Noruega",
-      "Australia"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Estados Unidos.",
-    "id": "otdb_0108"
-  },
-  {
-    "mode": "classic",
-    "category": "Geografia",
-    "difficulty": "media",
-    "question": "¿Qué isla de Canarias fue escenario de una de las peores catástrofes aéreas de la historia con la colisión de dos aviones jumbo?",
-    "options": [
-      "Maui",
-      "Fuerteventura",
-      "Gran Canaria",
-      "tenerife"
-    ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: tenerife.",
-    "id": "otdb_0109"
-  },
-  {
-    "mode": "classic",
-    "category": "Geografia",
-    "difficulty": "dificil",
-    "question": "¿Qué río se represó para crear el lago Gatún y el Canal de Panamá?",
-    "options": [
-      "Río Chucunaque",
-      "Río Tuira",
-      "Chepo River",
-      "Río Chagres"
-    ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: Río Chagres.",
-    "id": "otdb_0110"
-  },
-  {
-    "mode": "classic",
-    "category": "Geografia",
-    "difficulty": "dificil",
-    "question": "¿Dónde está Tombuctú?",
-    "options": [
-      "Mauritania, África",
-      "Bangladesh, Asia",
-      "Malí, África",
-      "Azerbaiyán, Asia"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Malí, África.",
-    "id": "otdb_0111"
-  },
-  {
-    "mode": "classic",
-    "category": "Geografia",
-    "difficulty": "media",
-    "question": "¿En qué continente se encuentra el país de Angola?",
-    "options": [
-      "Europa",
-      "Sudamerica",
-      "Asia",
-      "África"
-    ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: África.",
-    "id": "otdb_0112"
-  },
-  {
-    "mode": "classic",
-    "category": "Geografia",
-    "difficulty": "facil",
-    "question": "Si el fútbol se llama fútbol en Inglaterra, ¿cómo se llama fútbol americano en Inglaterra?",
-    "options": [
-      "Aterrizaje",
-      "Balonmano",
-      "combball",
-      "fútbol americano"
-    ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: fútbol americano.",
-    "id": "otdb_0113"
-  },
-  {
-    "mode": "classic",
-    "category": "Geografia",
-    "difficulty": "media",
-    "question": "¿Cuál de estos países es el más pequeño por población?",
+    "question": "¿Qué país europeo no forma parte de la UE?",
     "options": [
       "Noruega",
-      "Eslovaquia",
-      "Hong Kong",
-      "Finlandia"
+      "Chequia",
+      "Lituania",
+      "Irlanda"
     ],
     "answerIndex": 0,
     "explanation": "Respuesta correcta: Noruega.",
-    "id": "otdb_0114"
+    "id": "otdb_0023"
   },
   {
     "mode": "classic",
     "category": "Geografia",
-    "difficulty": "dificil",
-    "question": "El Hunua Ranges está situado en...",
+    "difficulty": "media",
+    "question": "¿Cuál de los siguientes no es un país megadiverso, uno que alberga un gran número de especies endémicas de la Tierra?",
     "options": [
-      "Nepal",
-      "México",
-      "Porcelana",
-      "Nueva Zelanda"
+      "Tailandia",
+      "Sudáfrica",
+      "Perú",
+      "México"
+    ],
+    "answerIndex": 0,
+    "explanation": "Respuesta correcta: Tailandia.",
+    "id": "otdb_0024"
+  },
+  {
+    "mode": "classic",
+    "category": "Deportes",
+    "difficulty": "media",
+    "question": "¿En qué puente comienza la regata anual de barcos de Oxford y Cambridge?",
+    "options": [
+      "Opel",
+      "Battersea",
+      "martillo",
+      "Putney"
     ],
     "answerIndex": 3,
-    "explanation": "Respuesta correcta: Nueva Zelanda.",
-    "id": "otdb_0115"
+    "explanation": "Respuesta correcta: Putney.",
+    "id": "otdb_0025"
   },
   {
     "mode": "classic",
-    "category": "Geografia",
+    "category": "Deportes",
     "difficulty": "dificil",
-    "question": "Santorini es una isla que pertenece a qué país europeo?",
+    "question": "¿Quién ganó las 500 Millas de Daytona de 1998?",
     "options": [
-      "España",
-      "Grecia",
-      "Pavo",
+      "Dale Earnhardt",
+      "Michael Wall Trip",
+      "Juan Anderson",
+      "jeff gordon"
+    ],
+    "answerIndex": 0,
+    "explanation": "Respuesta correcta: Dale Earnhardt.",
+    "id": "otdb_0026"
+  },
+  {
+    "mode": "classic",
+    "category": "Deportes",
+    "difficulty": "media",
+    "question": "¿Qué jugador de dardos ha ganado más títulos de campeonato mundial?",
+    "options": [
+      "Phil Taylor",
+      "Eric Bristow",
+      "Raymond van Barneveld",
+      "Michael van Gerwen"
+    ],
+    "answerIndex": 0,
+    "explanation": "Respuesta correcta: Phil Taylor.",
+    "id": "otdb_0027"
+  },
+  {
+    "mode": "classic",
+    "category": "Deportes",
+    "difficulty": "facil",
+    "question": "¿Cuándo se jugó el primer partido internacional oficial?",
+    "options": [
+      "1865",
+      "1880",
+      "1863",
+      "1872"
+    ],
+    "answerIndex": 3,
+    "explanation": "Respuesta correcta: 1872.",
+    "id": "otdb_0028"
+  },
+  {
+    "mode": "classic",
+    "category": "Deportes",
+    "difficulty": "facil",
+    "question": "¿Quién ganó el título de la Premier League en la temporada 2015-2016 tras una racha de cuento de hadas?",
+    "options": [
+      "Watford",
+      "Tottenham Hotspur",
+      "Ciudad de Stoke",
+      "ciudad de leicester"
+    ],
+    "answerIndex": 3,
+    "explanation": "Respuesta correcta: ciudad de leicester.",
+    "id": "otdb_0029"
+  },
+  {
+    "mode": "classic",
+    "category": "Deportes",
+    "difficulty": "media",
+    "question": "¿Cuál de estos clubes de fútbol ingleses tiene su sede en Liverpool?",
+    "options": [
+      "Arsenal",
+      "Palacio de Cristal",
+      "West Ham United",
+      "Everton"
+    ],
+    "answerIndex": 3,
+    "explanation": "Respuesta correcta: Everton.",
+    "id": "otdb_0030"
+  },
+  {
+    "mode": "classic",
+    "category": "Deportes",
+    "difficulty": "media",
+    "question": "¿Cuál de los siguientes jugadores anotó un hat-trick durante su debut en el Manchester United?",
+    "options": [
+      "David Beckham",
+      "cristian ronaldo",
+      "Robin Van Persie",
+      "Wayne Rooney"
+    ],
+    "answerIndex": 3,
+    "explanation": "Respuesta correcta: Wayne Rooney.",
+    "id": "otdb_0031"
+  },
+  {
+    "mode": "classic",
+    "category": "Deportes",
+    "difficulty": "media",
+    "question": "¿Cuáles de las selecciones nacionales de estos países se clasificaron para la Copa Mundial de la FIFA Rusia 2018?",
+    "options": [
+      "Países Bajos",
+      "Estados Unidos de América",
+      "Túnez",
       "Italia"
     ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: Grecia.",
-    "id": "otdb_0116"
+    "answerIndex": 2,
+    "explanation": "Respuesta correcta: Túnez.",
+    "id": "otdb_0032"
   },
   {
     "mode": "classic",
-    "category": "Geografia",
+    "category": "Cine y TV",
     "difficulty": "facil",
-    "question": "¿Cuál de los siguientes países tiene una bandera con un león amarillo empuñando una espada sobre un fondo rojo oscuro?",
+    "question": "¿Quién dirigió \"E.T. el Extraterrestre\" (1982)?",
     "options": [
-      "Sri Lanka",
-      "Kiribati",
-      "Escocia",
-      "Bután"
+      "Steven Spielberg",
+      "James Cameron",
+      "Tim Burton",
+      "Stanley Kubrick"
     ],
     "answerIndex": 0,
-    "explanation": "Respuesta correcta: Sri Lanka.",
-    "id": "otdb_0117"
+    "explanation": "Respuesta correcta: Steven Spielberg.",
+    "id": "otdb_0033"
   },
   {
     "mode": "classic",
-    "category": "Geografia",
-    "difficulty": "facil",
-    "question": "¿Qué país tiene una bandera horizontal bicolor roja y blanca?",
-    "options": [
-      "Bahréin",
-      "Mónaco",
-      "Malta",
-      "Liechenstein"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: Mónaco.",
-    "id": "otdb_0118"
-  },
-  {
-    "mode": "classic",
-    "category": "Geografia",
-    "difficulty": "dificil",
-    "question": "¿Qué país controla las islas Andamán y Nicobar en el sudeste asiático?",
-    "options": [
-      "Indonesia",
-      "Tailandia",
-      "India",
-      "Vietnam"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: India.",
-    "id": "otdb_0119"
-  },
-  {
-    "mode": "classic",
-    "category": "Geografia",
-    "difficulty": "dificil",
-    "question": "¿Cómo se llaman los antiguos caladeros ricos de la isla de Terranova, Canadá?",
-    "options": [
-      "Bahía de Hudson",
-      "Mariana Trinchera",
-      "Gran Barrera de Coral",
-      "Grandes Bancos"
-    ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: Grandes Bancos.",
-    "id": "otdb_0120"
-  },
-  {
-    "mode": "classic",
-    "category": "Geografia",
-    "difficulty": "facil",
-    "question": "¿Los Alpes son una cadena montañosa en qué continente?",
-    "options": [
-      "África",
-      "Asia",
-      "Europa",
-      "América del norte"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Europa.",
-    "id": "otdb_0121"
-  },
-  {
-    "mode": "classic",
-    "category": "Geografia",
+    "category": "Cine y TV",
     "difficulty": "media",
-    "question": "¿Qué país dentro del Reino Unido NO aparece en su bandera, la Union Jack?",
+    "question": "¿En qué película de 1955 Frank Sinatra interpreta a Nathan Detroit?",
     "options": [
-      "Escocia",
-      "Irlanda",
-      "Isla de Wight",
-      "Gales"
-    ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: Gales.",
-    "id": "otdb_0122"
-  },
-  {
-    "mode": "classic",
-    "category": "Geografia",
-    "difficulty": "media",
-    "question": "En Washington, D.C. ¿qué significa la \"C\"?",
-    "options": [
-      "corintia",
-      "Ciudad",
-      "Caledonia",
-      "Columbia"
-    ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: Columbia.",
-    "id": "otdb_0123"
-  },
-  {
-    "mode": "classic",
-    "category": "Geografia",
-    "difficulty": "facil",
-    "question": "¿Cuál es la ciudad polaca conocida por los alemanes como Danzig?",
-    "options": [
-      "Varsovia",
-      "Poznan",
-      "Zakopane",
-      "Gdansk"
-    ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: Gdansk.",
-    "id": "otdb_0124"
-  },
-  {
-    "mode": "classic",
-    "category": "Geografia",
-    "difficulty": "media",
-    "question": "¿Cuál es la capital de Groenlandia?",
-    "options": [
-      "Nuuk",
-      "Sisimiut",
-      "Maniitsoq",
-      "Narsaq"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Nuuk.",
-    "id": "otdb_0125"
-  },
-  {
-    "mode": "classic",
-    "category": "Geografia",
-    "difficulty": "dificil",
-    "question": "¿Cómo se llama la región rocosa que se extiende por la mayor parte del este de Canadá?",
-    "options": [
-      "Montañas Apalaches",
-      "Montañas Rocosas",
-      "Escudo canadiense",
-      "Himalaya"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Escudo canadiense.",
-    "id": "otdb_0126"
-  },
-  {
-    "mode": "classic",
-    "category": "Geografia",
-    "difficulty": "facil",
-    "question": "¿Qué ciudad europea es conocida como la \"Ciudad de la Luz\"?",
-    "options": [
-      "París",
-      "Londres",
-      "Roma",
-      "Madrid"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: París.",
-    "id": "otdb_0127"
-  },
-  {
-    "mode": "classic",
-    "category": "Geografia",
-    "difficulty": "facil",
-    "question": "¿Cuál de las siguientes islas japonesas es la más grande?",
-    "options": [
-      "Honshu",
-      "Hokkaidō",
-      "shikoku",
-      "Kyūshū"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Honshu.",
-    "id": "otdb_0128"
-  },
-  {
-    "mode": "classic",
-    "category": "Geografia",
-    "difficulty": "facil",
-    "question": "¿Cuál es la capital de Jamaica?",
-    "options": [
-      "Bridgetown",
-      "Puerto Príncipe",
-      "San Juan",
-      "Kingston"
-    ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: Kingston.",
-    "id": "otdb_0129"
-  },
-  {
-    "mode": "classic",
-    "category": "Geografia",
-    "difficulty": "dificil",
-    "question": "¿Cuál de las siguientes lenguas inuit fue la PRIMERA en utilizar un sistema de escritura único no basado en el alfabeto latino?",
-    "options": [
-      "Inupiat",
-      "groenlandés",
-      "inuktitut",
-      "Inuinnaqtun"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: inuktitut.",
-    "id": "otdb_0130"
-  },
-  {
-    "mode": "classic",
-    "category": "Geografia",
-    "difficulty": "dificil",
-    "question": "¿Qué museo nacional encontrarás en Cooperstown, Nueva York?",
-    "options": [
-      "Museo de Arte Moderno",
-      "Salón de la Fama Nacional del Béisbol",
-      "Museo Metropolitano de Arte",
-      "Salón Nacional de la Fama del Juguete"
+      "Alta sociedad",
+      "Chicos y muñecas",
+      "Levantan anclas",
+      "De aquí a la eternidad"
     ],
     "answerIndex": 1,
-    "explanation": "Respuesta correcta: Salón de la Fama Nacional del Béisbol.",
-    "id": "otdb_0131"
-  },
-  {
-    "mode": "classic",
-    "category": "Geografia",
-    "difficulty": "media",
-    "question": "¿Qué acontecimiento llevó a Liechenstein a añadir una corona a su bandera?",
-    "options": [
-      "Decreto de Carlos VI en 1719",
-      "Coronación del príncipe Juan I José en 1805",
-      "Los Juegos Olímpicos de 1936",
-      "Firma de la Constitución de Liechtenstein de 1862"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Los Juegos Olímpicos de 1936.",
-    "id": "otdb_0132"
-  },
-  {
-    "mode": "classic",
-    "category": "Geografia",
-    "difficulty": "facil",
-    "question": "¿En qué ciudad está ubicada la Universidad de Harvard?",
-    "options": [
-      "Cambridge",
-      "Nueva York",
-      "Washington DC",
-      "Providencia"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Cambridge.",
-    "id": "otdb_0133"
-  },
-  {
-    "mode": "classic",
-    "category": "Geografia",
-    "difficulty": "dificil",
-    "question": "¿Cuál es la ruta de escalada más común para la segunda montaña más alta del mundo, el K2?",
-    "options": [
-      "Ruta Cesen",
-      "Línea polaca",
-      "Espolón de los Abruzos",
-      "Línea mágica"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Espolón de los Abruzos.",
-    "id": "otdb_0134"
-  },
-  {
-    "mode": "classic",
-    "category": "Geografia",
-    "difficulty": "facil",
-    "question": "¿Cuál es el idioma oficial de Costa Rica?",
-    "options": [
-      "Español",
-      "portugués",
-      "criollo",
-      "Inglés"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Español.",
-    "id": "otdb_0135"
-  },
-  {
-    "mode": "classic",
-    "category": "Geografia",
-    "difficulty": "dificil",
-    "question": "¿Dónde está situada la ciudad de Haarlem?",
-    "options": [
-      "Alemania",
-      "Suiza",
-      "Países Bajos",
-      "Estados Unidos"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Países Bajos.",
-    "id": "otdb_0136"
-  },
-  {
-    "mode": "classic",
-    "category": "Geografia",
-    "difficulty": "facil",
-    "question": "¿Groenlandia es parte de qué reino?",
-    "options": [
-      "Suecia",
-      "Reino Unido",
-      "Dinamarca",
-      "Noruega"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Dinamarca.",
-    "id": "otdb_0137"
-  },
-  {
-    "mode": "classic",
-    "category": "Geografia",
-    "difficulty": "dificil",
-    "question": "¿Cuál es la segunda ciudad más grande de Lituania?",
-    "options": [
-      "Klaipėda",
-      "Vilna",
-      "Kaunas",
-      "Panevezys"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Kaunas.",
-    "id": "otdb_0138"
-  },
-  {
-    "mode": "classic",
-    "category": "Geografia",
-    "difficulty": "media",
-    "question": "¿Qué país reclama la propiedad del estado en disputa de Kosovo?",
-    "options": [
-      "macedonia",
-      "Croacia",
-      "Serbia",
-      "Albania"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Serbia.",
-    "id": "otdb_0139"
-  },
-  {
-    "mode": "classic",
-    "category": "Geografia",
-    "difficulty": "dificil",
-    "question": "¿Cuál es la tierra que conecta América del Norte y América del Sur?",
-    "options": [
-      "Istmo de Suez",
-      "Istmo de Panamá",
-      "Urales",
-      "Australasia"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: Istmo de Panamá.",
-    "id": "otdb_0140"
-  },
-  {
-    "mode": "classic",
-    "category": "Geografia",
-    "difficulty": "facil",
-    "question": "¿Cuántas zonas horarias tiene China?",
-    "options": [
-      "4",
-      "1",
-      "2",
-      "3"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: 1.",
-    "id": "otdb_0141"
-  },
-  {
-    "mode": "classic",
-    "category": "Geografia",
-    "difficulty": "media",
-    "question": "¿Dónde se encuentra la instalación de lanzamiento espacial aún operativa más antigua del mundo?",
-    "options": [
-      "Estados Unidos",
-      "Rusia",
-      "Irán",
-      "Kazajstán"
-    ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: Kazajstán.",
-    "id": "otdb_0142"
-  },
-  {
-    "mode": "classic",
-    "category": "Geografia",
-    "difficulty": "facil",
-    "question": "¿Qué estado de EE. UU. también se conoce como el \"estado de la estrella solitaria\"?",
-    "options": [
-      "Tennesse",
-      "Alabama",
-      "Kentucky",
-      "Texas"
-    ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: Texas.",
-    "id": "otdb_0143"
-  },
-  {
-    "mode": "classic",
-    "category": "Geografia",
-    "difficulty": "media",
-    "question": "¿Cuál es la capital de Chipre?",
-    "options": [
-      "Lárnaca",
-      "Nicosia",
-      "Limasol",
-      "Pafos"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: Nicosia.",
-    "id": "otdb_0144"
-  },
-  {
-    "mode": "classic",
-    "category": "Geografia",
-    "difficulty": "media",
-    "question": "¿Cuál es la capital de Vietnam?",
-    "options": [
-      "Hanoi",
-      "Ciudad Ho Chi Minh",
-      "Da Nang",
-      "Hai Phong"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Hanoi.",
-    "id": "otdb_0145"
-  },
-  {
-    "mode": "classic",
-    "category": "Geografia",
-    "difficulty": "dificil",
-    "question": "¿En qué isla de Gales se encuentra Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch?",
-    "options": [
-      "barry",
-      "Caldey",
-      "Anglesey",
-      "bardsey"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Anglesey.",
-    "id": "otdb_0146"
-  },
-  {
-    "mode": "classic",
-    "category": "Geografia",
-    "difficulty": "facil",
-    "question": "¿En qué continente se encuentra la cordillera de los andes?",
-    "options": [
-      "Europa",
-      "África",
-      "Asia",
-      "Sudamerica"
-    ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: Sudamerica.",
-    "id": "otdb_0147"
-  },
-  {
-    "mode": "classic",
-    "category": "Geografia",
-    "difficulty": "media",
-    "question": "¿Cuál de estos países tiene frontera con Polonia?",
-    "options": [
-      "Lituania",
-      "Francia",
-      "Países Bajos",
-      "Noruega"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Lituania.",
-    "id": "otdb_0148"
-  },
-  {
-    "mode": "classic",
-    "category": "Geografia",
-    "difficulty": "facil",
-    "question": "¿Cuál de las siguientes características geográficas es un arrecife de coral, una isla o una serie de islotes en forma de anillo?",
-    "options": [
-      "Península",
-      "Istmo",
-      "Atolón",
-      "Delta"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Atolón.",
-    "id": "otdb_0149"
-  },
-  {
-    "mode": "classic",
-    "category": "Deportes",
-    "difficulty": "media",
-    "question": "¿Cuál es el nombre de la filial AHL de los Toronto Maple Leafs?",
-    "options": [
-      "Manada de lobos de Toronto",
-      "Marlies de Toronto",
-      "Argonautas de Toronto",
-      "Roca de Toronto"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: Marlies de Toronto.",
-    "id": "otdb_0150"
-  },
-  {
-    "mode": "classic",
-    "category": "Deportes",
-    "difficulty": "dificil",
-    "question": "¿Qué herramienta da su nombre a una ventaja de última piedra en una final de Curling?",
-    "options": [
-      "Perforar",
-      "Martillo",
-      "Destornillador",
-      "Llave inglesa"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: Martillo.",
-    "id": "otdb_0151"
-  },
-  {
-    "mode": "classic",
-    "category": "Deportes",
-    "difficulty": "facil",
-    "question": "¿Cuántos jugadores hay en un equipo de fútbol/fútbol de una asociación?",
-    "options": [
-      "11",
-      "9",
-      "8",
-      "10"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: 11.",
-    "id": "otdb_0152"
-  },
-  {
-    "mode": "classic",
-    "category": "Deportes",
-    "difficulty": "facil",
-    "question": "¿Qué deporte presenta los términos amor, dos, partido y volea?",
-    "options": [
-      "Baloncesto",
-      "Cricket",
-      "Curling",
-      "Tenis"
-    ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: Tenis.",
-    "id": "otdb_0153"
-  },
-  {
-    "mode": "classic",
-    "category": "Deportes",
-    "difficulty": "media",
-    "question": "¿Qué piloto de Fórmula 1 cambió de equipo a mitad de la temporada 2017?",
-    "options": [
-      "Carlos Sainz Jr.",
-      "Jolyon Palmer",
-      "Río Haryanto",
-      "Daniel Kvyat"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Carlos Sainz Jr..",
-    "id": "otdb_0154"
-  },
-  {
-    "mode": "classic",
-    "category": "Deportes",
-    "difficulty": "facil",
-    "question": "¿Cuántos puntos anotó LeBron James en su primer partido de la NBA?",
-    "options": [
-      "19",
-      "69",
-      "41",
-      "25"
-    ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: 25.",
-    "id": "otdb_0155"
-  },
-  {
-    "mode": "classic",
-    "category": "Deportes",
-    "difficulty": "media",
-    "question": "¿Cuál es la mejor puntuación de golf de todos los tiempos de Tiger Woods?",
-    "options": [
-      "67",
-      "65",
-      "61",
-      "63"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: 61.",
-    "id": "otdb_0156"
-  },
-  {
-    "mode": "classic",
-    "category": "Deportes",
-    "difficulty": "facil",
-    "question": "¿La Liga de Campeones de la UEFA es una competición anual de fútbol de clubes en la que participan clubes de qué continente?",
-    "options": [
-      "Asia",
-      "Sudamerica",
-      "Europa",
-      "África"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Europa.",
-    "id": "otdb_0157"
-  },
-  {
-    "mode": "classic",
-    "category": "Deportes",
-    "difficulty": "media",
-    "question": "¿Qué empresa alemana de ropa deportiva tiene el logotipo \"Formstripe\"?",
-    "options": [
-      "reebok",
-      "Puma",
-      "adidas",
-      "Nike"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: Puma.",
-    "id": "otdb_0158"
-  },
-  {
-    "mode": "classic",
-    "category": "Deportes",
-    "difficulty": "facil",
-    "question": "¿Cuál fue el año de fundación del Bari Italian Football Club?",
-    "options": [
-      "1908",
-      "1895",
-      "2014",
-      "1945"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: 1908.",
-    "id": "otdb_0159"
-  },
-  {
-    "mode": "classic",
-    "category": "Deportes",
-    "difficulty": "media",
-    "question": "¿Qué luchador profesional cayó de las vigas y murió durante un evento Pay-Per-View en vivo en 1999?",
-    "options": [
-      "Al Nieve",
-      "Chris Benoit",
-      "Owen Hart",
-      "Lex Luger"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Owen Hart.",
-    "id": "otdb_0160"
-  },
-  {
-    "mode": "classic",
-    "category": "Deportes",
-    "difficulty": "dificil",
-    "question": "¿Qué jugadora ganó la medalla de oro en tenis de mesa individual en los Juegos Olímpicos de 2016?",
-    "options": [
-      "LI Xiaoxia (China)",
-      "Ai FUKUHARA (Japón)",
-      "DING Ning (China)",
-      "Song KIM (Corea del Norte)"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: DING Ning (China).",
-    "id": "otdb_0161"
-  },
-  {
-    "mode": "classic",
-    "category": "Deportes",
-    "difficulty": "media",
-    "question": "¿Un estimómetro mide la velocidad de una pelota sobre qué superficie?",
-    "options": [
-      "Mesa de pinball",
-      "Putting de golf",
-      "Campo de críquet",
-      "Campo de fútbol"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: Putting de golf.",
-    "id": "otdb_0162"
-  },
-  {
-    "mode": "classic",
-    "category": "Deportes",
-    "difficulty": "facil",
-    "question": "¿De qué país surgieron futbolistas como Cafú, Roberto Carlos y Pelé?",
-    "options": [
-      "Argentina",
-      "Brasil",
-      "Portugal",
-      "España"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: Brasil.",
-    "id": "otdb_0163"
-  },
-  {
-    "mode": "classic",
-    "category": "Deportes",
-    "difficulty": "media",
-    "question": "¿Cuál es el apodo del club de rugby de la ciudad de Northampton?",
-    "options": [
-      "sarracenos",
-      "arlequines",
-      "Avispas",
-      "santos"
-    ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: santos.",
-    "id": "otdb_0164"
-  },
-  {
-    "mode": "classic",
-    "category": "Deportes",
-    "difficulty": "media",
-    "question": "¿Quién ha jugado más torneos en la selección alemana de fútbol?",
-    "options": [
-      "Miroslav Kloše",
-      "Philipp Lahm",
-      "Oliver Kahn",
-      "Lothar Matthäus"
-    ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: Lothar Matthäus.",
-    "id": "otdb_0165"
-  },
-  {
-    "mode": "classic",
-    "category": "Deportes",
-    "difficulty": "facil",
-    "question": "¿Cómo se llama la \"herramienta\" que se utiliza para golpear la bola blanca en el billar?",
-    "options": [
-      "Raqueta",
-      "Murciélago",
-      "Señal",
-      "Mazo"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Señal.",
-    "id": "otdb_0166"
-  },
-  {
-    "mode": "classic",
-    "category": "Deportes",
-    "difficulty": "media",
-    "question": "¿Cuántos trofeos de la Premier League ganó Sir Alex Ferguson durante su etapa en el Manchester United?",
-    "options": [
-      "13",
-      "22",
-      "20",
-      "11"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: 13.",
-    "id": "otdb_0167"
-  },
-  {
-    "mode": "classic",
-    "category": "Deportes",
-    "difficulty": "facil",
-    "question": "¿Cómo se llama el estadio del Manchester United?",
-    "options": [
-      "Old Trafford",
-      "Estadio de la ciudad de Manchester",
-      "Parque de San Jaime",
-      "Anfield"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Old Trafford.",
-    "id": "otdb_0168"
-  },
-  {
-    "mode": "classic",
-    "category": "Deportes",
-    "difficulty": "media",
-    "question": "¿Cuál de estos números de camiseta nunca ha usado Shaquille O'Neal?",
-    "options": [
-      "36",
-      "35",
-      "33",
-      "32"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: 35.",
-    "id": "otdb_0169"
-  },
-  {
-    "mode": "classic",
-    "category": "Deportes",
-    "difficulty": "media",
-    "question": "¿Cuál es la longitud exacta de una parte no curva en el carril 1 de una pista olímpica?",
-    "options": [
-      "100 yardas",
-      "84,39m",
-      "109,36 yardas",
-      "100m"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: 84,39m.",
-    "id": "otdb_0170"
-  },
-  {
-    "mode": "classic",
-    "category": "Deportes",
-    "difficulty": "facil",
-    "question": "¿Quién ganó la UEFA Champions League en 2017?",
-    "options": [
-      "AS Mónaco FC",
-      "Atlético de Madrid",
-      "Juventus F.C.",
-      "Real Madrid C. F."
-    ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: Real Madrid C. F..",
-    "id": "otdb_0171"
-  },
-  {
-    "mode": "classic",
-    "category": "Deportes",
-    "difficulty": "facil",
-    "question": "¿En qué año ganó Jenson Button su primer Campeonato Mundial de Pilotos de Fórmula Uno?",
-    "options": [
-      "2009",
-      "2010",
-      "2006",
-      "2007"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: 2009.",
-    "id": "otdb_0172"
-  },
-  {
-    "mode": "classic",
-    "category": "Deportes",
-    "difficulty": "media",
-    "question": "¿En qué año el Steaua București ganó la Copa de Europa, actual UEFA Champions League, contra el FC Barcelona?",
-    "options": [
-      "1989",
-      "1986",
-      "1982",
-      "1990"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: 1986.",
-    "id": "otdb_0173"
-  },
-  {
-    "mode": "classic",
-    "category": "Deportes",
-    "difficulty": "media",
-    "question": "Josh Mansour es parte de qué equipo de la NRL?",
-    "options": [
-      "Gallos de Sydney",
-      "Tormenta de Melbourne",
-      "Panteras de Penrith",
-      "Vaqueros del norte de Queensland"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Panteras de Penrith.",
-    "id": "otdb_0174"
-  },
-  {
-    "mode": "classic",
-    "category": "Deportes",
-    "difficulty": "facil",
-    "question": "¿En qué deporte se utiliza un \"volante\"?",
-    "options": [
-      "Rugby",
-      "Tenis de mesa",
-      "Cricket",
-      "Bádminton"
-    ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: Bádminton.",
-    "id": "otdb_0175"
-  },
-  {
-    "mode": "classic",
-    "category": "Deportes",
-    "difficulty": "dificil",
-    "question": "¿Dónde se celebraron los Juegos de la XXII Olimpiada?",
-    "options": [
-      "Moscú",
-      "Los Angeles",
-      "Barcelona",
-      "Tokio"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Moscú.",
-    "id": "otdb_0176"
-  },
-  {
-    "mode": "classic",
-    "category": "Deportes",
-    "difficulty": "facil",
-    "question": "¿Cuántos jugadores de fútbol deberían estar en el campo al mismo tiempo?",
-    "options": [
-      "26",
-      "22",
-      "24",
-      "20"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: 22.",
-    "id": "otdb_0177"
-  },
-  {
-    "mode": "classic",
-    "category": "Deportes",
-    "difficulty": "media",
-    "question": "¿Quién fue el máximo goleador de la selección de fútbol de Inglaterra?",
-    "options": [
-      "David Beckham",
-      "Steven Gerrard",
-      "Wayne Rooney",
-      "michael owen"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Wayne Rooney.",
-    "id": "otdb_0178"
-  },
-  {
-    "mode": "classic",
-    "category": "Deportes",
-    "difficulty": "media",
-    "question": "¿De qué isla portuguesa es el futbolista Cristiano Ronaldo?",
-    "options": [
-      "Santa María",
-      "Madeira",
-      "Puerto Santo",
-      "Tercero"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: Madeira.",
-    "id": "otdb_0179"
-  },
-  {
-    "mode": "classic",
-    "category": "Deportes",
-    "difficulty": "media",
-    "question": "¿Cuál es el cinturón más alto que puedes conseguir en Taekwondo?",
-    "options": [
-      "Negro",
-      "Verde",
-      "Rojo",
-      "Blanco"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Negro.",
-    "id": "otdb_0180"
-  },
-  {
-    "mode": "classic",
-    "category": "Deportes",
-    "difficulty": "facil",
-    "question": "¿Qué selección nacional ganó la primera Liga de Naciones de la UEFA?",
-    "options": [
-      "Portugal",
-      "Inglaterra",
-      "Suiza",
-      "Países Bajos"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Portugal.",
-    "id": "otdb_0181"
-  },
-  {
-    "mode": "classic",
-    "category": "Deportes",
-    "difficulty": "media",
-    "question": "¿Qué término de críquet denota que un bateador es despedido con una puntuación de cero?",
-    "options": [
-      "Proyector",
-      "Adiós",
-      "Pato",
-      "Llevar"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Pato.",
-    "id": "otdb_0182"
-  },
-  {
-    "mode": "classic",
-    "category": "Deportes",
-    "difficulty": "media",
-    "question": "¿Qué jugador de la NBA ganó el premio al Jugador Más Valioso de la temporada 1999-2000?",
-    "options": [
-      "Kobe Bryant",
-      "Allen Iverson",
-      "Shaquille O'Neal",
-      "Pablo Pierce"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Shaquille O'Neal.",
-    "id": "otdb_0183"
-  },
-  {
-    "mode": "classic",
-    "category": "Deportes",
-    "difficulty": "media",
-    "question": "¿Qué fabricante de automóviles ganó las 24 Horas de Le Mans de 2017?",
-    "options": [
-      "toyota",
-      "chevrolet",
-      "Porsche",
-      "Audi"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Porsche.",
-    "id": "otdb_0184"
-  },
-  {
-    "mode": "classic",
-    "category": "Deportes",
-    "difficulty": "dificil",
-    "question": "¿Cuántas veces ganó Martina Navratilova el campeonato individual de Wimbledon?",
-    "options": [
-      "Siete",
-      "Nueve",
-      "Diez",
-      "Ocho"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: Nueve.",
-    "id": "otdb_0185"
-  },
-  {
-    "mode": "classic",
-    "category": "Deportes",
-    "difficulty": "facil",
-    "question": "En béisbol, ¿cuántas faltas supone un out?",
-    "options": [
-      "2",
-      "5",
-      "3",
-      "0"
-    ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: 0.",
-    "id": "otdb_0186"
-  },
-  {
-    "mode": "classic",
-    "category": "Deportes",
-    "difficulty": "media",
-    "question": "¿Quién es el máximo goleador de la primera división del Manchester United?",
-    "options": [
-      "Ryan Giggs",
-      "David Beckham",
-      "Wayne Rooney",
-      "Señor Bobby Charlton"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Wayne Rooney.",
-    "id": "otdb_0187"
-  },
-  {
-    "mode": "classic",
-    "category": "Deportes",
-    "difficulty": "facil",
-    "question": "¿Cuál fue el resultado final del partido de la Copa Mundial de la FIFA Alemania vs. Brasil 2014?",
-    "options": [
-      "7 - 1",
-      "16 - 0",
-      "3 - 4",
-      "0 - 1"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: 7 - 1.",
-    "id": "otdb_0188"
-  },
-  {
-    "mode": "classic",
-    "category": "Deportes",
-    "difficulty": "media",
-    "question": "¿Qué país fue sede de la Copa Mundial de la FIFA en 2006?",
-    "options": [
-      "Alemania",
-      "Reino Unido",
-      "Brasil",
-      "Sudáfrica"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Alemania.",
-    "id": "otdb_0189"
-  },
-  {
-    "mode": "classic",
-    "category": "Deportes",
-    "difficulty": "media",
-    "question": "¿Cuál de estas pruebas de atletismo NO está incluida en el decatlón olímpico masculino?",
-    "options": [
-      "Salto con pértiga",
-      "Salto de longitud",
-      "Lanzamiento de martillo",
-      "Lanzamiento de peso"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Lanzamiento de martillo.",
-    "id": "otdb_0190"
-  },
-  {
-    "mode": "classic",
-    "category": "Deportes",
-    "difficulty": "media",
-    "question": "¿Cuál fue el promedio de bateo de Sir Donald Bradman en partidos de prueba?",
-    "options": [
-      "99,94",
-      "69,51",
-      "44,78",
-      "100"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: 99,94.",
-    "id": "otdb_0191"
-  },
-  {
-    "mode": "classic",
-    "category": "Deportes",
-    "difficulty": "facil",
-    "question": "En béisbol, ¿cuántas veces se debe lanzar la pelota fuera de la zona de strike antes de que se le dé base por bolas al bateador?",
-    "options": [
-      "3",
-      "4",
-      "2",
-      "1"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: 4.",
-    "id": "otdb_0192"
-  },
-  {
-    "mode": "classic",
-    "category": "Deportes",
-    "difficulty": "dificil",
-    "question": "¿Quién marcó el gol de la victoria en el tiempo añadido en la final de la UEFA Champions League de 1999 entre el Manchester United y el Bayern de Múnich?",
-    "options": [
-      "Dwight Yorke",
-      "Andy Cole",
-      "Ole Gunnar Solskjaer",
-      "David Beckham"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Ole Gunnar Solskjaer.",
-    "id": "otdb_0193"
-  },
-  {
-    "mode": "classic",
-    "category": "Deportes",
-    "difficulty": "facil",
-    "question": "¿Cuándo se fundó el FC Schalke 04?",
-    "options": [
-      "1909",
-      "1904",
-      "2008",
-      "1999"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: 1904.",
-    "id": "otdb_0194"
-  },
-  {
-    "mode": "classic",
-    "category": "Deportes",
-    "difficulty": "dificil",
-    "question": "¿Qué equipo de fútbol inglés recibe el sobrenombre de 'Los Tigres'?",
-    "options": [
-      "ciudad de manchester",
-      "ciudad de brístol",
-      "ciudad casco",
-      "ciudad de cardiff"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: ciudad casco.",
-    "id": "otdb_0195"
-  },
-  {
-    "mode": "classic",
-    "category": "Deportes",
-    "difficulty": "media",
-    "question": "¿Qué selección nacional ganó la edición 2016 del Campeonato de Europa de la UEFA?",
-    "options": [
-      "Alemania",
-      "Portugal",
-      "Francia",
-      "Inglaterra"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: Portugal.",
-    "id": "otdb_0196"
-  },
-  {
-    "mode": "classic",
-    "category": "Deportes",
-    "difficulty": "media",
-    "question": "¿En qué deporte compite Fanny Chmelar con Alemania?",
-    "options": [
-      "salto",
-      "Esquiar",
-      "Gimnasia",
-      "Nadar"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: Esquiar.",
-    "id": "otdb_0197"
-  },
-  {
-    "mode": "classic",
-    "category": "Deportes",
-    "difficulty": "media",
-    "question": "¿Cuál es el equipo más antiguo de la NFL?",
-    "options": [
-      "Cardenales de Arizona",
-      "Empacadores de Green Bay",
-      "Gigantes de Nueva York",
-      "Osos de chicago"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Cardenales de Arizona.",
-    "id": "otdb_0198"
-  },
-  {
-    "mode": "classic",
-    "category": "Deportes",
-    "difficulty": "media",
-    "question": "¿Qué equipo fue campeón de la NBA 2014-2015?",
-    "options": [
-      "Cohetes de Houston",
-      "Caballeros de Cleveland",
-      "Halcones de Atlanta",
-      "guerreros del estado dorado"
-    ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: guerreros del estado dorado.",
-    "id": "otdb_0199"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "facil",
-    "question": "¿Quién queda congelado al final de la película \"Goldeneye\"?",
-    "options": [
-      "James Bond",
-      "Natalia Simonova",
-      "Borís Grishenko",
-      "Alec Travelyan"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Borís Grishenko.",
-    "id": "otdb_0200"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "dificil",
-    "question": "¿Cómo se llamaba el planeta en \"Aliens\"?",
-    "options": [
-      "DI-621",
-      "LV-426",
-      "Base de la Corporación Weyland Yutani",
-      "FR-838"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: LV-426.",
-    "id": "otdb_0201"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "media",
-    "question": "¿Qué ciudad atacó el monstruo de la película \"Cloverfield\"?",
-    "options": [
-      "Nueva York, Nueva York",
-      "orlando, florida",
-      "Las Vegas, Nevada",
-      "chicago, illinois"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Nueva York, Nueva York.",
-    "id": "otdb_0202"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "media",
-    "question": "¿Qué significa TIE en referencia al TIE Fighter en \"Star Wars\"?",
-    "options": [
-      "Motor gemelo de hierro",
-      "Motor interceptor doble",
-      "Motor de inicio gemelo",
-      "Motor de iones gemelos"
-    ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: Motor de iones gemelos.",
-    "id": "otdb_0203"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "dificil",
-    "question": "En la película \"Interstellar\", ¿cuánto tiempo pasaron en el planeta Miller?",
-    "options": [
-      "26 años, 4 meses y 10 días",
-      "10 meses y 6 días",
-      "15 años, 2 meses y 15 días",
-      "23 años, 4 meses y 8 días"
-    ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: 23 años, 4 meses y 8 días.",
-    "id": "otdb_0204"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "media",
-    "question": "¿Quién le da voz al personaje principal Blu en la película animada de 2011 \"Rio\"?",
-    "options": [
-      "miguel cera",
-      "Jesse Eisenberg",
-      "Zach Galifianakis",
-      "Jonás colina"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: Jesse Eisenberg.",
-    "id": "otdb_0205"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "dificil",
-    "question": "¿Qué actriz interpretó a la Dra. Grace Augustine en la película de James Cameron \"Avatar\"?",
-    "options": [
-      "Sigourney Weaver",
-      "Alicia Monroe",
-      "Jessica Chastain",
-      "Melissa Beckett"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Sigourney Weaver.",
-    "id": "otdb_0206"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "media",
-    "question": "Antes de conseguir la escopeta, ¿qué quería comprar el vagabundo titular de 'Hobo with a Shotgun'?",
-    "options": [
-      "un traje",
-      "un revólver",
-      "una cortadora de césped",
-      "una guitarra"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: una cortadora de césped.",
-    "id": "otdb_0207"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "media",
-    "question": "Ed Koch, alcalde de Nueva York en 1984, ¿en qué película de los Muppets se interpretó a sí mismo?",
-    "options": [
-      "La película de los Muppets",
-      "La gran travesura de los Muppets",
-      "El cuento de Navidad de los Muppets",
-      "Los Muppets toman Manhattan"
-    ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: Los Muppets toman Manhattan.",
-    "id": "otdb_0208"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "media",
-    "question": "En la película \"John Wick\" ¿por qué John Wick sale del retiro?",
-    "options": [
-      "lo asaltaron",
-      "Le dieron un puñetazo en la cara",
-      "necesitaba dinero",
-      "Matan a su cachorro y le roban el auto"
-    ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: Matan a su cachorro y le roban el auto.",
-    "id": "otdb_0209"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "media",
-    "question": "¿Qué animales mutados actúan como monstruos en la película 'La noche de los Lepus'?",
-    "options": [
-      "Murciélagos",
-      "Perros",
-      "ratas",
-      "Conejos"
-    ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: Conejos.",
-    "id": "otdb_0210"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "facil",
-    "question": "¿Quién interpreta al protagonista Ethan Hunt en la serie de películas \"Misión: Imposible\"?",
-    "options": [
-      "Sean Connery",
-      "Tom Crucero",
-      "Johnny Depp",
-      "Pierce Brosnan"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: Tom Crucero.",
-    "id": "otdb_0211"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "media",
-    "question": "¿Cuál era el nombre del personaje de Marilyn Monroe en la película \"Some Like It Hot\"?",
-    "options": [
-      "Azúcar",
-      "Dulce",
-      "Miel",
-      "Caramelo"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Azúcar.",
-    "id": "otdb_0212"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "facil",
-    "question": "¿En qué película Humphrey Bogart dice la famosa frase: \"Aquí te estoy mirando, chico\"?",
-    "options": [
-      "Casablanca",
-      "El halcón maltés",
-      "El Tesoro de la Sierra Madre",
-      "Ciudadano Kane"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Casablanca.",
-    "id": "otdb_0213"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "facil",
-    "question": "En la película \"Blade Runner\", ¿cuál es el término utilizado para los androides con apariencia humana?",
-    "options": [
-      "Replicantes",
-      "Trabajos de piel",
-      "cylones",
-      "Sintéticos"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Replicantes.",
-    "id": "otdb_0214"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "facil",
-    "question": "¿Quién interpretó a Han Solo en la serie de películas principal de Star Wars?",
-    "options": [
-      "Harrison Ford",
-      "Marcos Hamill",
-      "Peter Cushing",
-      "Alec Guinness"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Harrison Ford.",
-    "id": "otdb_0215"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "facil",
-    "question": "¿Quién interpretó a Bruce Wayne y Batman en la película \"Batman\" de Tim Burton de 1989?",
-    "options": [
-      "Michael Keaton",
-      "Val Kilmer",
-      "Adán Oeste",
-      "George Clooney"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Michael Keaton.",
-    "id": "otdb_0216"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "facil",
-    "question": "¿A qué villano de Batman es conocido por haber expresado Mark Hamill?",
-    "options": [
-      "el comodín",
-      "Perdición",
-      "Cállate",
-      "dos caras"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: el comodín.",
-    "id": "otdb_0217"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "media",
-    "question": "¿Mark Wahlberg interpretó al personaje principal de qué adaptación de videojuego de 2008?",
-    "options": [
-      "dios de la guerra",
-      "Sicario",
-      "Alan Wake",
-      "Max Payne"
-    ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: Max Payne.",
-    "id": "otdb_0218"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "media",
-    "question": "¿Quién interpretó al barón Victor Frankestein en la película de terror de Hammer de 1957 \"La maldición de Frankenstein\"?",
-    "options": [
-      "Vicente precio",
-      "Lon Chaney Jr.",
-      "Peter Cushing",
-      "boris karloff"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Peter Cushing.",
-    "id": "otdb_0219"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "media",
-    "question": "¿En qué año se estrenó la película \"Napoleon Dynamite\"?",
-    "options": [
-      "2002",
-      "2003",
-      "2004",
-      "2005"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: 2004.",
-    "id": "otdb_0220"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "facil",
-    "question": "¿Qué película ha sido considerada por la crítica como la mejor película de todos los tiempos?",
-    "options": [
-      "La habitación",
-      "Ciudadano Kane",
-      "El Padrino Parte II",
-      "Avatar"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: Ciudadano Kane.",
-    "id": "otdb_0221"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "facil",
-    "question": "¿Cuál era el apellido de Dorothy en 'El mago de Oz'?",
-    "options": [
-      "Día",
-      "Vendaval",
-      "Perkins",
-      "parker"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: Vendaval.",
-    "id": "otdb_0222"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "media",
-    "question": "¿Quién interpreta a \"Bruce Wayne\" en la película de 2008 \"El caballero de la noche\"?",
-    "options": [
-      "cristian bale",
-      "Michael Caín",
-      "Ron Dean",
-      "Heath Ledger"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: cristian bale.",
-    "id": "otdb_0223"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "facil",
-    "question": "¿Quién dirigió la película de 2015 \"The Revenant\"?",
-    "options": [
-      "Alejandro G. Iñárritu",
-      "David Fincher",
-      "Cristóbal Nolan",
-      "Anderson"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Alejandro G. Iñárritu.",
-    "id": "otdb_0224"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "dificil",
-    "question": "¿Qué tres películas, en orden desde la fecha de estreno, componen la \"Trilogía del Dólar\"?",
-    "options": [
-      "\"Por unos dólares más\", \"El bueno, el feo y el malo\", \"Un puñado de dólares\"",
-      "\"El bueno, el feo y el malo\", \"Por unos dólares más\", \"Un puñado de dólares\"",
-      "\"Por unos dólares más\", \"Un puñado de dólares\", \"El bueno, el feo y el malo\"",
-      "\"Un puñado de dólares\", \"Por unos dólares más\", \"El bueno, el feo y el malo\""
-    ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: \"Un puñado de dólares\", \"Por unos dólares más\", \"El bueno, el feo y el malo\".",
-    "id": "otdb_0225"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "facil",
-    "question": "¿Cómo se llama la isla en la que está construido \"Jurassic Park\"?",
-    "options": [
-      "Isla de las Nubes",
-      "Isla Muerta",
-      "Isla Pena",
-      "Isla Sorna"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Isla de las Nubes.",
-    "id": "otdb_0226"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "facil",
-    "question": "¿Cuál de los siguientes actores solo ha estado una vez en una película dirigida por Quentin Tarantino?",
-    "options": [
-      "Juan Travolta",
-      "Harvey Keitel",
-      "Samuel Jackson",
-      "cristóbal vals"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Juan Travolta.",
-    "id": "otdb_0227"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "media",
-    "question": "¿Quién prestó su voz al personaje de Draco en la película de 1996 'DragonHeart'?",
-    "options": [
-      "Sean Connery",
-      "Pete Postlethwaite",
-      "Brian Thompson",
-      "Dennis Quaid"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Sean Connery.",
-    "id": "otdb_0228"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "dificil",
-    "question": "¿Qué película de 1994 despreció Roger Ebert, diciendo: \"Odié, odié, odié, odié, odié, odié, odié, esta película\".",
-    "options": [
-      "3 ninjas retroceden",
-      "Richie rico",
-      "La Papá Noel",
-      "Norte"
-    ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: Norte.",
-    "id": "otdb_0229"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "media",
-    "question": "¿Qué comediante puso voz al loro parlante \"Iago\" en la adaptación de Aladdin de Disney de 1992?",
-    "options": [
-      "Jonathan Freeman",
-      "Pauly Costa",
-      "robin williams",
-      "Gilberto Gottfried"
-    ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: Gilberto Gottfried.",
-    "id": "otdb_0230"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "facil",
-    "question": "¿Quién escribió y dirigió la película 'Platoon' de 1986?",
-    "options": [
-      "Oliver Piedra",
-      "Stanley Kubrick",
-      "Michael Cimino",
-      "Francis Ford Coppola"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Oliver Piedra.",
-    "id": "otdb_0231"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "facil",
-    "question": "En la película Gremlins, ¿a partir de qué hora del día no debes alimentar a Mogwai?",
-    "options": [
-      "Mañana",
-      "Medianoche",
-      "Tarde",
-      "Noche"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: Medianoche.",
-    "id": "otdb_0232"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "media",
-    "question": "Este tropo se refiere a personajes menores que mueren para mostrar cómo funciona un monstruo.",
-    "options": [
-      "camisa roja",
-      "Objetos gastables de suministro",
-      "Carne de cañón",
-      "Minions"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: camisa roja.",
-    "id": "otdb_0233"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "facil",
-    "question": "Daniel Radcliffe se convirtió en una estrella mundial en la industria cinematográfica debido a su actuación ¿en qué franquicia cinematográfica?",
-    "options": [
-      "Niños espías",
-      "piratas del caribe",
-      "ted",
-      "harry potter"
-    ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: harry potter.",
-    "id": "otdb_0234"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "dificil",
-    "question": "En el universo de \"Jurassic Park\", ¿cuándo comenzó la construcción de \"Jurassic Park: San Diego\"?",
-    "options": [
-      "1985",
-      "1993",
-      "1986",
-      "1988"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: 1985.",
-    "id": "otdb_0235"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "media",
-    "question": "¿Quién interpretó al sargento? ¿Gordon Elias en 'Pelotón' (1986)?",
-    "options": [
-      "Johnny Depp",
-      "Willem Dafoe",
-      "Matt Damon",
-      "charlie sheen"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: Willem Dafoe.",
-    "id": "otdb_0236"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "facil",
-    "question": "En Avengers: Infinity War, ¿dónde estaba ubicada la Piedra del Alma?",
-    "options": [
-      "la forma",
-      "No sé dónde",
-      "fue transmitido",
-      "Asgard"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: la forma.",
-    "id": "otdb_0237"
+    "explanation": "Respuesta correcta: Chicos y muñecas.",
+    "id": "otdb_0034"
   },
   {
     "mode": "classic",
@@ -3562,477 +517,87 @@
     "options": [
       "Jonathan Demme",
       "Frank Darabont",
-      "miguel bahía",
-      "Stanley Kubrick"
+      "Stanley Kubrick",
+      "miguel bahía"
     ],
     "answerIndex": 0,
     "explanation": "Respuesta correcta: Jonathan Demme.",
-    "id": "otdb_0238"
+    "id": "otdb_0035"
   },
   {
     "mode": "classic",
     "category": "Cine y TV",
     "difficulty": "media",
-    "question": "¿Qué actor interpreta el papel del antagonista principal en la película de 2011 \"Tower Heist\"?",
+    "question": "En Buscando a Nemo, ¿cómo se llamaba la mamá de Nemo?",
     "options": [
-      "Kevin Nealon",
-      "Alec Baldwin",
-      "Alan Alda",
-      "Eddie Murphy"
+      "Perla",
+      "Arenoso",
+      "Coral",
+      "Shelley"
     ],
     "answerIndex": 2,
-    "explanation": "Respuesta correcta: Alan Alda.",
-    "id": "otdb_0239"
+    "explanation": "Respuesta correcta: Coral.",
+    "id": "otdb_0036"
   },
   {
     "mode": "classic",
     "category": "Cine y TV",
-    "difficulty": "dificil",
-    "question": "¿En qué año se estrena Jurassic World en el universo \"Jurassic Park\"?",
+    "difficulty": "media",
+    "question": "¿Quién dirigió la película \"American Graffiti\" de 1973?",
     "options": [
-      "2007",
-      "2005",
-      "2015",
-      "2020"
+      "Ron Howard",
+      "jorge lucas",
+      "Francis Ford Coppola",
+      "Steven Spielberg"
     ],
     "answerIndex": 1,
-    "explanation": "Respuesta correcta: 2005.",
-    "id": "otdb_0240"
+    "explanation": "Respuesta correcta: jorge lucas.",
+    "id": "otdb_0037"
   },
   {
     "mode": "classic",
     "category": "Cine y TV",
     "difficulty": "facil",
-    "question": "¿Quién dirigió las películas de Kill Bill?",
+    "question": "¿Quién interpreta a Jack Burton en la película \"El gran problema en la pequeña China\"?",
     "options": [
-      "Arnold Schwarzenegger",
-      "David Lean",
-      "Stanley Kubrick",
-      "Quentin Tarantino"
+      "Juan Cusack",
+      "Harrison Ford",
+      "Patricio Swayze",
+      "Kurt Russell"
     ],
     "answerIndex": 3,
-    "explanation": "Respuesta correcta: Quentin Tarantino.",
-    "id": "otdb_0241"
+    "explanation": "Respuesta correcta: Kurt Russell.",
+    "id": "otdb_0038"
   },
   {
     "mode": "classic",
     "category": "Cine y TV",
     "difficulty": "media",
-    "question": "En Mulan (1998), ¿quién es el líder de los hunos?",
+    "question": "¿En qué episodio de \"Mr. Bean\" lo vio tratando de evitar que la gente lo viera desnudo?",
     "options": [
-      "Li Shang",
-      "Chien Po",
-      "Fa Zhou",
-      "shan yu"
+      "Sr. Bean en la habitación 426",
+      "Regreso a la escuela Sr. Bean",
+      "Mr. Bean va a la ciudad",
+      "El problema con el Sr. Bean"
     ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: shan yu.",
-    "id": "otdb_0242"
+    "answerIndex": 0,
+    "explanation": "Respuesta correcta: Sr. Bean en la habitación 426.",
+    "id": "otdb_0039"
   },
   {
     "mode": "classic",
     "category": "Cine y TV",
     "difficulty": "media",
-    "question": "¿Quién interpretó al cenobita llamado \"Pinhead\" en las películas originales de Hellraiser?",
+    "question": "En el episodio \"Bandersnatch\" de Black Mirror, PAC-MAN significa:",
     "options": [
-      "Doug Savant",
-      "David Bradley",
-      "David Benson",
-      "David Jones"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: David Bradley.",
-    "id": "otdb_0243"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "dificil",
-    "question": "En la película navideña de 1974 \"El año sin Papá Noel\", ¿cómo se llaman los dos elfos que ayudan a la señora Claus a salvar la Navidad?",
-    "options": [
-      "acebo y alegre",
-      "Jingle y tintineo",
-      "Copo de nieve y carámbano",
-      "amigo y bobby"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: Jingle y tintineo.",
-    "id": "otdb_0244"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "media",
-    "question": "¿En qué año se estrenó la primera película de Transformers?",
-    "options": [
-      "2007",
-      "2009",
-      "1986",
-      "1984"
+      "Hombre del Comité de Acción Política",
+      "Clasificación de Física y Astronomía Hombre",
+      "Hombre de programa y control",
+      "Centro de Aplicaciones de Posgrado Hombre"
     ],
     "answerIndex": 2,
-    "explanation": "Respuesta correcta: 1986.",
-    "id": "otdb_0245"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "media",
-    "question": "¿Quién le dio voz a Metalbeard en \"La Lego Película\"?",
-    "options": [
-      "Liam Neeson",
-      "Nick Offerman",
-      "Morgan Freeman",
-      "Will Arnet"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: Nick Offerman.",
-    "id": "otdb_0246"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "facil",
-    "question": "¿Cuál de estos actores NO ha interpretado a Spiderman en el cine?",
-    "options": [
-      "andres garfield",
-      "miguel cera",
-      "Tobey Maguire",
-      "Tom Holanda"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: miguel cera.",
-    "id": "otdb_0247"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "facil",
-    "question": "\"La primera regla es: no hables de eso\" ¿a qué película se refiere?",
-    "options": [
-      "club de lucha",
-      "la isla",
-      "pastel americano",
-      "Inconcebible"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: club de lucha.",
-    "id": "otdb_0248"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "dificil",
-    "question": "¿Qué cantante interpreta Bruce Campbell en la película de 2002 'Bubba Ho-Tep'?",
-    "options": [
-      "amigo acebo",
-      "Elvis Presley",
-      "Johnny efectivo",
-      "Hank Williams, Sr."
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: Elvis Presley.",
-    "id": "otdb_0249"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "media",
-    "question": "En \"Bob Esponja\", ¿cuál es el nombre completo del Sr. Cangrejo?",
-    "options": [
-      "Eugene G. Cangrejos",
-      "Eugene D. Cangrejos",
-      "Eugene H. Cangrejos",
-      "Eugene J. Cangrejos"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Eugene H. Cangrejos.",
-    "id": "otdb_0250"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "facil",
-    "question": "En DuckTales, ¿cómo se llama la ciudad donde viven todos los personajes principales?",
-    "options": [
-      "Patoburg",
-      "Caída en barrena",
-      "Wingford",
-      "ala de pato"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Patoburg.",
-    "id": "otdb_0251"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "media",
-    "question": "En el universo de Doctor Who, ¿cuántas veces puede regenerarse normalmente un señor del tiempo?",
-    "options": [
-      "13",
-      "12",
-      "15",
-      "11"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: 12.",
-    "id": "otdb_0252"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "dificil",
-    "question": "Antes de trabajar en Wizards of the Coast, ¿\"Mark Rosewater\" fue escritor para qué programa?",
-    "options": [
-      "rosaanne",
-      "Expediente X",
-      "El chico conoce al mundo",
-      "Policía de Nueva York azul"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: rosaanne.",
-    "id": "otdb_0253"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "facil",
-    "question": "En el programa de televisión 'M*A*S*H', ¿cuál era el apodo del cabo Walter O'Reilly?",
-    "options": [
-      "Radar",
-      "labios calientes",
-      "ojo de halcón",
-      "Trampero"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Radar.",
-    "id": "otdb_0254"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "facil",
-    "question": "En Juego de Tronos, ¿qué continente se encuentra al otro lado del Mar Angosto desde Poniente?",
-    "options": [
-      "Essos",
-      "Esuntos",
-      "pascuas",
-      "Oesteeste"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Essos.",
-    "id": "otdb_0255"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "facil",
-    "question": "¿Quién fue el primer actor en interpretar a \"El Doctor\" en \"Doctor Who\"?",
-    "options": [
-      "David Tennant",
-      "Pedro Capaldi",
-      "William Hartnell",
-      "Tom Baker"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: William Hartnell.",
-    "id": "otdb_0256"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "dificil",
-    "question": "¿Cuál fue la fecha de emisión original del episodio piloto de My Little Pony: La Magia de la Amistad?",
-    "options": [
-      "14 de abril de 1984",
-      "10 de octubre de 2010",
-      "18 de mayo de 2015",
-      "6 de noviembre de 2010"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: 10 de octubre de 2010.",
-    "id": "otdb_0257"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "dificil",
-    "question": "¿Qué actor de The Young Ones también interpretó a Lord Flashheart en un episodio de Blackadder II?",
-    "options": [
-      "Cristóbal Ryan",
-      "Nigel Planer",
-      "Rik Mayall",
-      "Adrián Edmondson"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Rik Mayall.",
-    "id": "otdb_0258"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "media",
-    "question": "¿Qué luchador de la WWF tenía el apodo de \"El Ayatolá del Rock 'N' Rolla\"?",
-    "options": [
-      "Shawn Michaels",
-      "Chris Jericó",
-      "Scott Hall",
-      "Marty Jannetty"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: Chris Jericó.",
-    "id": "otdb_0259"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "dificil",
-    "question": "¿Cómo se llamaba el pato inflable sacrificado ante la multitud al final del episodio 34 de la temporada 18 de Gran Hermano?",
-    "options": [
-      "pato",
-      "carlos",
-      "Esteban",
-      "Pablo"
-    ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: Pablo.",
-    "id": "otdb_0260"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "dificil",
-    "question": "En 2008, el famoso chef británico Gordon Ramsay cree que casi muere después de sufrir ¿qué accidente en Islandia mientras filmaba?",
-    "options": [
-      "Un accidente automovilístico menor en una tormenta de nieve.",
-      "Aterrizaje forzoso al llegar al aeropuerto de Keflavík",
-      "Que le sirvan pollo poco cocido en su hotel",
-      "Resbalarse por un acantilado y casi ahogarse en agua helada"
-    ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: Resbalarse por un acantilado y casi ahogarse en agua helada.",
-    "id": "otdb_0261"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "dificil",
-    "question": "¿Qué ex actriz de Coronation Street fue presentadora del programa de juegos británico \"Double Your Money\"?",
-    "options": [
-      "Amanda Barrie",
-      "Violeta Carson",
-      "Juan Alejandro",
-      "Sue Nicholls"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Amanda Barrie.",
-    "id": "otdb_0262"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "dificil",
-    "question": "¿Cuál de estos de la serie Star Trek NO es comida klingon?",
-    "options": [
-      "¡Ah!",
-      "Entremeses",
-      "vino de sangre",
-      "Afuera"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: Entremeses.",
-    "id": "otdb_0263"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "media",
-    "question": "En Battlestar Galactica (2004), ¿cómo se llama el presidente de las Doce Colonias?",
-    "options": [
-      "Harry fotos",
-      "Laura Roslin",
-      "Tricia Helfer",
-      "Guillermo Adama"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: Laura Roslin.",
-    "id": "otdb_0264"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "facil",
-    "question": "¿Quién es el personaje principal del programa \"Burn Notice\"?",
-    "options": [
-      "michael oeste",
-      "Sam Hacha",
-      "madeline oeste",
-      "Fiona Glenanne"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: michael oeste.",
-    "id": "otdb_0265"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "media",
-    "question": "En \"Star Trek\", ¿qué es el ritual de muerte klingon?",
-    "options": [
-      "Dispara al espacio en un casquillo de torpedo.",
-      "Divide las ganancias del difunto entre los parientes.",
-      "Mira al cielo y grita fuerte de luto.",
-      "Besa la frente dentada antes del entierro."
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Mira al cielo y grita fuerte de luto..",
-    "id": "otdb_0266"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "facil",
-    "question": "En la serie de televisión original de Star Trek, ¿cuál era el segundo nombre del capitán James T. Kirk?",
-    "options": [
-      "tirano",
-      "Tiberio",
-      "travis",
-      "Trevor"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: Tiberio.",
-    "id": "otdb_0267"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "media",
-    "question": "¿El barón Silas Greenback es el archienemigo de qué héroe de dibujos animados?",
-    "options": [
-      "superted",
-      "Capitán Estrella",
-      "Ratón peligroso",
-      "bananero"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Ratón peligroso.",
-    "id": "otdb_0268"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "media",
-    "question": "En el programa de televisión \"Lazy Town\", ¿quién es el actor de Robbie Rotten?",
-    "options": [
-      "Stefan Stefansson",
-      "Adam Sandler",
-      "Esteban Carl",
-      "Magnus Scheving"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Stefan Stefansson.",
-    "id": "otdb_0269"
+    "explanation": "Respuesta correcta: Hombre de programa y control.",
+    "id": "otdb_0040"
   },
   {
     "mode": "classic",
@@ -4042,27 +607,27 @@
     "options": [
       "Dean Ambrosio",
       "Estilos AJ",
-      "Triple H",
-      "Reinados romanos"
+      "Reinados romanos",
+      "Triple H"
     ],
-    "answerIndex": 2,
+    "answerIndex": 3,
     "explanation": "Respuesta correcta: Triple H.",
-    "id": "otdb_0270"
+    "id": "otdb_0041"
   },
   {
     "mode": "classic",
     "category": "Cine y TV",
-    "difficulty": "media",
-    "question": "Dee de \"It's Always Sunny in Philadelphia\" ha salido con todos los siguientes chicos EXCEPTO",
+    "difficulty": "facil",
+    "question": "¿Qué presentador presenta Guy's Grocery Games?",
     "options": [
-      "Ben el soldado",
-      "Matthew \"Grillet desvencijado\" Mara",
-      "Kevin Gallagher también conocido como Lil' Kevin",
-      "colin el ladrón"
+      "Guy Martín",
+      "Guy Fieri",
+      "chico ritchie",
+      "Ainsley Harriot"
     ],
     "answerIndex": 1,
-    "explanation": "Respuesta correcta: Matthew \"Grillet desvencijado\" Mara.",
-    "id": "otdb_0271"
+    "explanation": "Respuesta correcta: Guy Fieri.",
+    "id": "otdb_0042"
   },
   {
     "mode": "classic",
@@ -4070,1138 +635,148 @@
     "difficulty": "media",
     "question": "¿Cómo se llama el spin-off de \"Flash\" y \"Arrow\" que presenta un equipo de personajes que aparecieron en ambos programas?",
     "options": [
+      "Héroes del mañana",
       "Leyendas del mañana",
       "La sociedad de la justicia",
-      "Héroes del mañana",
       "La Sociedad de la Justicia de América"
     ],
-    "answerIndex": 0,
+    "answerIndex": 1,
     "explanation": "Respuesta correcta: Leyendas del mañana.",
-    "id": "otdb_0272"
+    "id": "otdb_0043"
   },
   {
     "mode": "classic",
     "category": "Cine y TV",
-    "difficulty": "dificil",
-    "question": "¿Qué estación de PBS fue la primera en transmitir \"Monty Python's Flying Circus\" (1969-1974) en los Estados Unidos?",
+    "difficulty": "facil",
+    "question": "¿Quién interpretó a la camarera en el sketch spam de \"Monty Python's Flying Circus\"?",
     "options": [
-      "KLCS (Los Ángeles)",
-      "KERA (Dallas-Fort Worth)",
-      "WETA (Washington DC)",
-      "WNET (Nueva York)"
+      "John Cleese",
+      "Terry Jones",
+      "eric inactivo",
+      "Graham Chapman"
     ],
     "answerIndex": 1,
-    "explanation": "Respuesta correcta: KERA (Dallas-Fort Worth).",
-    "id": "otdb_0273"
+    "explanation": "Respuesta correcta: Terry Jones.",
+    "id": "otdb_0044"
   },
   {
     "mode": "classic",
     "category": "Cine y TV",
     "difficulty": "media",
-    "question": "En Naruto: Shippuden, ¿cuál de los siguientes elementos es un \"Kekkei Tōta?\"",
+    "question": "¿Qué luchador de la WWF tenía el apodo de \"El Ayatolá del Rock 'N' Rolla\"?",
     "options": [
-      "Estilo de sombra",
-      "Cualquier doujutsu",
-      "Estilo de partícula",
-      "Estilo de hielo"
+      "Marty Jannetty",
+      "Shawn Michaels",
+      "Chris Jericó",
+      "Scott Hall"
     ],
     "answerIndex": 2,
-    "explanation": "Respuesta correcta: Estilo de partícula.",
-    "id": "otdb_0274"
+    "explanation": "Respuesta correcta: Chris Jericó.",
+    "id": "otdb_0045"
   },
   {
     "mode": "classic",
     "category": "Cine y TV",
     "difficulty": "media",
-    "question": "¿El Toyota Corolla \"AE86\" de 1985 fue el auto héroe de qué anime?",
+    "question": "¿Cómo se llama el inspector de la serie \"En los autobuses\"?",
     "options": [
-      "D inicial",
-      "Fantasma MF",
-      "Dinero de medianoche",
-      "Ex conductor"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: D inicial.",
-    "id": "otdb_0275"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "facil",
-    "question": "¿En qué estado de América nació y creció el Príncipe de Bel-Air?",
-    "options": [
-      "California",
-      "Florida",
-      "Pensilvania",
-      "Nueva Jersey"
+      "gally",
+      "uñas",
+      "blakey",
+      "harper"
     ],
     "answerIndex": 2,
-    "explanation": "Respuesta correcta: Pensilvania.",
-    "id": "otdb_0276"
+    "explanation": "Respuesta correcta: blakey.",
+    "id": "otdb_0046"
   },
   {
     "mode": "classic",
-    "category": "Cine y TV",
+    "category": "Videojuegos",
     "difficulty": "media",
-    "question": "¿Quién compuso el tema principal de Los Simpson?",
+    "question": "¿Quién fue el principal antagonista de Max Payne 3 (2012)?",
     "options": [
-      "Danny Elfman",
-      "Hans Zimmer",
-      "Juan Williams",
-      "Ennio Morricone"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Danny Elfman.",
-    "id": "otdb_0277"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "facil",
-    "question": "En Star Trek: The Next Generation, ¿cómo se llama el gato de Data?",
-    "options": [
-      "Lugar",
-      "Tomás",
-      "Guantes de boxeo",
-      "Bote"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Lugar.",
-    "id": "otdb_0278"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "media",
-    "question": "¿Cuál de las siguientes opciones es grosera y deshonrosa según los estándares klingon?",
-    "options": [
-      "Insultar y reírse de él en la mesa.",
-      "Golpeándolo y tomando su posición en la estación de barco.",
-      "Tomando su D'k tahg",
-      "Extendiendo la mano y tomando su comida."
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Tomando su D'k tahg.",
-    "id": "otdb_0279"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "facil",
-    "question": "Cuando Donkey Kong murió en el episodio \"Es una vida maravillosa\" de \"Donkey Kong Country\", ¿quién era su ángel de la guarda?",
-    "options": [
-      "Kiddy Kong",
-      "Diddy Kong",
-      "Eddie, el viejo y malo Yeti",
-      "Rey K. Rool"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Eddie, el viejo y malo Yeti.",
-    "id": "otdb_0280"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "media",
-    "question": "¿Alan Reed es conocido por prestar la voz de qué personaje?",
-    "options": [
-      "Pedro Picapiedra",
-      "Bugs Bunny",
-      "cara de colmillo",
-      "SOLDADO AMERICANO. José"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Pedro Picapiedra.",
-    "id": "otdb_0281"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "facil",
-    "question": "¿Cuál de los siguientes premios NO tienen Matt Stone y Trey Parker?",
-    "options": [
-      "Óscar",
-      "tony",
-      "Emmy",
-      "abuela"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Óscar.",
-    "id": "otdb_0282"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "facil",
-    "question": "¿En qué país está ambientada Cory en la casa?",
-    "options": [
-      "Inglaterra",
-      "Los Estados Unidos de América",
-      "Canadá",
-      "Venezuela"
+      "Milo Rego",
+      "Víctor Branco",
+      "Armando Becker",
+      "Álvaro Neves"
     ],
     "answerIndex": 1,
-    "explanation": "Respuesta correcta: Los Estados Unidos de América.",
-    "id": "otdb_0283"
+    "explanation": "Respuesta correcta: Víctor Branco.",
+    "id": "otdb_0047"
   },
   {
     "mode": "classic",
-    "category": "Cine y TV",
+    "category": "Videojuegos",
     "difficulty": "facil",
-    "question": "En el universo de Star Trek, ¿de qué color es la sangre vulcana?",
+    "question": "En la serie \"Metal Gear Solid\", ¿cómo se llama el hermano de Solid Snake?",
     "options": [
-      "Rojo",
-      "Azul",
-      "Púrpura",
-      "Verde"
+      "serpiente billy",
+      "tomó serpiente",
+      "Serpiente Gilur",
+      "Serpiente líquida"
     ],
     "answerIndex": 3,
-    "explanation": "Respuesta correcta: Verde.",
-    "id": "otdb_0284"
+    "explanation": "Respuesta correcta: Serpiente líquida.",
+    "id": "otdb_0048"
   },
   {
     "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "dificil",
-    "question": "¿Cuál de estos programas de juegos de Nickelodeon se emitió primero?",
-    "options": [
-      "Doble Reto",
-      "Buscadores Guardianes",
-      "Nick Arcade",
-      "Tripas de Nickelodeon"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Doble Reto.",
-    "id": "otdb_0285"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
+    "category": "Videojuegos",
     "difficulty": "media",
-    "question": "¿Cómo se llama el científico loco dueño de Planet Express en Futurama?",
+    "question": "¿Qué personaje de Overwatch dice la frase \"¡Los héroes nunca mueren!\"?",
     "options": [
-      "Philip J. Fry",
-      "Rick Sánchez",
-      "Hubert J. Farnsworth",
-      "Ogden Wernström"
+      "Sónico",
+      "Merced",
+      "Segador",
+      "Bien"
     ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Hubert J. Farnsworth.",
-    "id": "otdb_0286"
+    "answerIndex": 1,
+    "explanation": "Respuesta correcta: Merced.",
+    "id": "otdb_0049"
   },
   {
     "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "facil",
-    "question": "En el programa Stranger Things, ¿cuál es el desayuno favorito de Eleven?",
-    "options": [
-      "Waffles eco",
-      "Tostada",
-      "Capitán Crujido",
-      "Tocino y huevos"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Waffles eco.",
-    "id": "otdb_0287"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
+    "category": "Videojuegos",
     "difficulty": "media",
-    "question": "¿En qué año se fundó Netflix?",
+    "question": "¿Cuál de los siguientes NO es un juego oficial de la serie Super Smash Bros. de Nintendo?",
     "options": [
-      "1999",
-      "2001",
-      "1997",
-      "2004"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: 1997.",
-    "id": "otdb_0288"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "media",
-    "question": "¿Quién fue el primer ganador de Big Brother US en ganar con un juego perfecto?",
-    "options": [
-      "Ian Terry",
-      "Raquel Reilly",
-      "Jordan Lloyd",
-      "Entonces gheeling"
+      "Super Smash Bros. Brawl",
+      "Super Smash Bros. para Nintendo 3DS y Wii U",
+      "Super Smash Bros. cuerpo a cuerpo",
+      "Cruzada de Super Smash Bros."
     ],
     "answerIndex": 3,
-    "explanation": "Respuesta correcta: Entonces gheeling.",
-    "id": "otdb_0289"
+    "explanation": "Respuesta correcta: Cruzada de Super Smash Bros..",
+    "id": "otdb_0050"
   },
   {
     "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "facil",
-    "question": "En el programa Doctor Who, ¿qué significa T.A.R.D.I.S?",
+    "category": "Videojuegos",
+    "difficulty": "media",
+    "question": "¿Cuál de los siguientes creó y dirigió la serie Katamari Damacy?",
     "options": [
-      "Tiempo y dimensiones en reposo en el espacio.",
-      "Tiempo y dimensiones relativas en el espacio",
-      "Tiempo y dimensiones relativas en estilo",
-      "El perro de cuerda de ayuda para el baño es sopa"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: Tiempo y dimensiones relativas en el espacio.",
-    "id": "otdb_0290"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "dificil",
-    "question": "En el programa de televisión \"Donkey Kong Country\", ¿en qué episodio sonó la canción \"Eddie, Let Me Go Back To My Home\"?",
-    "options": [
-      "Al babuino lunar",
-      "Mensaje en una botella",
-      "Es una vida maravillosa",
-      "Ape-Nesia"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Es una vida maravillosa.",
-    "id": "otdb_0291"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "facil",
-    "question": "¿Cómo se llama el personaje principal de la serie de televisión \"The Flash\"?",
-    "options": [
-      "bruce wayne",
-      "Barry Allen",
-      "Bart Allen",
-      "Oliver Reina"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: Barry Allen.",
-    "id": "otdb_0292"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "dificil",
-    "question": "En \"Star Trek\", ¿quién fue el fundador del Imperio Klingon y su filosofía?",
-    "options": [
-      "Maestro Dahar Kor",
-      "Molor el Implacable",
-      "Lady Lukara del Gran Salón",
-      "Kahless el inolvidable"
+      "Shu Takumi",
+      "Hideki Kamiya",
+      "Shinji Mikami",
+      "Keita Takahashi"
     ],
     "answerIndex": 3,
-    "explanation": "Respuesta correcta: Kahless el inolvidable.",
-    "id": "otdb_0293"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "media",
-    "question": "¿Cuál de estos programas de televisión hace que todo el mundo mire debajo de la silla?",
-    "options": [
-      "Sábado noche en vivo",
-      "Larry Rubert",
-      "oprah",
-      "Jimmy Fallón"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: oprah.",
-    "id": "otdb_0294"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "media",
-    "question": "¿Quién fue el rival de Firestorm durante la ejecución original de UK Robot Wars?",
-    "options": [
-      "Razer",
-      "Ataque de pánico",
-      "Caos 2",
-      "Disco hipno"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: Ataque de pánico.",
-    "id": "otdb_0295"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "media",
-    "question": "¿En qué año se emitió la primera caricatura CGI de media hora, ReBoot?",
-    "options": [
-      "1994",
-      "1999",
-      "1998",
-      "1993"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: 1994.",
-    "id": "otdb_0296"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "dificil",
-    "question": "¿Quién interpretó al bebé sol en la serie original de Teletubbies?",
-    "options": [
-      "Jessica Smith",
-      "Sue Monroe",
-      "Pui Fan Lee",
-      "Lisa Brockwell"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Jessica Smith.",
-    "id": "otdb_0297"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "media",
-    "question": "¿Quién cantó el tema principal del programa de televisión 'Rawhide'?",
-    "options": [
-      "mitchell",
-      "Whitman delgado",
-      "Frankie Laine",
-      "TennesseeErnie Ford"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Frankie Laine.",
-    "id": "otdb_0298"
-  },
-  {
-    "mode": "classic",
-    "category": "Cine y TV",
-    "difficulty": "dificil",
-    "question": "¿Cuál es el nombre del Dr. Doofenshmirtz?",
-    "options": [
-      "Heidi",
-      "Hans",
-      "heinz",
-      "Madeja"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: heinz.",
-    "id": "otdb_0299"
-  },
-  {
-    "mode": "classic",
-    "category": "Videojuegos",
-    "difficulty": "media",
-    "question": "¿Qué ciudad acogió el CS:GO Dreamhack Open 2015?",
-    "options": [
-      "Londres",
-      "Cluj-Napoca",
-      "Atlanta",
-      "Colonia"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: Cluj-Napoca.",
-    "id": "otdb_0300"
+    "explanation": "Respuesta correcta: Keita Takahashi.",
+    "id": "otdb_0051"
   },
   {
     "mode": "classic",
     "category": "Videojuegos",
     "difficulty": "dificil",
-    "question": "En la serie Mario Kart, ¿qué juego introdujo la mecánica \"Shield Drifting\"?",
+    "question": "¿Cuál de los siguientes títulos de Valve no está basado en un Community Mod?",
     "options": [
-      "Mario Kart: doble carrera",
-      "Mario Kart Arcade GP DX",
-      "Supercircuito de Mario Kart",
-      "Mario KartDS"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: Mario Kart Arcade GP DX.",
-    "id": "otdb_0301"
-  },
-  {
-    "mode": "classic",
-    "category": "Videojuegos",
-    "difficulty": "media",
-    "question": "¿Cuál de los siguientes personajes fue considerado para su inclusión en Super Smash Bros. Melee?",
-    "options": [
-      "Metacaballero",
-      "mega hombre",
-      "lucas",
-      "Diddy Kong"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: lucas.",
-    "id": "otdb_0302"
-  },
-  {
-    "mode": "classic",
-    "category": "Videojuegos",
-    "difficulty": "facil",
-    "question": "¿Qué juego de Animal Crossing era para Nintendo Wii?",
-    "options": [
-      "Cruce de animales: mundo salvaje",
-      "Animal Crossing: ¡Población en crecimiento!",
-      "Animal Crossing: gente de la ciudad",
-      "Cruce de animales: nueva hoja"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Animal Crossing: gente de la ciudad.",
-    "id": "otdb_0303"
-  },
-  {
-    "mode": "classic",
-    "category": "Videojuegos",
-    "difficulty": "media",
-    "question": "En la serie \"Portal\", ¿quién fue el asistente personal de Cave Johnson?",
-    "options": [
-      "jane",
-      "carolino",
-      "Brezo",
-      "Toronjil"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: carolino.",
-    "id": "otdb_0304"
-  },
-  {
-    "mode": "classic",
-    "category": "Videojuegos",
-    "difficulty": "facil",
-    "question": "En CoD: Black Ops III, ¿cómo se llama la IA rebelde? ¿antagonista?",
-    "options": [
-      "Legión",
-      "Cábala",
-      "un cuervo",
-      "Ícaro"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: un cuervo.",
-    "id": "otdb_0305"
-  },
-  {
-    "mode": "classic",
-    "category": "Videojuegos",
-    "difficulty": "media",
-    "question": "En Hitman: Blood Money, ¿cómo se llama el objetivo de la misión \"Muerte de un Showman\"?",
-    "options": [
-      "El rey del swing",
-      "José Clarence",
-      "Manuel Delgado",
-      "John Maynard"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: José Clarence.",
-    "id": "otdb_0306"
-  },
-  {
-    "mode": "classic",
-    "category": "Videojuegos",
-    "difficulty": "media",
-    "question": "¿Quién fue la primera protagonista femenina de un videojuego?",
-    "options": [
-      "Samus Aran",
-      "Alicia Landale",
-      "Lara Croft",
-      "chell"
+      "Rebotar",
+      "contraataque",
+      "Día de la derrota",
+      "Enjambre alienígena"
     ],
     "answerIndex": 0,
-    "explanation": "Respuesta correcta: Samus Aran.",
-    "id": "otdb_0307"
-  },
-  {
-    "mode": "classic",
-    "category": "Videojuegos",
-    "difficulty": "media",
-    "question": "En Skylanders Giants, ¿por qué Wow Pow de Zaps se llamó \"Para Riley\"?",
-    "options": [
-      "Después de uno de los escritores del juego.",
-      "Después de un actor de doblaje",
-      "Como homenaje a un fan que falleció",
-      "Como referencia a una película."
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Como homenaje a un fan que falleció.",
-    "id": "otdb_0308"
-  },
-  {
-    "mode": "classic",
-    "category": "Videojuegos",
-    "difficulty": "facil",
-    "question": "En el videojuego \"Team Fortress 2\", ¿qué clase es capaz de realizar doble salto?",
-    "options": [
-      "piro",
-      "Explorar",
-      "Ingeniero",
-      "Espiar"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: Explorar.",
-    "id": "otdb_0309"
-  },
-  {
-    "mode": "classic",
-    "category": "Videojuegos",
-    "difficulty": "facil",
-    "question": "¿Quién es el principal antagonista de la franquicia Portal?",
-    "options": [
-      "Almiar",
-      "trigo",
-      "GLaDOS",
-      "chell"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: GLaDOS.",
-    "id": "otdb_0310"
-  },
-  {
-    "mode": "classic",
-    "category": "Videojuegos",
-    "difficulty": "facil",
-    "question": "Half-Life de Valve utiliza el motor de juego GoldSrc, que es una versión muy modificada de ¿qué motor?",
-    "options": [
-      "Motor de la fatalidad",
-      "Motor de terremoto",
-      "motor de identificación",
-      "Motor de origen"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: Motor de terremoto.",
-    "id": "otdb_0311"
-  },
-  {
-    "mode": "classic",
-    "category": "Videojuegos",
-    "difficulty": "media",
-    "question": "¿Cuántos juegos hay en la serie \"Colony Wars\" para PlayStation?",
-    "options": [
-      "3",
-      "4",
-      "2",
-      "5"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: 3.",
-    "id": "otdb_0312"
-  },
-  {
-    "mode": "classic",
-    "category": "Videojuegos",
-    "difficulty": "facil",
-    "question": "En Spyro the Dragon, ¿cómo se llama la libélula amiga de Spyro?",
-    "options": [
-      "Sparx",
-      "Sam",
-      "aspersiones",
-      "chispeante"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Sparx.",
-    "id": "otdb_0313"
-  },
-  {
-    "mode": "classic",
-    "category": "Videojuegos",
-    "difficulty": "media",
-    "question": "¿Qué no es una raza jugable en “Final Fantasy XIV: A Realm Reborn”?",
-    "options": [
-      "Lalafell",
-      "Miqo'te",
-      "roegadyn",
-      "Hume"
-    ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: Hume.",
-    "id": "otdb_0314"
-  },
-  {
-    "mode": "classic",
-    "category": "Videojuegos",
-    "difficulty": "facil",
-    "question": "¿Cuál de estas no es un arma maravillosa en \"Call Of Duty: Zombies\"?",
-    "options": [
-      "Resonador R115",
-      "pistola de rayos",
-      "GKZ-45 Mk3",
-      "Basurero"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Resonador R115.",
-    "id": "otdb_0315"
-  },
-  {
-    "mode": "classic",
-    "category": "Videojuegos",
-    "difficulty": "media",
-    "question": "¿Cuándo apareció el videojuego \"P.A.M.E.L.A.\"? lanzado en Steam?",
-    "options": [
-      "9 de marzo de 2017",
-      "7 de enero de 2007",
-      "16 de febrero de 2015",
-      "23 de octubre de 1997"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: 9 de marzo de 2017.",
-    "id": "otdb_0316"
-  },
-  {
-    "mode": "classic",
-    "category": "Videojuegos",
-    "difficulty": "facil",
-    "question": "¿En qué año se lanzó Garry's Mod como título independiente en el servicio de distribución Steam de Valve?",
-    "options": [
-      "2004",
-      "2003",
-      "2006",
-      "2007"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: 2006.",
-    "id": "otdb_0317"
-  },
-  {
-    "mode": "classic",
-    "category": "Videojuegos",
-    "difficulty": "media",
-    "question": "¿Cuál de estos roles en Town of Salem es mafioso?",
-    "options": [
-      "Estar atento",
-      "Escolta",
-      "disfrazador",
-      "transportador"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: disfrazador.",
-    "id": "otdb_0318"
-  },
-  {
-    "mode": "classic",
-    "category": "Videojuegos",
-    "difficulty": "dificil",
-    "question": "En el juego \"Overwatch\", ¿qué cita NO dice el héroe \"McCree\" al usar su habilidad flashbang?",
-    "options": [
-      "\"No te muevas.\"",
-      "\"Espera ahora.\"",
-      "\"¿Terminaste?\"",
-      "\"Vaya, ahí.\""
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: \"¿Terminaste?\".",
-    "id": "otdb_0319"
-  },
-  {
-    "mode": "classic",
-    "category": "Videojuegos",
-    "difficulty": "facil",
-    "question": "¿Cuál fue el primer juego de la serie \"Battlefield\"?",
-    "options": [
-      "Campo de batalla 1942",
-      "Campo de batalla Vietnam",
-      "Campo de batalla 2",
-      "Campo de batalla 1"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Campo de batalla 1942.",
-    "id": "otdb_0320"
-  },
-  {
-    "mode": "classic",
-    "category": "Videojuegos",
-    "difficulty": "media",
-    "question": "En Monster Hunter Generations, ¿cuáles de los siguientes monstruos forman parte de los \"Cuatro Destinados\"?",
-    "options": [
-      "esa magala",
-      "Ástalos",
-      "Arzuros",
-      "una fiesta"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: Ástalos.",
-    "id": "otdb_0321"
-  },
-  {
-    "mode": "classic",
-    "category": "Videojuegos",
-    "difficulty": "media",
-    "question": "¿Las paredes del Gimnasio Goldenrod City en \"Pokémon Oro y Plata\" están dispuestas en forma de qué Pokémon?",
-    "options": [
-      "Pikachu",
-      "pidgey",
-      "bulbasaur",
-      "Clefairy"
-    ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: Clefairy.",
-    "id": "otdb_0322"
-  },
-  {
-    "mode": "classic",
-    "category": "Videojuegos",
-    "difficulty": "dificil",
-    "question": "En el DOOM original (1993), ¿cuál de los siguientes NO es un código de trampa?",
-    "options": [
-      "IDFA",
-      "IDSPISPOPD",
-      "IDCLIP",
-      "IDDQD"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: IDCLIP.",
-    "id": "otdb_0323"
-  },
-  {
-    "mode": "classic",
-    "category": "Videojuegos",
-    "difficulty": "dificil",
-    "question": "En \"Sonic the Hedgehog 3\" para Sega Genesis, ¿cuál es el color de la segunda Chaos Emerald que puedes obtener en Special Stages?",
-    "options": [
-      "Verde",
-      "Magenta",
-      "Naranja",
-      "Azul"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Naranja.",
-    "id": "otdb_0324"
-  },
-  {
-    "mode": "classic",
-    "category": "Videojuegos",
-    "difficulty": "dificil",
-    "question": "¿Cuál de los niveles Master de \"Super Monkey Ball\" también se utiliza en la versión arcade del juego, simplemente llamada \"Monkey Ball\"?",
-    "options": [
-      "MAESTRO 9 - Maestro del puente",
-      "MAESTRO 10 - Maestro mono",
-      "MAESTRO 6 - Roll Master",
-      "MAESTRO 3 - Maestro de resistencia"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: MAESTRO 9 - Maestro del puente.",
-    "id": "otdb_0325"
-  },
-  {
-    "mode": "classic",
-    "category": "Videojuegos",
-    "difficulty": "media",
-    "question": "¿De dónde deriva su nombre el personaje del videojuego de Nintendo, Mario?",
-    "options": [
-      "El propietario de la sede estadounidense.",
-      "El fontanero de Satoru Iwata",
-      "La fecha (10 de marzo) en la que se estrenó Donkey Kong.",
-      "El suegro de Shigeru Miyamoto"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: El propietario de la sede estadounidense..",
-    "id": "otdb_0326"
-  },
-  {
-    "mode": "classic",
-    "category": "Videojuegos",
-    "difficulty": "media",
-    "question": "En \"Clash Royale\" ¿cómo se llama la Arena 4?",
-    "options": [
-      "Valle del hechizo",
-      "Arena Real",
-      "Casa de juegos de P.E.K.K.A",
-      "Cuenco bárbaro"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Valle del hechizo.",
-    "id": "otdb_0327"
-  },
-  {
-    "mode": "classic",
-    "category": "Videojuegos",
-    "difficulty": "dificil",
-    "question": "¿En qué isla griega se basa el mapa que aparece en Arma 3 llamado \"Altis\"?",
-    "options": [
-      "Ítaca",
-      "Anafi",
-      "Naxos",
-      "lemnos"
-    ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: lemnos.",
-    "id": "otdb_0328"
-  },
-  {
-    "mode": "classic",
-    "category": "Videojuegos",
-    "difficulty": "dificil",
-    "question": "¿Qué rango militar tiene el protagonista \"Nomad\" de \"Crysis\"?",
-    "options": [
-      "Teniente primero",
-      "Capitán",
-      "primer sargento",
-      "Sargento del personal"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Teniente primero.",
-    "id": "otdb_0329"
-  },
-  {
-    "mode": "classic",
-    "category": "Videojuegos",
-    "difficulty": "dificil",
-    "question": "¿Quién es la víctima mencionada en el segundo incidente del KG-8, en Ace Attorney Investigations, Caso 4?",
-    "options": [
-      "Frank Sahwit",
-      "Shey De Killer",
-      "Raymond Escudos",
-      "Deid Mann"
-    ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: Deid Mann.",
-    "id": "otdb_0330"
-  },
-  {
-    "mode": "classic",
-    "category": "Videojuegos",
-    "difficulty": "media",
-    "question": "En el juego \"Terraria\", ¿cuáles de estos jefes son jefes anteriores al modo difícil?",
-    "options": [
-      "Esqueleto Prime",
-      "Planta",
-      "Ojo de Cthulhu",
-      "El destructor"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Ojo de Cthulhu.",
-    "id": "otdb_0331"
-  },
-  {
-    "mode": "classic",
-    "category": "Videojuegos",
-    "difficulty": "facil",
-    "question": "En el videojuego Half-life, ¿qué evento inició el universo Half-life tal como lo conocemos hoy?",
-    "options": [
-      "Tercera Guerra Mundial",
-      "La bomba nuclear de Black Mesa",
-      "El ataque Xen",
-      "La cascada de resonancia"
-    ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: La cascada de resonancia.",
-    "id": "otdb_0332"
-  },
-  {
-    "mode": "classic",
-    "category": "Videojuegos",
-    "difficulty": "facil",
-    "question": "¿Cuál de las siguientes NO es una consola de juegos de Nintendo?",
-    "options": [
-      "NES",
-      "Dreamcast",
-      "Cambiar",
-      "wii"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: Dreamcast.",
-    "id": "otdb_0333"
-  },
-  {
-    "mode": "classic",
-    "category": "Videojuegos",
-    "difficulty": "media",
-    "question": "¿Cuál fue el primer juego de Super Mario lanzado en Norteamérica para 3DS?",
-    "options": [
-      "mario kart 7",
-      "Creador de Super Mario",
-      "Nuevo Super Mario Bros.2",
-      "Tierra de Super Mario 3D"
-    ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: Tierra de Super Mario 3D.",
-    "id": "otdb_0334"
-  },
-  {
-    "mode": "classic",
-    "category": "Videojuegos",
-    "difficulty": "media",
-    "question": "¿En qué ciudad alemana tiene lugar el mapa \"Clubhouse\" de \"Tom Clancy's Rainbow Six Siege\"?",
-    "options": [
-      "Hannover",
-      "Munich",
-      "Berlina",
-      "Hamburgo"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Hannover.",
-    "id": "otdb_0335"
-  },
-  {
-    "mode": "classic",
-    "category": "Videojuegos",
-    "difficulty": "facil",
-    "question": "¿Cuál es el título del protagonista que le dan los demonios en DOOM (2016)?",
-    "options": [
-      "Asesino de la fatalidad",
-      "Marinero de la perdición",
-      "chico fatal",
-      "Segador de la fatalidad"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Asesino de la fatalidad.",
-    "id": "otdb_0336"
-  },
-  {
-    "mode": "classic",
-    "category": "Videojuegos",
-    "difficulty": "media",
-    "question": "¿Cómo se llama la hija de Joel en el juego \"The Last of Us\"?",
-    "options": [
-      "Marlene",
-      "ellie",
-      "sara",
-      "tess"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: sara.",
-    "id": "otdb_0337"
-  },
-  {
-    "mode": "classic",
-    "category": "Videojuegos",
-    "difficulty": "media",
-    "question": "¿Cuál es el nombre de la única mujer Kerbal \"Cuatro Originales\" en el Programa Espacial Kerbal?",
-    "options": [
-      "Catmund Kerman",
-      "Samantha Kermán",
-      "Emiko Kermán",
-      "Valentina Kerman"
-    ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: Valentina Kerman.",
-    "id": "otdb_0338"
-  },
-  {
-    "mode": "classic",
-    "category": "Videojuegos",
-    "difficulty": "facil",
-    "question": "En el juego \"Hearthstone\", ¿cuál es el mejor rango posible?",
-    "options": [
-      "Rango 1 Supremo",
-      "Leyenda de rango 1",
-      "Élite de rango 1",
-      "Maestro de rango 1"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: Leyenda de rango 1.",
-    "id": "otdb_0339"
-  },
-  {
-    "mode": "classic",
-    "category": "Videojuegos",
-    "difficulty": "facil",
-    "question": "En el juego Half-Life, ¿qué enemigo aparece como el jefe final?",
-    "options": [
-      "Dr. Wallace Breen",
-      "El Nihilanth",
-      "G-Man",
-      "El Gonarca"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: El Nihilanth.",
-    "id": "otdb_0340"
-  },
-  {
-    "mode": "classic",
-    "category": "Videojuegos",
-    "difficulty": "facil",
-    "question": "En el juego Sonic Forces, ¿cuál de los siguientes no era de un juego anterior?",
-    "options": [
-      "metal sonico",
-      "Zavoc",
-      "Infinito",
-      "Caos"
-    ],
-    "answerIndex": 2,
-    "explanation": "Respuesta correcta: Infinito.",
-    "id": "otdb_0341"
-  },
-  {
-    "mode": "classic",
-    "category": "Videojuegos",
-    "difficulty": "facil",
-    "question": "¿Qué personaje de la serie \"Animal Crossing\" usa la frase \"zip zoom\" cuando habla con el jugador?",
-    "options": [
-      "Factura",
-      "Pato",
-      "Bienes",
-      "Largarse"
-    ],
-    "answerIndex": 3,
-    "explanation": "Respuesta correcta: Largarse.",
-    "id": "otdb_0342"
-  },
-  {
-    "mode": "classic",
-    "category": "Videojuegos",
-    "difficulty": "media",
-    "question": "¿Cuál de las siguientes no es una raza jugable en el MMORPG Guild Wars 2?",
-    "options": [
-      "Auto",
-      "Tengu",
-      "Asura",
-      "el bosque"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: Tengu.",
-    "id": "otdb_0343"
-  },
-  {
-    "mode": "classic",
-    "category": "Videojuegos",
-    "difficulty": "media",
-    "question": "¿Qué artista musical NO apareció como avatar jugable en el juego \"DJ Hero\"?",
-    "options": [
-      "Gran Maestro Flash",
-      "Dr.Dre",
-      "DJ sombra",
-      "Daft Punk"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: Dr.Dre.",
-    "id": "otdb_0344"
-  },
-  {
-    "mode": "classic",
-    "category": "Videojuegos",
-    "difficulty": "media",
-    "question": "¿En qué año se fundó la plataforma de streaming de videojuegos TwitchTV?",
-    "options": [
-      "2012",
-      "2011",
-      "2014",
-      "2010"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: 2011.",
-    "id": "otdb_0345"
-  },
-  {
-    "mode": "classic",
-    "category": "Videojuegos",
-    "difficulty": "facil",
-    "question": "¿Quién protagoniza Brutal Legend?",
-    "options": [
-      "Jack negro",
-      "lemmy",
-      "Ozzy Osborne",
-      "Kanye West"
-    ],
-    "answerIndex": 0,
-    "explanation": "Respuesta correcta: Jack negro.",
-    "id": "otdb_0346"
-  },
-  {
-    "mode": "classic",
-    "category": "Videojuegos",
-    "difficulty": "media",
-    "question": "En el videojuego \"Kingdom Hearts\" de 2002, ¿cuántos mundos jugables había?",
-    "options": [
-      "11",
-      "14",
-      "13",
-      "16"
-    ],
-    "answerIndex": 1,
-    "explanation": "Respuesta correcta: 14.",
-    "id": "otdb_0347"
+    "explanation": "Respuesta correcta: Rebotar.",
+    "id": "otdb_0052"
   }
 ]
