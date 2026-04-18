@@ -1,6 +1,9 @@
 // Small DOM helper by id.
 const $ = (id) => document.getElementById(id);
 
+// Helper to capitalize the first letter of a string.
+const capitalizeFirst = (str) => str.charAt(0).toUpperCase() + str.slice(1);
+
 // Small delay so selected option feedback is visible before switching screen.
 const ROUND_RESULT_DELAY_MS = 250;
 const FALLBACK_NEXT_QUESTION_MS = 1000;
@@ -440,7 +443,7 @@ function renderQuestion(msg) {
   const mode = msg.question.mode || 'classic';
 
   $('meta').textContent = `Ronda ${msg.round}/${msg.totalRounds} • ${msg.question.category}`;
-  $('question-text').textContent = msg.question.text;
+  $('question-text').textContent = capitalizeFirst(msg.question.text);
   $('answer-status').textContent = state.role === 'spectator' ? 'Modo espectador: solo lectura.' : '';
 
   if (msg.round === 1) {
@@ -456,7 +459,7 @@ function renderQuestion(msg) {
     msg.question.options.forEach((opt, idx) => {
       const btn = document.createElement('button');
       btn.className = 'option';
-      btn.textContent = opt;
+      btn.textContent = capitalizeFirst(opt);
       btn.disabled = state.role === 'spectator';
 
       btn.onclick = () => {
@@ -499,7 +502,7 @@ function renderQuestion(msg) {
       container.style.borderRadius = '8px';
 
       const label = document.createElement('p');
-      label.textContent = `${idx + 1}. ${stmt.text}`;
+      label.textContent = `${idx + 1}. ${capitalizeFirst(stmt.text)}`;
       label.style.margin = '0 0 6px 0';
       label.style.fontWeight = '600';
       container.appendChild(label);
@@ -564,7 +567,7 @@ function renderQuestion(msg) {
     items.forEach((item, idx) => {
       const btn = document.createElement('button');
       btn.className = 'option order-btn';
-      btn.textContent = item;
+      btn.textContent = capitalizeFirst(item);
       btn.disabled = state.role === 'spectator';
       btn.style.marginBottom = '8px';
 

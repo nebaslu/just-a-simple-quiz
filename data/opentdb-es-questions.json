@@ -5,10 +5,10 @@
     "difficulty": "facil",
     "question": "¿Qué orgánulo ayuda en la síntesis de ADN en las células?",
     "options": [
-      "mitocondrias",
+      "Mitocondrias",
       "Núcleos",
-      "ribosomas",
-      "lisosomas"
+      "Ribosomas",
+      "Lisosomas"
     ],
     "answerIndex": 2,
     "explanation": "Respuesta correcta: ribosomas.",
@@ -35,10 +35,10 @@
     "difficulty": "dificil",
     "question": "¿El ácido fólico es la forma sintética de qué vitamina?",
     "options": [
-      "vitamina a",
-      "vitamina d",
-      "vitamina B",
-      "vitamina c"
+      "Vitamina A",
+      "Vitamina D",
+      "Vitamina B",
+      "Vitamina C"
     ],
     "answerIndex": 2,
     "explanation": "Respuesta correcta: vitamina B.",
@@ -50,7 +50,7 @@
     "difficulty": "dificil",
     "question": "¿Cuántos protones hay en un átomo de oxígeno?",
     "options": [
-      "cuatro",
+      "Cuatro",
       "Dos",
       "Ocho",
       "Seis"
@@ -66,7 +66,7 @@
     "question": "¿Cuál de los siguientes NO es un elemento real?",
     "options": [
       "Praseodimio",
-      "vitrenio",
+      "Vitrenio",
       "París",
       "Hassio"
     ],
@@ -186,12 +186,12 @@
     "question": "¿Cómo era mejor conocido William Frederick Cody?",
     "options": [
       "Bill Pawnee",
-      "billete de búfalo",
+      "Búfalo Bill",
       "El salvaje Bill Hickok",
       "Billy el niño"
     ],
     "answerIndex": 1,
-    "explanation": "Respuesta correcta: billete de búfalo.",
+    "explanation": "Respuesta correcta: Búfalo Bill.",
     "id": "otdb_0013"
   },
   {
@@ -263,7 +263,7 @@
       "Voltereta",
       "Herefordshire",
       "Wiltshire",
-      "cumbria"
+      "Cumbria"
     ],
     "answerIndex": 2,
     "explanation": "Respuesta correcta: Wiltshire.",
@@ -305,9 +305,9 @@
     "difficulty": "media",
     "question": "¿Qué ciudad de Texas recibe el sobrenombre de \"La rosa amarilla de Texas\"?",
     "options": [
-      "frisco",
+      "Frisco",
       "Corpus Cristi",
-      "houston",
+      "Houston",
       "Amarillo"
     ],
     "answerIndex": 3,
@@ -367,7 +367,7 @@
     "options": [
       "Opel",
       "Battersea",
-      "martillo",
+      "Martillo",
       "Putney"
     ],
     "answerIndex": 3,
@@ -383,7 +383,7 @@
       "Dale Earnhardt",
       "Michael Wall Trip",
       "Juan Anderson",
-      "jeff gordon"
+      "Jeff gordon"
     ],
     "answerIndex": 0,
     "explanation": "Respuesta correcta: Dale Earnhardt.",
@@ -428,7 +428,7 @@
       "Watford",
       "Tottenham Hotspur",
       "Ciudad de Stoke",
-      "ciudad de leicester"
+      "Ciudad de leicester"
     ],
     "answerIndex": 3,
     "explanation": "Respuesta correcta: ciudad de leicester.",
@@ -456,7 +456,7 @@
     "question": "¿Cuál de los siguientes jugadores anotó un hat-trick durante su debut en el Manchester United?",
     "options": [
       "David Beckham",
-      "cristian ronaldo",
+      "Cristian ronaldo",
       "Robin Van Persie",
       "Wayne Rooney"
     ],
@@ -483,7 +483,7 @@
     "mode": "classic",
     "category": "Cine y TV",
     "difficulty": "facil",
-    "question": "¿Quién dirigió \"E.T. el Extraterrestre\" (1982)?",
+    "question": "¿Quién dirigió \"E.T. El Extraterrestre\" (1982)?",
     "options": [
       "Steven Spielberg",
       "James Cameron",
@@ -518,7 +518,7 @@
       "Jonathan Demme",
       "Frank Darabont",
       "Stanley Kubrick",
-      "miguel bahía"
+      "Miguel bahía"
     ],
     "answerIndex": 0,
     "explanation": "Respuesta correcta: Jonathan Demme.",
@@ -546,7 +546,7 @@
     "question": "¿Quién dirigió la película \"American Graffiti\" de 1973?",
     "options": [
       "Ron Howard",
-      "jorge lucas",
+      "Jorge lucas",
       "Francis Ford Coppola",
       "Steven Spielberg"
     ],
@@ -622,7 +622,7 @@
     "options": [
       "Guy Martín",
       "Guy Fieri",
-      "chico ritchie",
+      "Chico ritchie",
       "Ainsley Harriot"
     ],
     "answerIndex": 1,
@@ -652,7 +652,7 @@
     "options": [
       "John Cleese",
       "Terry Jones",
-      "eric inactivo",
+      "Eric inactivo",
       "Graham Chapman"
     ],
     "answerIndex": 1,
@@ -680,10 +680,10 @@
     "difficulty": "media",
     "question": "¿Cómo se llama el inspector de la serie \"En los autobuses\"?",
     "options": [
-      "gally",
-      "uñas",
-      "blakey",
-      "harper"
+      "Gally",
+      "Uñas",
+      "Blakey",
+      "Harper"
     ],
     "answerIndex": 2,
     "explanation": "Respuesta correcta: blakey.",
@@ -710,8 +710,8 @@
     "difficulty": "facil",
     "question": "En la serie \"Metal Gear Solid\", ¿cómo se llama el hermano de Solid Snake?",
     "options": [
-      "serpiente billy",
-      "tomó serpiente",
+      "Serpiente billy",
+      "Tomó serpiente",
       "Serpiente Gilur",
       "Serpiente líquida"
     ],
@@ -738,11 +738,11 @@
     "mode": "classic",
     "category": "Videojuegos",
     "difficulty": "media",
-    "question": "¿Cuál de los siguientes NO es un juego oficial de la serie Super Smash Bros. de Nintendo?",
+    "question": "¿Cuál de los siguientes NO es un juego oficial de la serie Super Smash Bros. De Nintendo?",
     "options": [
       "Super Smash Bros. Brawl",
-      "Super Smash Bros. para Nintendo 3DS y Wii U",
-      "Super Smash Bros. cuerpo a cuerpo",
+      "Super Smash Bros. Para Nintendo 3DS y Wii U",
+      "Super Smash Bros. Cuerpo a cuerpo",
       "Cruzada de Super Smash Bros."
     ],
     "answerIndex": 3,
@@ -771,7 +771,7 @@
     "question": "¿Cuál de los siguientes títulos de Valve no está basado en un Community Mod?",
     "options": [
       "Rebotar",
-      "contraataque",
+      "Contraataque",
       "Día de la derrota",
       "Enjambre alienígena"
     ],

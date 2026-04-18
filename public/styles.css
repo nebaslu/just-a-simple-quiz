@@ -309,6 +309,13 @@ button.ghost {
   display: grid;
   gap: 10px;
   margin-top: 12px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 1024px) {
+  .options {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 /* Individual option style. */
@@ -316,7 +323,7 @@ button.ghost {
   border: 1px solid var(--line);
   background: white;
   color: var(--ink);
-  padding: 12px;
+  padding: 24px;
   border-radius: 10px;
   cursor: pointer;
   text-align: left;
