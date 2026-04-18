@@ -64,6 +64,9 @@
               <input id="join-name" maxlength="22" placeholder="Jugador" />
             </label>
             <button id="btn-join">Entrar a jugar</button>
+            <label>
+              <input type="checkbox" id="spectator-show-selections" checked /> Mostrar selecciones antes de resolverse
+            </label>
             <button id="btn-spectate" class="ghost">Entrar como espectador</button>
           </div>
         </div>
@@ -103,6 +106,7 @@
         </div>
         <h2 id="question-text"></h2>
         <div id="options" class="options"></div>
+        <p id="answered-players"></p>
         <p id="answer-status"></p>
         <div class="leave-row">
           <button class="ghost btn-leave-match">Abandonar partida</button>

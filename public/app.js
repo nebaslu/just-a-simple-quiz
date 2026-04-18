@@ -25,6 +25,7 @@ const state = {
   shouldReconnect: false,
   connectWatchdog: null,
   soundEnabled: localStorage.getItem("soundEnabled") !== "false",
+  roundResolved: false,
 };
 
 // Screen registry used by the simple view-switching system.
@@ -197,6 +198,9 @@ function connect() {
     if (msg.type === 'joined') {
       state.role = msg.role || 'player';
       state.playerId = msg.playerId;
+      if (msg.role === 'spectator') {
+        state.spectatorShowSelections = msg.showSelections;
+      }
       state.roomCode = msg.room.room;
       renderLobby(msg.room, msg.joinUrl);
       showScreen('lobby');
@@ -224,6 +228,8 @@ function connect() {
 
     // End-of-round scoreboard.
     if (msg.type === 'round:result') {
+      state.roundResolved = true;
+      updateAnswerDisplay();
       // Delay showing results to let player see their selected answer colored.
       setTimeout(() => {
         renderRoundResult(msg);
@@ -405,8 +411,12 @@ function updateAnswerDisplay() {
         : answer.answerData?.optionIndex;
 
       if (selectedOptionIndex === idx) {
-        const colorObj = getPlayerColor(playerId);
-        playerLabels.push({ ...colorObj, name: answer.playerName || 'Jugador' });
+        const isCurrentPlayer = playerId === state.playerId;
+        const canShow = isCurrentPlayer || state.roundResolved || (state.role === 'spectator' && state.spectatorShowSelections);
+        if (canShow) {
+          const colorObj = getPlayerColor(playerId);
+          playerLabels.push({ ...colorObj, name: answer.playerName || 'Jugador' });
+        }
       }
     }
 
@@ -419,10 +429,14 @@ function updateAnswerDisplay() {
       btn.style.position = 'relative';
       btn.className = `option pattern-${primaryColor.pattern}`;
 
-      // Show player names who selected this option.
-      let labelText = playerLabels.map((p) => p.name).join(', ');
-      if (labelText.length > 30) labelText = labelText.substring(0, 27) + '...';
-      btn.setAttribute('data-answerers', labelText);
+      // Show player names who selected this option only when resolved.
+      if (state.roundResolved) {
+        let labelText = playerLabels.map((p) => p.name).join(', ');
+        if (labelText.length > 30) labelText = labelText.substring(0, 27) + '...';
+        btn.setAttribute('data-answerers', labelText);
+      } else {
+        btn.removeAttribute('data-answerers');
+      }
     } else {
       btn.style.backgroundColor = '';
       btn.style.color = '';
@@ -431,6 +445,14 @@ function updateAnswerDisplay() {
       btn.removeAttribute('data-answerers');
     }
   });
+
+  // Show list of players who have answered.
+  const answeredPlayers = new Set();
+  for (const answer of Object.values(state.playerAnswers)) {
+    answeredPlayers.add(answer.playerName || 'Jugador');
+  }
+  const showAnswered = state.role !== 'spectator' || state.spectatorShowSelections;
+  $('answered-players').textContent = showAnswered && answeredPlayers.size > 0 ? `Jugadores que han respondido: ${Array.from(answeredPlayers).join(', ')}` : '';
 }
 
 // Render active question with selectable answer options.
@@ -438,6 +460,7 @@ function renderQuestion(msg) {
   state.currentQuestion = msg.question;
   state.answered = false;
   state.playerAnswers = {};
+  state.roundResolved = false;
   state.endsAt = msg.endsAt;
 
   const mode = msg.question.mode || 'classic';
@@ -721,13 +744,14 @@ $('btn-spectate').onclick = () => {
   connect();
   const room = $('join-room').value.trim().toUpperCase();
   const name = $('join-name').value.trim() || 'Espectador';
+  const showSelections = $('spectator-show-selections').checked;
 
   if (!room) {
     toast('Escribe un codigo de sala.');
     return;
   }
 
-  send({ type: 'spectator:join', room, name });
+  send({ type: 'spectator:join', room, name, showSelections });
 };
 
 // Host action: start game.
